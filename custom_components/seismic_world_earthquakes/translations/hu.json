@@ -1,0 +1,208 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Földrengések",
+        "description": "Konfigurálja ezt a figyelési példányt. Több példányt is létrehozhat a különböző területek vagy magnitudóküszöbök figyelésére.",
+        "data": {
+          "name": "Példány neve",
+          "instance_type": "Példány típusa",
+          "min_magnitude": "Minimum magnitúdó (Richter-skála)",
+          "feed_period": "Adatidőszak",
+          "max_events": "Események maximális száma a térképen",
+          "units": "Távolság mértékegysége",
+          "sort_by": "Események rendezése"
+        },
+        "data_description": {
+          "min_magnitude": "Csak az ezen értékkel megegyező vagy annál nagyobb magnitúdójú földrengések kerülnek be (0.0–9.9).",
+          "max_events": "A térképen megjelenített földrengések maximális száma (50–500). Az M≥6.0 események mindig megmaradnak, ettől a korláttól függetlenül.",
+          "sort_by": "Meghatározza a földrengések megjelenési sorrendjét a térképen és a szenzorokban."
+        }
+      },
+      "area": {
+        "title": "Egyéni terület konfigurálása",
+        "description": "Határozza meg a figyelni kívánt földrajzi területet. A középponttól számított megadott sugarú körön belüli összes földrengés bekerül.",
+        "data": {
+          "latitude": "Középpont szélessége",
+          "longitude": "Középpont hosszúsága",
+          "radius_km": "Keresési sugár (km)"
+        },
+        "data_description": {
+          "latitude": "A figyelt terület középpontjának szélességi foka (-90 és 90 között).",
+          "longitude": "A figyelt terület középpontjának hosszúsági foka (-180 és 180 között).",
+          "radius_km": "A középpont körüli sugár kilométerben (10–20 000 km)."
+        }
+      },
+      "filters": {
+        "title": "Szűrők és Riasztási szenzor",
+        "description": "Opcionálisan korlátozhatja a megjelenített földrengéseket, és konfigurálhatja a bináris földrengés-riasztási szenzort.",
+        "data": {
+          "min_alert_level": "Minimum PAGER riasztási szint",
+          "only_tsunami": "Csak szökőár-riasztással rendelkező események",
+          "max_depth_km": "Maximális mélység (km)",
+          "only_reviewed": "Csak ellenőrzött események",
+          "alert_min_magnitude": "Riasztási szenzor — min. magnitúdó",
+          "alert_time_window": "Riasztási szenzor — időablak"
+        },
+        "data_description": {
+          "min_alert_level": "Földrengések szűrése az USGS PAGER riasztási szintje szerint. Válassza a 'Nincs' opciót az összes esemény megtekintéséhez a szinttől függetlenül.",
+          "max_depth_km": "Maximális fókuszmélység km-ben (0–700). Állítsa 700-ra az összes mélységben lévő földrengés bevonásához. A sekély események (< 70 km) általában pusztítóbbak.",
+          "only_reviewed": "Ha be van kapcsolva, csak az USGS által manuálisan ellenőrzött földrengések jelennek meg. Pontosabb, de késéssel jelenhet meg.",
+          "alert_min_magnitude": "A bináris földrengés-riasztási szenzor BEKAPCSOL (ON), ha az időablakon belül ilyen vagy nagyobb magnitúdójú földrengést észlelnek.",
+          "alert_time_window": "Hány órát vizsgáljon visszafelé a bináris földrengés-riasztási szenzor értékelésekor (1–72 óra)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Érvénytelen koordináták. A szélességnek -90 és 90, a hosszúságnak -180 és 180 között kell lennie.",
+      "invalid_radius": "A sugárnak 10 és 20 000 km között kell lennie.",
+      "cannot_connect": "Nem sikerült kapcsolódni az USGS API-hoz. Ellenőrizze az internetkapcsolatot, és próbálja újra.",
+      "unknown": "Váratlan hiba. További részletekért ellenőrizze a Home Assistant naplóit."
+    },
+    "abort": {
+      "already_configured": "Ez a példány már konfigurálva van."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Földrengések újrakonfigurálása",
+        "description": "Frissítse a figyelési példány alapbeállításait.",
+        "data": {
+          "name": "Példány neve",
+          "instance_type": "Példány típusa",
+          "min_magnitude": "Minimum magnitúdó (Richter-skála)",
+          "feed_period": "Adatidőszak",
+          "max_events": "Események maximális száma a térképen",
+          "units": "Távolság mértékegysége",
+          "sort_by": "Események rendezése"
+        },
+        "data_description": {
+          "min_magnitude": "Csak az ezen értékkel megegyező vagy annál nagyobb magnitúdójú földrengések kerülnek be (0.0–9.9).",
+          "max_events": "A térképen megjelenített földrengések maximális száma (50–500). Az M≥6.0 események mindig megmaradnak, ettől a korláttól függetlenül.",
+          "sort_by": "Meghatározza a földrengések megjelenési sorrendjét a térképen és a szenzorokban."
+        }
+      },
+      "area": {
+        "title": "Egyéni terület konfigurálása",
+        "description": "Frissítse a figyelni kívánt földrajzi területet.",
+        "data": {
+          "latitude": "Középpont szélessége",
+          "longitude": "Középpont hosszúsága",
+          "radius_km": "Keresési sugár (km)"
+        },
+        "data_description": {
+          "latitude": "A figyelt terület középpontjának szélességi foka (-90 és 90 között).",
+          "longitude": "A figyelt terület középpontjának hosszúsági foka (-180 és 180 között).",
+          "radius_km": "A középpont körüli sugár kilométerben (10–20 000 km)."
+        }
+      },
+      "filters": {
+        "title": "Szűrők és Riasztási szenzor",
+        "description": "Frissítse az opcionális szűrőket és a bináris földrengés-riasztási szenzor konfigurációját.",
+        "data": {
+          "min_alert_level": "Minimum PAGER riasztási szint",
+          "only_tsunami": "Csak szökőár-riasztással rendelkező események",
+          "max_depth_km": "Maximális mélység (km)",
+          "only_reviewed": "Csak ellenőrzött események",
+          "alert_min_magnitude": "Riasztási szenzor — min. magnitúdó",
+          "alert_time_window": "Riasztási szenzor — időablak"
+        },
+        "data_description": {
+          "min_alert_level": "Földrengések szűrése az USGS PAGER riasztási szintje szerint. Válassza a 'Nincs' opciót az összes esemény megtekintéséhez a szinttől függetlenül.",
+          "max_depth_km": "Maximális fókuszmélység km-ben (0–700). Állítsa 700-ra az összes mélységben lévő földrengés bevonásához. A sekély események (< 70 km) általában pusztítóbbak.",
+          "only_reviewed": "Ha be van kapcsolva, csak az USGS által manuálisan ellenőrzött földrengések jelennek meg. Pontosabb, de késéssel jelenhet meg.",
+          "alert_min_magnitude": "A bináris földrengés-riasztási szenzor BEKAPCSOL (ON), ha az időablakon belül ilyen vagy nagyobb magnitúdójú földrengést észlelnek.",
+          "alert_time_window": "Hány órát vizsgáljon visszafelé a bináris földrengés-riasztási szenzor értékelésekor (1–72 óra)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Érvénytelen koordináták. A szélességnek -90 és 90, a hosszúságnak -180 és 180 között kell lennie.",
+      "invalid_radius": "A sugárnak 10 és 20 000 km között kell lennie.",
+      "unknown": "Váratlan hiba. További részletekért ellenőrizze a Home Assistant naplóit."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Globális (egész világ)",
+        "custom_area": "Egyéni terület (sugár)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Utolsó óra",
+        "day": "Utolsó 24 óra",
+        "week": "Utolsó 7 nap",
+        "month": "Utolsó 30 nap"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilométer (km)",
+        "mi": "Mérföld (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitúdó (legerősebb elöl)",
+        "time": "Idő (legfrissebb elöl)",
+        "distance": "Távolság (legközelebbi elöl)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Nincs (összes mutatása)",
+        "green": "Zöld",
+        "yellow": "Sárga",
+        "orange": "Narancs",
+        "red": "Piros (legsúlyosabb)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": { "name": "Összes földrengés" },
+      "strongest_magnitude": { "name": "Legerősebb földrengés" },
+      "strongest_location": { "name": "Legerősebb rengés helye" },
+      "average_magnitude": { "name": "Átlagos magnitúdó" },
+      "latest_earthquake": { "name": "Legutóbbi földrengés" },
+      "latest_earthquake_time": { "name": "Legutóbbi rengés ideje" },
+      "earthquakes_last_hour": { "name": "Földrengések az elmúlt órában" },
+      "significant_earthquakes": { "name": "Jelentős földrengések" },
+      "tsunami_warnings": { "name": "Aktív szökőár-riasztások" },
+      "highest_alert_level": { "name": "Legmagasabb riasztási szint" },
+      "red_alert_count": { "name": "Piros riasztású események" },
+      "nearest_distance": { "name": "Legközelebbi rengés távolsága" },
+      "nearest_magnitude": { "name": "Legközelebbi rengés magnitúdója" },
+      "last_update": { "name": "Utolsó frissítés" },
+      "api_status": { "name": "API állapota" },
+      "events_fetched": { "name": "Letöltött események" },
+      "events_displayed": { "name": "Megjelenített események" }
+    },
+    "binary_sensor": {
+      "earthquake_alert": { "name": "Földrengés-riasztás" },
+      "tsunami_warning": { "name": "Szökőár-riasztás aktív" }
+    },
+    "button": {
+      "force_refresh": { "name": "Frissítés kényszerítése" }
+    },
+    "image": {
+      "shakemap": { "name": "ShakeMap" }
+    },
+    "calendar": {
+      "earthquakes": { "name": "Földrengések" }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Új földrengés észlelve",
+        "state_attributes": {
+          "event_type": {
+            "state": { "earthquake_detected": "Földrengés észlelve" }
+          }
+        }
+      }
+    }
+  }
+}
