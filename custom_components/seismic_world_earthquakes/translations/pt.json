@@ -1,0 +1,208 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Sismos Seismic World",
+        "description": "Configure esta instância de monitorização. Pode criar várias instâncias para monitorizar diferentes áreas ou limiares de magnitude.",
+        "data": {
+          "name": "Nome da instância",
+          "instance_type": "Tipo de instância",
+          "min_magnitude": "Magnitude mínima (escala Richter)",
+          "feed_period": "Período de dados",
+          "max_events": "Máximo de eventos no mapa",
+          "units": "Unidades de distância",
+          "sort_by": "Ordenar eventos por"
+        },
+        "data_description": {
+          "min_magnitude": "Apenas serão incluídos sismos com magnitude igual ou superior a esta (0.0–9.9).",
+          "max_events": "Número máximo de sismos exibidos no mapa (50–500). Eventos com M≥6.0 são sempre mantidos, independentemente deste limite.",
+          "sort_by": "Define a ordem pela qual os sismos aparecem no mapa e nos sensores."
+        }
+      },
+      "area": {
+        "title": "Configuração de Área Personalizada",
+        "description": "Defina a área geográfica a monitorizar. Serão incluídos todos os sismos dentro do raio especificado a partir do ponto central.",
+        "data": {
+          "latitude": "Latitude central",
+          "longitude": "Longitude central",
+          "radius_km": "Raio de pesquisa (km)"
+        },
+        "data_description": {
+          "latitude": "Latitude do centro da área monitorizada (-90 a 90).",
+          "longitude": "Longitude do centro da area monitorizada (-180 a 180).",
+          "radius_km": "Raio em quilómetros em redor do ponto central (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtros e Sensor de Alerta",
+        "description": "Opcionalmente, limite quais os sismos a exibir e configure o sensor binário de alerta de sismo.",
+        "data": {
+          "min_alert_level": "Nível mínimo de alerta PAGER",
+          "only_tsunami": "Mostrar apenas eventos com aviso de tsunami",
+          "max_depth_km": "Profundidade máxima (km)",
+          "only_reviewed": "Apenas eventos revistos",
+          "alert_min_magnitude": "Sensor de alerta — magnitude mínima",
+          "alert_time_window": "Sensor de alerta — janela de tempo"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrar sismos por nível de alerta USGS PAGER. Selecione 'Nenhum' para ver todos os eventos independentemente do nível de alerta.",
+          "max_depth_km": "Profundidade focal máxima em km (0–700). Defina 700 para incluir sismos a qualquer profundidade. Eventos superficiais (< 70 km) tendem a ser mais destrutivos.",
+          "only_reviewed": "Quando ativado, mostra apenas sismos que foram revistos manualmente pelo USGS. Mais preciso, mas pode aparecer com atraso.",
+          "alert_min_magnitude": "O sensor binário de alerta de sismo liga-se (ON) quando um sismo desta magnitude ou superior é detetado dentro da janela de tempo.",
+          "alert_time_window": "Quantas horas retroceder ao avaliar o sensor binário de alerta de sismo (1–72 horas)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Coordenadas inválidas. A latitude deve estar entre -90 e 90, a longitude entre -180 e 180.",
+      "invalid_radius": "O raio deve estar entre 10 e 20.000 km.",
+      "cannot_connect": "Não foi possível ligar à API do USGS. Verifique a sua ligação à Internet e tente novamente.",
+      "unknown": "Erro inesperado. Verifique os registos do Home Assistant para mais detalhes."
+    },
+    "abort": {
+      "already_configured": "Esta instância já está configurada."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Reconfigurar Sismos Seismic World",
+        "description": "Atualize as definições básicas para esta instância de monitorização.",
+        "data": {
+          "name": "Nome da instância",
+          "instance_type": "Tipo de instância",
+          "min_magnitude": "Magnitude mínima (escala Richter)",
+          "feed_period": "Período de dados",
+          "max_events": "Máximo de eventos no mapa",
+          "units": "Unidades de distância",
+          "sort_by": "Ordenar eventos por"
+        },
+        "data_description": {
+          "min_magnitude": "Apenas serão incluídos sismos com magnitude igual ou superior a esta (0.0–9.9).",
+          "max_events": "Número máximo de sismos exibidos no mapa (50–500). Eventos com M≥6.0 são sempre mantidos, independentemente deste limite.",
+          "sort_by": "Define a ordem pela qual os sismos aparecem no mapa e nos sensores."
+        }
+      },
+      "area": {
+        "title": "Configuração de Área Personalizada",
+        "description": "Atualize a área geográfica a monitorizar.",
+        "data": {
+          "latitude": "Latitude central",
+          "longitude": "Longitude central",
+          "radius_km": "Raio de pesquisa (km)"
+        },
+        "data_description": {
+          "latitude": "Latitude do centro da área monitorizada (-90 a 90).",
+          "longitude": "Longitude do centro da area monitorizada (-180 a 180).",
+          "radius_km": "Raio em quilómetros em redor do ponto central (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtros e Sensor de Alerta",
+        "description": "Atualize os filtros opcionais e a configuração do sensor binário de alerta de sismo.",
+        "data": {
+          "min_alert_level": "Nível mínimo de alerta PAGER",
+          "only_tsunami": "Mostrar apenas eventos com aviso de tsunami",
+          "max_depth_km": "Profundidade máxima (km)",
+          "only_reviewed": "Apenas eventos revistos",
+          "alert_min_magnitude": "Sensor de alerta — magnitude mínima",
+          "alert_time_window": "Sensor de alerta — janela de tempo"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrar sismos por nível de alerta USGS PAGER. Selecione 'Nenhum' para ver todos os eventos independentemente do nível de alerta.",
+          "max_depth_km": "Profundidade focal máxima em km (0–700). Defina 700 para incluir sismos a qualquer profundidade. Eventos superficiais (< 70 km) tendem a ser mais destrutivos.",
+          "only_reviewed": "Quando ativado, mostra apenas sismos que foram revistos manualmente pelo USGS. Mais preciso, mas pode aparecer com atraso.",
+          "alert_min_magnitude": "O sensor binário de alerta de sismo liga-se (ON) quando um sismo desta magnitude ou superior é detetado dentro da janela de tempo.",
+          "alert_time_window": "Quantas horas retroceder ao avaliar o sensor binário de alerta de sismo (1–72 horas)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Coordenadas inválidas. A latitude deve estar entre -90 e 90, a longitude entre -180 e 180.",
+      "invalid_radius": "O raio deve estar entre 10 e 20.000 km.",
+      "unknown": "Erro inesperado. Verifique os registos do Home Assistant para mais detalhes."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (todo o mundo)",
+        "custom_area": "Área personalizada (raio)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Última hora",
+        "day": "Últimas 24 horas",
+        "week": "Últimos 7 dias",
+        "month": "Últimos 30 dias"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Quilómetros (km)",
+        "mi": "Milhas (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitude (mais fortes primeiro)",
+        "time": "Tempo (mais recentes primeiro)",
+        "distance": "Distância (mais próximos primeiro)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Nenhum (mostrar todos)",
+        "green": "Verde",
+        "yellow": "Amarelo",
+        "orange": "Laranja",
+        "red": "Vermelho (mais grave)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": { "name": "Total de sismos" },
+      "strongest_magnitude": { "name": "Sismo mais forte" },
+      "strongest_location": { "name": "Localização do sismo mais forte" },
+      "average_magnitude": { "name": "Magnitude média" },
+      "latest_earthquake": { "name": "Último sismo" },
+      "latest_earthquake_time": { "name": "Hora do último sismo" },
+      "earthquakes_last_hour": { "name": "Sismos na última hora" },
+      "significant_earthquakes": { "name": "Sismos significativos" },
+      "tsunami_warnings": { "name": "Avisos de tsunami ativos" },
+      "highest_alert_level": { "name": "Nível de alerta mais alto" },
+      "red_alert_count": { "name": "Eventos com alerta vermelho" },
+      "nearest_distance": { "name": "Distância ao sismo mais próximo" },
+      "nearest_magnitude": { "name": "Magnitude do sismo mais próximo" },
+      "last_update": { "name": "Última atualização" },
+      "api_status": { "name": "Estado da API" },
+      "events_fetched": { "name": "Eventos obtidos" },
+      "events_displayed": { "name": "Eventos exibidos" }
+    },
+    "binary_sensor": {
+      "earthquake_alert": { "name": "Alerta de sismo" },
+      "tsunami_warning": { "name": "Aviso de tsunami ativo" }
+    },
+    "button": {
+      "force_refresh": { "name": "Forçar atualização" }
+    },
+    "image": {
+      "shakemap": { "name": "ShakeMap" }
+    },
+    "calendar": {
+      "earthquakes": { "name": "Sismos" }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Detetado novo sismo",
+        "state_attributes": {
+          "event_type": {
+            "state": { "earthquake_detected": "Sismo detetado" }
+          }
+        }
+      }
+    }
+  }
+}
