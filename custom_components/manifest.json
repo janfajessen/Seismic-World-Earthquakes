@@ -1,0 +1,13 @@
+{
+  "domain": "seismic_world_earthquakes",
+  "name": "Seismic World Earthquakes",
+  "codeowners": ["@janfajessen"],
+  "config_flow": true,
+  "documentation": "https://github.com/janfajessen/seismic_world_earthquakes",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/janfajessen/seismic_world_earthquakes/issues",
+  "quality_scale": "silver",
+  "requirements": [],
+  "version": "1.0.0"
+}
