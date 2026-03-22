@@ -1,0 +1,208 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Depremler",
+        "description": "Bu izleme örneğini yapılandırın. Farklı bölgeleri veya büyüklük eşiklerini izlemek için birden fazla örnek oluşturabilirsiniz.",
+        "data": {
+          "name": "Örnek adı",
+          "instance_type": "Örnek tipi",
+          "min_magnitude": "Minimum büyüklük (Richter ölçeği)",
+          "feed_period": "Veri periyodu",
+          "max_events": "Haritadaki maksimum olay sayısı",
+          "units": "Mesafe birimleri",
+          "sort_by": "Olayları sırala"
+        },
+        "data_description": {
+          "min_magnitude": "Yalnızca bu değere eşit veya bu değerden büyük büyüklükteki depremler dahil edilecektir (0.0–9.9).",
+          "max_events": "Haritada görüntülenen maksimum deprem sayısı (50–500). M≥6.0 olan olaylar bu sınırdan bağımsız olarak her zaman korunur.",
+          "sort_by": "Depremlerin haritada ve sensörlerde hangi sırayla görüneceğini belirler."
+        }
+      },
+      "area": {
+        "title": "Özel Alan Yapılandırması",
+        "description": "İzlenecek coğrafi alanı tanımlayın. Merkez noktasından belirtilen yarıçap içindeki tüm depremler dahil edilecektir.",
+        "data": {
+          "latitude": "Merkez enlem",
+          "longitude": "Merkez boylam",
+          "radius_km": "Arama yarıçapı (km)"
+        },
+        "data_description": {
+          "latitude": "İzlenen alanın merkezinin enlemi (-90 ile 90 arası).",
+          "longitude": "İzlenen alanın merkezinin boylamı (-180 ile 180 arası).",
+          "radius_km": "Merkez nokta etrafındaki yarıçap (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtreler ve Alarm Sensörü",
+        "description": "İsteğe bağlı olarak hangi depremlerin görüntüleneceğini sınırlayın ve ikili deprem alarmı sensörünü yapılandırın.",
+        "data": {
+          "min_alert_level": "Minimum PAGER alarm seviyesi",
+          "only_tsunami": "Yalnızca tsunami uyarısı olan olayları göster",
+          "max_depth_km": "Maksimum derinlik (km)",
+          "only_reviewed": "Yalnızca incelenmiş olaylar",
+          "alert_min_magnitude": "Alarm sensörü — minimum büyüklük",
+          "alert_time_window": "Alarm sensörü — zaman penceresi"
+        },
+        "data_description": {
+          "min_alert_level": "Depremleri USGS PAGER alarm seviyesine göre filtreleyin. Alarm seviyesinden bağımsız olarak tüm olayları görmek için 'Hiçbiri'ni seçin.",
+          "max_depth_km": "Kilometre cinsinden maksimum odak derinliği (0–700). Herhangi bir derinlikteki depremleri dahil etmek için 700'e ayarlayın. Sığ olaylar (< 70 km) genellikle daha yıkıcıdır.",
+          "only_reviewed": "Etkinleştirildiğinde, yalnızca USGS tarafından manuel olarak incelenmiş depremleri gösterir. Daha doğrudur ancak gecikmeli görünebilir.",
+          "alert_min_magnitude": "Zaman penceresi içinde bu büyüklükte veya daha büyük bir deprem algılandığında ikili deprem alarmı sensörü AÇIK (ON) konuma geçer.",
+          "alert_time_window": "İkili deprem alarmı sensörü değerlendirilirken kaç saat geriye bakılacağı (1–72 saat)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Geçersiz koordinatlar. Enlem -90 ile 90, boylam -180 ile 180 arasında olmalıdır.",
+      "invalid_radius": "Yarıçap 10 ile 20.000 km arasında olmalıdır.",
+      "cannot_connect": "USGS API'sine bağlanılamıyor. Lütfen internet bağlantınızı kontrol edip tekrar deneyin.",
+      "unknown": "Beklenmedik hata. Daha fazla ayrıntı için Home Assistant günlüklerini kontrol edin."
+    },
+    "abort": {
+      "already_configured": "Bu örnek zaten yapılandırılmış."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Depremleri Yeniden Yapılandır",
+        "description": "Bu izleme örneği için temel ayarları güncelleyin.",
+        "data": {
+          "name": "Örnek adı",
+          "instance_type": "Örnek tipi",
+          "min_magnitude": "Minimum büyüklük (Richter ölçeği)",
+          "feed_period": "Veri periyodu",
+          "max_events": "Haritadaki maksimum olay sayısı",
+          "units": "Mesafe birimleri",
+          "sort_by": "Olayları sırala"
+        },
+        "data_description": {
+          "min_magnitude": "Yalnızca bu değere eşit veya bu değerden büyük büyüklükteki depremler dahil edilecektir (0.0–9.9).",
+          "max_events": "Haritada görüntülenen maksimum deprem sayısı (50–500). M≥6.0 olan olaylar bu sınırdan bağımsız olarak her zaman korunur.",
+          "sort_by": "Depremlerin haritada ve sensörlerde hangi sırayla görüneceğini belirler."
+        }
+      },
+      "area": {
+        "title": "Özel Alan Yapılandırması",
+        "description": "İzlenecek coğrafi alanı güncelleyin.",
+        "data": {
+          "latitude": "Merkez enlem",
+          "longitude": "Merkez boylam",
+          "radius_km": "Arama yarıçapı (km)"
+        },
+        "data_description": {
+          "latitude": "İzlenen alanın merkezinin enlemi (-90 ile 90 arası).",
+          "longitude": "İzlenen alanın merkezinin boylamı (-180 ile 180 arası).",
+          "radius_km": "Merkez nokta etrafındaki yarıçap (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtreler ve Alarm Sensörü",
+        "description": "İsteğe bağlı filtreleri ve ikili deprem alarmı sensörü yapılandırmasını güncelleyin.",
+        "data": {
+          "min_alert_level": "Minimum PAGER alarm seviyesi",
+          "only_tsunami": "Yalnızca tsunami uyarısı olan olayları göster",
+          "max_depth_km": "Maksimum derinlik (km)",
+          "only_reviewed": "Yalnızca incelenmiş olaylar",
+          "alert_min_magnitude": "Alarm sensörü — minimum büyüklük",
+          "alert_time_window": "Alarm sensörü — zaman penceresi"
+        },
+        "data_description": {
+          "min_alert_level": "Depremleri USGS PAGER alarm seviyesine göre filtreleyin. Alarm seviyesinden bağımsız olarak tüm olayları görmek için 'Hiçbiri'ni seçin.",
+          "max_depth_km": "Kilometre cinsinden maksimum odak derinliği (0–700). Herhangi bir derinlikteki depremleri dahil etmek için 700'e ayarlayın. Sığ olaylar (< 70 km) genellikle daha yıkıcıdır.",
+          "only_reviewed": "Etkinleştirildiğinde, yalnızca USGS tarafından manuel olarak incelenmiş depremleri gösterir. Daha doğrudur ancak gecikmeli görünebilir.",
+          "alert_min_magnitude": "Zaman penceresi içinde bu büyüklükte or daha büyük bir deprem algılandığında ikili deprem alarmı sensörü AÇIK (ON) konuma geçer.",
+          "alert_time_window": "İkili deprem alarmı sensörü değerlendirilirken kaç saat geriye bakılacağı (1–72 saat)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Geçersiz koordinatlar. Enlem -90 ile 90, boylam -180 ile 180 arasında olmalıdır.",
+      "invalid_radius": "Yarıçap 10 ile 20.000 km arasında olmalıdır.",
+      "unknown": "Beklenmedik hata. Daha fazla ayrıntı için Home Assistant günlüklerini kontrol edin."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Küresel (Tüm dünya)",
+        "custom_area": "Özel alan (Yarıçap)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Son bir saat",
+        "day": "Son 24 saat",
+        "week": "Son 7 gün",
+        "month": "Son 30 gün"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometre (km)",
+        "mi": "Mil (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Büyüklük (önce en güçlü)",
+        "time": "Zaman (önce en yeni)",
+        "distance": "Mesafe (önce en yakın)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Hiçbiri (tümünü göster)",
+        "green": "Yeşil",
+        "yellow": "Sarı",
+        "orange": "Turuncu",
+        "red": "Kırmızı (en ciddi)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": { "name": "Toplam deprem sayısı" },
+      "strongest_magnitude": { "name": "En güçlü deprem" },
+      "strongest_location": { "name": "En güçlü depremin konumu" },
+      "average_magnitude": { "name": "Ortalama büyüklük" },
+      "latest_earthquake": { "name": "Son deprem" },
+      "latest_earthquake_time": { "name": "Son deprem zamanı" },
+      "earthquakes_last_hour": { "name": "Son bir saatteki depremler" },
+      "significant_earthquakes": { "name": "Önemli depremler" },
+      "tsunami_warnings": { "name": "Aktif tsunami uyarıları" },
+      "highest_alert_level": { "name": "En yüksek alarm seviyesi" },
+      "red_alert_count": { "name": "Kırmızı alarm olayları" },
+      "nearest_distance": { "name": "En yakın depreme mesafe" },
+      "nearest_magnitude": { "name": "En yakın depremin büyüklüğü" },
+      "last_update": { "name": "Son güncelleme" },
+      "api_status": { "name": "API durumu" },
+      "events_fetched": { "name": "Çekilen olaylar" },
+      "events_displayed": { "name": "Görüntülenen olaylar" }
+    },
+    "binary_sensor": {
+      "earthquake_alert": { "name": "Deprem alarmı" },
+      "tsunami_warning": { "name": "Tsunami uyarısı aktif" }
+    },
+    "button": {
+      "force_refresh": { "name": "Zorla yenile" }
+    },
+    "image": {
+      "shakemap": { "name": "ShakeMap" }
+    },
+    "calendar": {
+      "earthquakes": { "name": "Depremler" }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Yeni deprem algılandı",
+        "state_attributes": {
+          "event_type": {
+            "state": { "earthquake_detected": "Deprem algılandı" }
+          }
+        }
+      }
+    }
+  }
+}
