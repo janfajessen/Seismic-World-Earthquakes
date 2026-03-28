@@ -1,37 +1,68 @@
-# 🌍 Seismic World Earthquakes
-and Tsunamis 
+
+# Seismic World Earthquakes
+and Tsunamis
 <div align="center">
 
+<img src="https://github.com/janfajessen/Seismic-World-Earthquakes/blob/044ed6b4bbc8e33a9ed2acd8e2abb300e2e35446/seismic_world_earthquakes.png?raw=true" alt="Seismic World Earthquakes" width="200">
+
 ![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)
-![HA](https://img.shields.io/badge/Home%20Assistant-2026.2+-orange?style=for-the-badge&logo=home-assistant)
+![HA](https://img.shields.io/badge/Home%20Assistant-2024.1+-orange?style=for-the-badge&logo=home-assistant)
 ![HACS](https://img.shields.io/badge/HACS-Custom-teal?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![IoT Class](https://img.shields.io/badge/IoT%20Class-Cloud%20Polling-lightgrey?style=for-the-badge)
 
-**Real-time global earthquake monitoring for Home Assistant**
+**The earthquake monitoring integration Home Assistant deserves.**
 
-Data from the [USGS Earthquake Hazards Program API](https://earthquake.usgs.gov/fdsnws/event/1/) · No API key required · Free
+Real-time global seismic data · Interactive map setup · No API key · No YAML · Free forever
+
+[Installation](#installation) · [Configuration](#configuration) · [Entities](#entities) · [Automations](#automation-examples) · [Why this integration?](#why-this-integration)
 
 </div>
 
 ---
 
-## Description
+## Why this integration?
 
-A Home Assistant custom integration that displays earthquakes worldwide — or within a custom area — in real time, directly from the USGS public API. Each earthquake appears as a **pin on the HA map**, with summary sensors, configurable alerts, a calendar of events, and much more. No account or API key needed.
+Home Assistant ships with a built-in USGS earthquake integration. It works — but it was introduced in **HA 0.84**, is officially marked as **Legacy**, has not been actively developed for years, and currently counts only **~521 active installations** worldwide. It only creates map pins and nothing else. Configuration requires editing `configuration.yaml` by hand.
+
+**Seismic World Earthquakes** was built from scratch to do the job properly.
+
+| Feature | HA Built-in (Legacy) | Seismic World Earthquakes |
+|---|:---:|:---:|
+| UI config flow (no YAML) | ❌ | ✅ |
+| Interactive map area selector | ❌ | ✅ |
+| Multiple instances | ❌ | ✅ |
+| Custom magnitude threshold | ❌ Predefined feeds only | ✅ 0.0 – 9.9 slider |
+| Custom data period | ❌ Predefined feeds only | ✅ Hour / Day / Week / Month |
+| Max events cap (intelligent) | ❌ | ✅ M ≥ 6.0 always kept |
+| Summary sensors | ❌ 0 sensors | ✅ 13 sensors |
+| Diagnostic sensors | ❌ | ✅ 4 sensors |
+| Earthquake alert binary sensor | ❌ | ✅ Configurable magnitude + window |
+| Tsunami warning binary sensor | ❌ | ✅ |
+| ShakeMap intensity image | ❌ | ✅ |
+| Calendar entity | ❌ | ✅ |
+| Event entity (for automations) | ❌ | ✅ |
+| Force refresh button | ❌ | ✅ |
+| Device page (grouped entities) | ❌ | ✅ |
+| Depth, status, alert filters | ❌ | ✅ |
+| Sort by magnitude / time / distance | ❌ | ✅ |
+| km / miles configurable | ❌ km only | ✅ |
+| Multilingual UI | ❌ English only | ✅ EN, CA, ES, FR |
+| Active development | ❌ Legacy | ✅ |
 
 ---
 
-## Features
+## Features at a glance
 
-- 🗺️ **Map pins** — one dynamic pin per earthquake, icon changes by magnitude
-- 📊 **17 sensors** — total count, strongest magnitude, average magnitude, latest event, nearest earthquake, PAGER alert levels, tsunami count, and more
-- 🔔 **Configurable alert binary sensor** — triggers based on magnitude threshold and time window
-- 🌊 **Tsunami binary sensor** — turns ON if any current event carries a tsunami flag
-- 🖼️ **ShakeMap image** — USGS intensity map for the strongest earthquake (M ≥ 4.5)
+- 🗺️ **Map pins** — one dynamic pin per earthquake, icon scales with magnitude
+- 📊 **13 summary sensors** — strongest, average, nearest, latest, tsunami count, PAGER alert level, and more
+- 🔔 **Configurable alert binary sensor** — set your own magnitude threshold and time window
+- 🌊 **Tsunami binary sensor** — instantly know if any active event carries a tsunami flag
+- 🖼️ **ShakeMap image entity** — USGS intensity map for the strongest current earthquake
 - 📅 **Calendar** — every earthquake as a 1-hour calendar event with full details
-- ⚡ **Event entity** — fires HA events to trigger automations on newly detected earthquakes
-- 🌍 **Global or custom area** — interactive map selector with adjustable radius
-- 🔄 **Multiple instances** — monitor different areas or thresholds simultaneously
+- ⚡ **Event entity** — fire automations the moment a new earthquake is detected
+- 🌍 **Global or custom area** — drag a pin on an interactive map, adjust the radius visually
+- 🔄 **Multiple instances** — one for global M4.5+, one for your region M2.5+, one tsunami-only...
 - 🌐 **Multilingual** — EN, CA, ES, FR (more coming)
 
 ---
@@ -58,43 +89,46 @@ A Home Assistant custom integration that displays earthquakes worldwide — or w
 
 ## Configuration
 
-Setup is done in **3 steps** through the config flow UI.
+Setup happens entirely in the UI — no YAML needed. Three steps:
 
 ### Step 1 — Basic settings
 
 | Option | Description | Default |
 |---|---|---|
 | Instance name | Friendly name for this instance | `Seismic World Earthquakes` |
-| Instance type | Global (worldwide) or Custom area (radius) | Global |
-| Minimum magnitude | Richter scale threshold (0.0–9.9) | 4.5 |
+| Instance type | Global (worldwide) or Custom area | Global |
+| Minimum magnitude | Richter scale (0.0 – 9.9) | 4.5 |
 | Data period | Last hour / 24 h / 7 days / 30 days | 24 h |
-| Maximum events | Map pin limit (50–500) | 100 |
-| Distance units | Kilometres or miles | km |
+| Maximum events | Map pin cap (50 – 500) | 100 |
+| Distance units | km or miles | km |
 | Sort events by | Magnitude / Time / Distance | Magnitude |
 
-> **Note:** Events with M ≥ 6.0 are always retained regardless of the maximum events limit.
+> Events with **M ≥ 6.0 are always retained** regardless of the maximum events cap.
 
-### Step 2 — Custom area *(only for custom area instances)*
+### Step 2 — Custom area *(custom area instances only)*
 
-An interactive map selector lets you drag a pin to set the centre point and adjust the radius circle visually. Minimum radius: 10 km.
+An **interactive map** lets you drag a pin to set the centre point and resize the radius circle visually. No typing coordinates. Minimum radius: 10 km.
 
 ### Step 3 — Filters & alert sensor
 
 | Option | Description | Default |
 |---|---|---|
 | Minimum PAGER alert level | None / Green / Yellow / Orange / Red | None |
-| Only tsunami events | Filter to show only events with tsunami flag | Off |
-| Maximum depth (km) | 0–700 · set to 700 for no limit | 700 |
-| Only reviewed events | USGS quality filter — more accurate, may be delayed | Off |
-| Alert sensor — min magnitude | Magnitude threshold for the alert binary sensor | 5.0 |
-| Alert sensor — time window | Hours to look back when evaluating the alert (1–72) | 24 |
+| Only tsunami events | Show only events with tsunami flag | Off |
+| Maximum depth (km) | 0 – 700, set 700 for no limit | 700 |
+| Only reviewed events | USGS quality filter (may add delay) | Off |
+| Alert sensor — min magnitude | Threshold for the alert binary sensor | 5.0 |
+| Alert sensor — time window | Hours to look back for the alert (1 – 72) | 24 |
+
+All settings can be changed at any time from the ⚙️ **Reconfigure** button — no restart needed.
 
 ---
 
 ## Entities
 
-### 📍 Geo-location
-One map pin per active earthquake. State = distance to the reference point in the configured unit.
+### 📍 Geo-location — map pins
+
+One pin per active earthquake on the HA map. State = distance to the reference point in the configured unit.
 
 | Icon | Magnitude |
 |---|---|
@@ -105,67 +139,71 @@ One map pin per active earthquake. State = distance to the reference point in th
 | `mdi:map-marker-radius` | M ≥ 3.0 |
 | `mdi:map-marker` | M < 3.0 |
 
-Each pin includes full attributes: magnitude, depth, place, time, alert level, tsunami flag, significance score, USGS URL, and more.
+Attributes per pin: magnitude, depth, place, time, alert level, tsunami flag, significance score, felt reports, MMI, network, USGS URL.
 
-### 📊 Main sensors
+### 📊 Summary sensors
 
 | Sensor | Description |
 |---|---|
 | Total earthquakes | Total events in the configured period |
-| Strongest earthquake | Maximum magnitude in the period |
-| Strongest earthquake location | Place name of the highest-magnitude event |
-| Average magnitude | Mean magnitude across all events |
+| Strongest earthquake | Maximum magnitude |
+| Strongest earthquake location | Place of the highest-magnitude event |
+| Average magnitude | Mean across all displayed events |
 | Latest earthquake | Title of the most recent event |
 | Latest earthquake time | Timestamp of the most recent event |
-| Earthquakes last hour | Count of events in the last 60 minutes |
+| Earthquakes last hour | Count of events in the past 60 minutes |
 | Significant earthquakes | Events with USGS significance score ≥ 600 |
-| Active tsunami warnings | Count of events carrying a tsunami flag |
-| Highest alert level | Highest PAGER alert level in the period |
-| Red alert events | Count of events with PAGER RED alert |
-| Nearest earthquake distance | Distance to the nearest event in km or mi |
-| Nearest earthquake magnitude | Magnitude of the nearest event |
+| Active tsunami warnings | Count of events with tsunami flag |
+| Highest alert level | Top PAGER alert in the current period |
+| Red alert events | Count of RED PAGER alert events |
+| Nearest earthquake distance | Distance to the closest event |
+| Nearest earthquake magnitude | Magnitude of the closest event |
 
 ### 📊 Diagnostic sensors
 
 | Sensor | Description |
 |---|---|
-| Last update | Timestamp of the last successful data refresh |
+| Last update | Timestamp of the last successful refresh |
 | API status | `ok` or error description |
-| Events fetched | Total events downloaded from USGS API |
-| Events displayed | Total after applying filters and the event cap |
+| Events fetched | Raw count from USGS API |
+| Events displayed | Count after filters and cap |
 
 ### 🔔 Binary sensors
 
-| Sensor | Turns ON when... |
+| Sensor | ON when... |
 |---|---|
-| Earthquake alert | An event ≥ configured magnitude exists within the time window |
-| Tsunami warning active | Any current event has a tsunami flag |
+| Earthquake alert | Event ≥ configured magnitude within the time window |
+| Tsunami warning active | Any current event carries a tsunami flag |
 
-### 🖼️ Image — ShakeMap
-Seismic intensity image for the strongest current earthquake, fetched directly from USGS.
+### 🖼️ ShakeMap image
 
-> ⚠️ **USGS ShakeMaps are only available for earthquakes with magnitude ≥ 4.5 (Richter scale).** Below this threshold the image entity will show as unavailable.
+USGS intensity map image for the strongest current earthquake.
+
+> ⚠️ **USGS ShakeMaps exist only for earthquakes with magnitude ≥ 4.5.** Below this threshold the entity will be unavailable.
 
 ### 📅 Calendar
-Every earthquake appears as a 1-hour calendar event with full details in the description, including depth, alert level, significance score, felt reports, and a link to the USGS event page.
+
+Every earthquake as a 1-hour event. Includes depth, alert level, significance, felt reports, and a direct link to the USGS event page.
 
 ### ⚡ Event entity — New earthquake detected
-Fires a Home Assistant event (`earthquake_detected`) each time a new earthquake appears in the feed. **Earthquakes already present on first load are skipped** to avoid flooding automations on startup. Events are fired in descending magnitude order.
 
-Event attributes include: `magnitude`, `place`, `time`, `latitude`, `longitude`, `depth_km`, `tsunami_warning`, `alert_level`, `significance`, `url`, and more.
+Fires `earthquake_detected` each time a new earthquake appears in the feed. Earthquakes present on the first load are skipped to avoid flooding automations on startup. New events fire in descending magnitude order.
 
-### 🔘 Button — Force refresh
-Forces an immediate data refresh without waiting for the 5-minute cycle.
+Available attributes: `magnitude`, `place`, `time`, `latitude`, `longitude`, `depth_km`, `tsunami_warning`, `alert_level`, `significance`, `distance`, `url`, and more.
+
+### 🔘 Force refresh button
+
+Triggers an immediate data pull from USGS without waiting for the 5-minute cycle.
 
 ---
 
 ## Automation examples
 
-### Notification for significant earthquakes
+### Alert for strong earthquakes
 
 ```yaml
 automation:
-  - alias: "Significant earthquake alert"
+  - alias: "Strong earthquake detected"
     trigger:
       - platform: event
         event_type: seismic_world_earthquakes_event
@@ -177,14 +215,13 @@ automation:
     action:
       - service: notify.notify
         data:
-          title: "🌍 M{{ trigger.event.data.magnitude }} Earthquake"
+          title: "🌍 M{{ trigger.event.data.magnitude }} — {{ trigger.event.data.place }}"
           message: >
-            {{ trigger.event.data.place }}
             Depth: {{ trigger.event.data.depth_km }} km
             {{ trigger.event.data.url }}
 ```
 
-### Tsunami warning notification
+### Tsunami warning
 
 ```yaml
 automation:
@@ -200,14 +237,25 @@ automation:
           message: "Check your local emergency authorities immediately."
 ```
 
+### Map card
+
+```yaml
+type: map
+geo_location_sources:
+  - seismic_world_earthquakes
+entities:
+  - zone.home
+title: Earthquakes
+```
+
 ---
 
 ## Technical details
 
-| Detail | Value |
+| | |
 |---|---|
 | Data source | [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) |
-| API endpoint | `https://earthquake.usgs.gov/fdsnws/event/1/query` |
+| API | `https://earthquake.usgs.gov/fdsnws/event/1/query` |
 | Authentication | None — public free API |
 | Update interval | 5 minutes |
 | IoT class | `cloud_polling` |
@@ -218,7 +266,7 @@ automation:
 
 ## Credits
 
-Earthquake data provided by the [U.S. Geological Survey (USGS)](https://www.usgs.gov/) Earthquake Hazards Program.
+Earthquake data provided by the [U.S. Geological Survey (USGS)](https://www.usgs.gov/) Earthquake Hazards Program, a public domain data source.
 
 ---
 
@@ -226,4 +274,7 @@ Earthquake data provided by the [U.S. Geological Survey (USGS)](https://www.usgs
 
 Made with ❤️ by [@janfajessen](https://github.com/janfajessen) · Data: [USGS](https://earthquake.usgs.gov/)
 
+*If this integration is useful to you, consider giving it a ⭐ on GitHub.*
+
 </div>
+
