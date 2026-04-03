@@ -10,6 +10,9 @@ and Tsunamis
 ![HACS](https://img.shields.io/badge/HACS-Custom-teal?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![IoT Class](https://img.shields.io/badge/IoT%20Class-Cloud%20Polling-lightgrey?style=for-the-badge)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41bdf5.svg?style=for-the-badge)](https://hacs.xyz/docs/publish/start)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)
+[![Patreon](https://img.shields.io/badge/Patreon-Support-red.svg?style=for-the-badge)](https://www.patreon.com/janfajessen)
 
 **The earthquake monitoring integration Home Assistant deserves.**
 
@@ -275,6 +278,9 @@ Earthquake data provided by the [U.S. Geological Survey (USGS)](https://www.usgs
 Made with ❤️ by [@janfajessen](https://github.com/janfajessen) · Data: [USGS](https://earthquake.usgs.gov/)
 
 *If this integration is useful to you, consider giving it a ⭐ on GitHub.*
+Or onsider supporting development!
 
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)
+[![Patreon](https://img.shields.io/badge/Patreon-Support-red.svg?style=for-the-badge)](https://www.patreon.com/janfajessen)
 </div>
 
