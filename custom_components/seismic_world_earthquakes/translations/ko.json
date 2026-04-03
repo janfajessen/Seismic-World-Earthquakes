@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "이 모니터링 인스턴스를 구성합니다. 여러 인스턴스를 생성하여 다양한 지역이나 규모 임계값을 모니터링할 수 있습니다.",
+        "data": {
+          "name": "인스턴스 이름",
+          "instance_type": "인스턴스 유형",
+          "min_magnitude": "최소 규모(리히터 규모)",
+          "feed_period": "데이터 기간",
+          "max_events": "지도에 표시할 최대 이벤트 수",
+          "units": "거리 단위",
+          "sort_by": "이벤트 정렬 기준"
+        },
+        "data_description": {
+          "min_magnitude": "이 규모 이상의 지진만 포함됩니다(0.0–9.9).",
+          "max_events": "지도에 표시되는 최대 지진 수(50–500). M≥6.0인 이벤트는 이 제한과 관계없이 항상 유지됩니다.",
+          "sort_by": "지도와 센서에 지진이 표시되는 순서를 정의합니다."
+        }
+      },
+      "area": {
+        "title": "사용자 정의 지역 구성",
+        "description": "모니터링할 지리적 영역을 정의합니다. 중심점에서 지정된 반경 내의 모든 지진이 포함됩니다.",
+        "data": {
+          "latitude": "중심 위도",
+          "longitude": "중심 경도",
+          "radius_km": "검색 반경(km)"
+        },
+        "data_description": {
+          "latitude": "모니터링 영역 중심의 위도(−90 ~ 90).",
+          "longitude": "모니터링 영역 중심의 경도(−180 ~ 180).",
+          "radius_km": "중심점 주변 반경(km)(10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "필터 및 경보 센서",
+        "description": "표시할 지진을 선택적으로 제한하고 지진 경보 바이너리 센서를 구성합니다.",
+        "data": {
+          "min_alert_level": "최소 PAGER 경보 수준",
+          "only_tsunami": "쓰나미 경보가 있는 이벤트만 표시",
+          "max_depth_km": "최대 깊이(km)",
+          "only_reviewed": "검토된 이벤트만",
+          "alert_min_magnitude": "경보 센서 — 최소 규모",
+          "alert_time_window": "경보 센서 — 시간 창"
+        },
+        "data_description": {
+          "min_alert_level": "USGS PAGER 경보 수준별로 지진을 필터링합니다. 경보 수준에 관계없이 모든 이벤트를 표시하려면 '없음'을 선택하세요.",
+          "max_depth_km": "최대 진원 깊이(km)(0–700). 모든 깊이의 지진을 포함하려면 700으로 설정하세요. 얕은 이벤트(<70 km)는 일반적으로 더 파괴적입니다.",
+          "only_reviewed": "활성화하면 USGS에서 수동으로 검토한 지진만 표시합니다. 더 정확하지만 지연되어 나타날 수 있습니다.",
+          "alert_min_magnitude": "지진 경보 바이너리 센서는 시간 창 내에서 이 규모 이상의 지진이 감지되면 켜집니다.",
+          "alert_time_window": "지진 경보 바이너리 센서를 평가할 때 몇 시간 전까지 볼지(1–72시간)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "잘못된 좌표입니다. 위도는 −90과 90 사이, 경도는 −180과 180 사이여야 합니다.",
+      "invalid_radius": "반경은 10에서 20,000 km 사이여야 합니다.",
+      "cannot_connect": "USGS API에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도하세요.",
+      "unknown": "예상치 못한 오류가 발생했습니다. 자세한 내용은 Home Assistant 로그를 확인하세요."
+    },
+    "abort": {
+      "already_configured": "이 인스턴스는 이미 구성되어 있습니다."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Earthquakes 재구성",
+        "description": "이 모니터링 인스턴스의 기본 설정을 업데이트합니다.",
+        "data": {
+          "name": "인스턴스 이름",
+          "instance_type": "인스턴스 유형",
+          "min_magnitude": "최소 규모(리히터 규모)",
+          "feed_period": "데이터 기간",
+          "max_events": "지도에 표시할 최대 이벤트 수",
+          "units": "거리 단위",
+          "sort_by": "이벤트 정렬 기준"
+        },
+        "data_description": {
+          "min_magnitude": "이 규모 이상의 지진만 포함됩니다(0.0–9.9).",
+          "max_events": "지도에 표시되는 최대 지진 수(50–500). M≥6.0인 이벤트는 이 제한과 관계없이 항상 유지됩니다.",
+          "sort_by": "지도와 센서에 지진이 표시되는 순서를 정의합니다."
+        }
+      },
+      "area": {
+        "title": "사용자 정의 지역 구성",
+        "description": "모니터링할 지리적 영역을 업데이트합니다.",
+        "data": {
+          "latitude": "중심 위도",
+          "longitude": "중심 경도",
+          "radius_km": "검색 반경(km)"
+        },
+        "data_description": {
+          "latitude": "모니터링 영역 중심의 위도(−90 ~ 90).",
+          "longitude": "모니터링 영역 중심의 경도(−180 ~ 180).",
+          "radius_km": "중심점 주변 반경(km)(10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "필터 및 경보 센서",
+        "description": "선택적 필터와 지진 경보 바이너리 센서 구성을 업데이트합니다.",
+        "data": {
+          "min_alert_level": "최소 PAGER 경보 수준",
+          "only_tsunami": "쓰나미 경보가 있는 이벤트만 표시",
+          "max_depth_km": "최대 깊이(km)",
+          "only_reviewed": "검토된 이벤트만",
+          "alert_min_magnitude": "경보 센서 — 최소 규모",
+          "alert_time_window": "경보 센서 — 시간 창"
+        },
+        "data_description": {
+          "min_alert_level": "USGS PAGER 경보 수준별로 지진을 필터링합니다. 경보 수준에 관계없이 모든 이벤트를 표시하려면 '없음'을 선택하세요.",
+          "max_depth_km": "최대 진원 깊이(km)(0–700). 모든 깊이의 지진을 포함하려면 700으로 설정하세요. 얕은 이벤트(<70 km)는 일반적으로 더 파괴적입니다.",
+          "only_reviewed": "활성화하면 USGS에서 수동으로 검토한 지진만 표시합니다. 더 정확하지만 지연되어 나타날 수 있습니다.",
+          "alert_min_magnitude": "지진 경보 바이너리 센서는 시간 창 내에서 이 규모 이상의 지진이 감지되면 켜집니다.",
+          "alert_time_window": "지진 경보 바이너리 센서를 평가할 때 몇 시간 전까지 볼지(1–72시간)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "잘못된 좌표입니다. 위도는 −90과 90 사이, 경도는 −180과 180 사이여야 합니다.",
+      "invalid_radius": "반경은 10에서 20,000 km 사이여야 합니다.",
+      "unknown": "예상치 못한 오류가 발생했습니다. 자세한 내용은 Home Assistant 로그를 확인하세요."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "전역(전 세계)",
+        "custom_area": "사용자 정의 지역(반경)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "지난 1시간",
+        "day": "지난 24시간",
+        "week": "지난 7일",
+        "month": "지난 30일"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "킬로미터(km)",
+        "mi": "마일(mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "규모(강한 순)",
+        "time": "시간(최신 순)",
+        "distance": "거리(가까운 순)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "없음(모두 표시)",
+        "green": "초록색",
+        "yellow": "노란색",
+        "orange": "주황색",
+        "red": "빨간색(가장 심각)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "총 지진 수"
+      },
+      "strongest_magnitude": {
+        "name": "가장 강한 지진"
+      },
+      "strongest_location": {
+        "name": "가장 강한 지진 위치"
+      },
+      "average_magnitude": {
+        "name": "평균 규모"
+      },
+      "latest_earthquake": {
+        "name": "최신 지진"
+      },
+      "latest_earthquake_time": {
+        "name": "최신 지진 시간"
+      },
+      "earthquakes_last_hour": {
+        "name": "지난 1시간 내 지진"
+      },
+      "significant_earthquakes": {
+        "name": "주요 지진"
+      },
+      "tsunami_warnings": {
+        "name": "활성 쓰나미 경보"
+      },
+      "highest_alert_level": {
+        "name": "최고 경보 수준"
+      },
+      "red_alert_count": {
+        "name": "빨간색 경보 이벤트"
+      },
+      "nearest_distance": {
+        "name": "가장 가까운 지진까지의 거리"
+      },
+      "nearest_magnitude": {
+        "name": "가장 가까운 지진의 규모"
+      },
+      "last_update": {
+        "name": "마지막 업데이트"
+      },
+      "api_status": {
+        "name": "API 상태"
+      },
+      "events_fetched": {
+        "name": "가져온 이벤트"
+      },
+      "events_displayed": {
+        "name": "표시된 이벤트"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "지진 경보"
+      },
+      "tsunami_warning": {
+        "name": "쓰나미 경보 활성화"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "강제 새로 고침"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "진도 지도"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "지진"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "새 지진 감지됨",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "지진 감지됨"
+            }
+          }
+        }
+      }
+    }
+  }
+}

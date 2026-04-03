@@ -2,131 +2,131 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seismic World Aardbevingen",
-        "description": "Configureer deze bewakingsinstantie. U kunt meerdere instanties maken om verschillende gebieden of magnitudedrempels te bewaken.",
+        "title": "Seismic World Earthquakes",
+        "description": "Configureer dit monitoring-exemplaar. Je kunt meerdere exemplaren aanmaken om verschillende gebieden of magnitudedrempels te bewaken.",
         "data": {
-          "name": "Naam van instantie",
-          "instance_type": "Type instantie",
-          "min_magnitude": "Minimale magnitude (Richterschaal)",
-          "feed_period": "Gegevensperiode",
-          "max_events": "Maximum aantal gebeurtenissen op de kaart",
+          "name": "Exemplaarnaam",
+          "instance_type": "Exemplaartype",
+          "min_magnitude": "Minimale magnitude (schaal van Richter)",
+          "feed_period": "Dataperiode",
+          "max_events": "Maximale gebeurtenissen op kaart",
           "units": "Afstandseenheden",
-          "sort_by": "Sorteer gebeurtenissen op"
+          "sort_by": "Gebeurtenissen sorteren op"
         },
         "data_description": {
-          "min_magnitude": "Alleen aardbevingen met een magnitude gelijk aan of groter dan deze waarde worden opgenomen (0.0–9.9).",
-          "max_events": "Maximum aantal aardbevingen weergegeven op de kaart (50–500). Gebeurtenissen met M≥6.0 worden altijd bewaard, ongeacht deze limiet.",
-          "sort_by": "Bepaalt de volgorde waarin aardbevingen op de kaart en in de sensoren verschijnen."
+          "min_magnitude": "Alleen aardbevingen met een magnitude gelijk aan of hoger dan deze worden opgenomen (0,0–9,9).",
+          "max_events": "Maximaal aantal aardbevingen dat op de kaart wordt weergegeven (50–500). Gebeurtenissen met M≥6,0 worden altijd bewaard, ongeacht deze limiet.",
+          "sort_by": "Bepaalt de volgorde waarin aardbevingen op de kaart en in sensoren verschijnen."
         }
       },
       "area": {
-        "title": "Aangepaste Gebiedsconfiguratie",
-        "description": "Definieer het geografische gebied dat moet worden bewaakt. Alle aardbevingen binnen de opgegeven straal vanaf het middelpunt worden opgenomen.",
+        "title": "Configuratie aangepast gebied",
+        "description": "Definieer het te bewaken geografische gebied. Alle aardbevingen binnen de gespecificeerde straal van het middelpunt worden opgenomen.",
         "data": {
-          "latitude": "Centrale breedtegraad",
-          "longitude": "Centrale lengtegraad",
+          "latitude": "Breedtegraad middelpunt",
+          "longitude": "Lengtegraad middelpunt",
           "radius_km": "Zoekstraal (km)"
         },
         "data_description": {
-          "latitude": "Breedtegraad van het centrum van het bewaakte gebied (-90 tot 90).",
-          "longitude": "Lengtegraad van het centrum van het bewaakte gebied (-180 tot 180).",
+          "latitude": "Breedtegraad van het centrum van het bewaakte gebied (−90 tot 90).",
+          "longitude": "Lengtegraad van het centrum van het bewaakte gebied (−180 tot 180).",
           "radius_km": "Straal in kilometers rond het middelpunt (10–20.000 km)."
         }
       },
       "filters": {
-        "title": "Filters & Alarmsensor",
-        "description": "Beperk optioneel welke aardbevingen worden weergegeven en configureer de binaire sensor voor aardbevingsalarmen.",
+        "title": "Filters en alarmsensor",
+        "description": "Beperk optioneel welke aardbevingen worden getoond en configureer de binaire aardbevingsalarmsensor.",
         "data": {
           "min_alert_level": "Minimaal PAGER-alarmniveau",
-          "only_tsunami": "Toon alleen gebeurtenissen met tsunami-waarschuwing",
+          "only_tsunami": "Toon alleen gebeurtenissen met tsunamiewaarschuwing",
           "max_depth_km": "Maximale diepte (km)",
           "only_reviewed": "Alleen beoordeelde gebeurtenissen",
           "alert_min_magnitude": "Alarmsensor — minimale magnitude",
-          "alert_time_window": "Alarmsensor — tijdsvenster"
+          "alert_time_window": "Alarmsensor — tijdvenster"
         },
         "data_description": {
           "min_alert_level": "Filter aardbevingen op USGS PAGER-alarmniveau. Selecteer 'Geen' om alle gebeurtenissen weer te geven, ongeacht het alarmniveau.",
-          "max_depth_km": "Maximale diepte in km (0–700). Stel in op 700 om aardbevingen op elke diepte op te nemen. Ondiepe gebeurtenissen (< 70 km) zijn meestal destructiever.",
-          "only_reviewed": "Indien ingeschakeld, worden alleen aardbevingen getoond die handmatig zijn beoordeeld door de USGS. Nauwkeuriger, maar kan met vertraging verschijnen.",
-          "alert_min_magnitude": "De binaire sensor voor aardbevingsalarmen gaat op AAN wanneer een aardbeving van deze magnitude of hoger wordt gedetecteerd binnen het tijdsvenster.",
-          "alert_time_window": "Hoeveel uur er moet worden teruggekeken bij het evalueren van de binaire sensor voor aardbevingsalarmen (1–72 uur)."
+          "max_depth_km": "Maximale brandpuntsdiepte in km (0–700). Stel in op 700 om aardbevingen op elke diepte op te nemen. Ondiepe gebeurtenissen (<70 km) zijn over het algemeen destructiever.",
+          "only_reviewed": "Wanneer ingeschakeld, worden alleen aardbevingen getoond die handmatig zijn beoordeeld door de USGS. Nauwkeuriger, maar kunnen met vertraging verschijnen.",
+          "alert_min_magnitude": "De binaire aardbevingsalarmsensor gaat AAN wanneer een aardbeving van deze magnitude of groter wordt gedetecteerd binnen het tijdvenster.",
+          "alert_time_window": "Hoeveel uur terugkijken bij het evalueren van de binaire aardbevingsalarmsensor (1–72 uur)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Ongeldige coördinaten. Breedtegraad moet tussen -90 en 90 liggen, lengtegraad tussen -180 en 180.",
+      "invalid_coordinates": "Ongeldige coördinaten. Breedtegraad moet tussen −90 en 90 liggen, lengtegraad tussen −180 en 180.",
       "invalid_radius": "Straal moet tussen 10 en 20.000 km liggen.",
-      "cannot_connect": "Kan geen verbinding maken met de USGS API. Controleer uw internetverbinding en probeer het opnieuw.",
-      "unknown": "Onverwachte fout. Controleer de Home Assistant logs voor meer details."
+      "cannot_connect": "Kan geen verbinding maken met de USGS API. Controleer je internetverbinding en probeer het opnieuw.",
+      "unknown": "Onverwachte fout. Bekijk de Home Assistant-logboeken voor meer details."
     },
     "abort": {
-      "already_configured": "Deze instantie is al geconfigureerd."
+      "already_configured": "Dit exemplaar is al geconfigureerd."
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Seismic World Aardbevingen herconfigureren",
-        "description": "Werk de basisinstellingen voor deze bewakingsinstantie bij.",
+        "title": "Seismic World Earthquakes opnieuw configureren",
+        "description": "Werk de basisinstellingen voor dit monitoring-exemplaar bij.",
         "data": {
-          "name": "Naam van instantie",
-          "instance_type": "Type instantie",
-          "min_magnitude": "Minimale magnitude (Richterschaal)",
-          "feed_period": "Gegevensperiode",
-          "max_events": "Maximum aantal gebeurtenissen op de kaart",
+          "name": "Exemplaarnaam",
+          "instance_type": "Exemplaartype",
+          "min_magnitude": "Minimale magnitude (schaal van Richter)",
+          "feed_period": "Dataperiode",
+          "max_events": "Maximale gebeurtenissen op kaart",
           "units": "Afstandseenheden",
-          "sort_by": "Sorteer gebeurtenissen op"
+          "sort_by": "Gebeurtenissen sorteren op"
         },
         "data_description": {
-          "min_magnitude": "Alleen aardbevingen met een magnitude gelijk aan of groter dan deze waarde worden opgenomen (0.0–9.9).",
-          "max_events": "Maximum aantal aardbevingen weergegeven op de kaart (50–500). Gebeurtenissen met M≥6.0 worden altijd bewaard, ongeacht deze limiet.",
-          "sort_by": "Bepaalt de volgorde waarin aardbevingen op de kaart en in de sensoren verschijnen."
+          "min_magnitude": "Alleen aardbevingen met een magnitude gelijk aan of hoger dan deze worden opgenomen (0,0–9,9).",
+          "max_events": "Maximaal aantal aardbevingen dat op de kaart wordt weergegeven (50–500). Gebeurtenissen met M≥6,0 worden altijd bewaard, ongeacht deze limiet.",
+          "sort_by": "Bepaalt de volgorde waarin aardbevingen op de kaart en in sensoren verschijnen."
         }
       },
       "area": {
-        "title": "Aangepaste Gebiedsconfiguratie",
-        "description": "Werk het geografische gebied bij dat moet worden bewaakt.",
+        "title": "Configuratie aangepast gebied",
+        "description": "Werk het te bewaken geografische gebied bij.",
         "data": {
-          "latitude": "Centrale breedtegraad",
-          "longitude": "Centrale lengtegraad",
+          "latitude": "Breedtegraad middelpunt",
+          "longitude": "Lengtegraad middelpunt",
           "radius_km": "Zoekstraal (km)"
         },
         "data_description": {
-          "latitude": "Breedtegraad van het centrum van het bewaakte gebied (-90 tot 90).",
-          "longitude": "Lengtegraad van het centrum van het bewaakte gebied (-180 tot 180).",
+          "latitude": "Breedtegraad van het centrum van het bewaakte gebied (−90 tot 90).",
+          "longitude": "Lengtegraad van het centrum van het bewaakte gebied (−180 tot 180).",
           "radius_km": "Straal in kilometers rond het middelpunt (10–20.000 km)."
         }
       },
       "filters": {
-        "title": "Filters & Alarmsensor",
-        "description": "Werk optionele filters en de configuratie van de binaire sensor voor aardbevingsalarmen bij.",
+        "title": "Filters en alarmsensor",
+        "description": "Werk optionele filters en de configuratie van de binaire aardbevingsalarmsensor bij.",
         "data": {
           "min_alert_level": "Minimaal PAGER-alarmniveau",
-          "only_tsunami": "Toon alleen gebeurtenissen met tsunami-waarschuwing",
+          "only_tsunami": "Toon alleen gebeurtenissen met tsunamiewaarschuwing",
           "max_depth_km": "Maximale diepte (km)",
           "only_reviewed": "Alleen beoordeelde gebeurtenissen",
           "alert_min_magnitude": "Alarmsensor — minimale magnitude",
-          "alert_time_window": "Alarmsensor — tijdsvenster"
+          "alert_time_window": "Alarmsensor — tijdvenster"
         },
         "data_description": {
           "min_alert_level": "Filter aardbevingen op USGS PAGER-alarmniveau. Selecteer 'Geen' om alle gebeurtenissen weer te geven, ongeacht het alarmniveau.",
-          "max_depth_km": "Maximale diepte in km (0–700). Stel in op 700 om aardbevingen op elke diepte op te nemen. Ondiepe gebeurtenissen (< 70 km) zijn meestal destructiever.",
-          "only_reviewed": "Indien ingeschakeld, worden alleen aardbevingen getoond die handmatig zijn beoordeeld door de USGS. Nauwkeuriger, maar kan met vertraging verschijnen.",
-          "alert_min_magnitude": "De binaire sensor voor aardbevingsalarmen gaat op AAN wanneer een aardbeving van deze magnitude of hoger wordt gedetecteerd binnen het tijdsvenster.",
-          "alert_time_window": "Hoeveel uur er moet worden teruggekeken bij het evalueren van de binaire sensor voor aardbevingsalarmen (1–72 uur)."
+          "max_depth_km": "Maximale brandpuntsdiepte in km (0–700). Stel in op 700 om aardbevingen op elke diepte op te nemen. Ondiepe gebeurtenissen (<70 km) zijn over het algemeen destructiever.",
+          "only_reviewed": "Wanneer ingeschakeld, worden alleen aardbevingen getoond die handmatig zijn beoordeeld door de USGS. Nauwkeuriger, maar kunnen met vertraging verschijnen.",
+          "alert_min_magnitude": "De binaire aardbevingsalarmsensor gaat AAN wanneer een aardbeving van deze magnitude of groter wordt gedetecteerd binnen het tijdvenster.",
+          "alert_time_window": "Hoeveel uur terugkijken bij het evalueren van de binaire aardbevingsalarmsensor (1–72 uur)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Ongeldige coördinaten. Breedtegraad moet tussen -90 en 90 liggen, lengtegraad tussen -180 en 180.",
+      "invalid_coordinates": "Ongeldige coördinaten. Breedtegraad moet tussen −90 en 90 liggen, lengtegraad tussen −180 en 180.",
       "invalid_radius": "Straal moet tussen 10 en 20.000 km liggen.",
-      "unknown": "Onverwachte fout. Controleer de Home Assistant logs voor meer details."
+      "unknown": "Onverwachte fout. Bekijk de Home Assistant-logboeken voor meer details."
     }
   },
   "selector": {
     "instance_type": {
       "options": {
-        "global": "Globaal (hele wereld)",
+        "global": "Globaal (wereldwijd)",
         "custom_area": "Aangepast gebied (straal)"
       }
     },
@@ -141,7 +141,7 @@
     "units": {
       "options": {
         "km": "Kilometers (km)",
-        "mi": "Mijl (mi)"
+        "mi": "Miles (mi)"
       }
     },
     "sort_by": {
@@ -153,53 +153,99 @@
     },
     "alert_level": {
       "options": {
-        "none": "Geen (toon alles)",
+        "none": "Geen (toon alle)",
         "green": "Groen",
         "yellow": "Geel",
         "orange": "Oranje",
-        "red": "Rood (ernstigste)"
+        "red": "Rood (meest ernstig)"
       }
     }
   },
   "entity": {
     "sensor": {
-      "total_earthquakes": { "name": "Totaal aantal aardbevingen" },
-      "strongest_magnitude": { "name": "Sterkste aardbeving" },
-      "strongest_location": { "name": "Locatie van sterkste aardbeving" },
-      "average_magnitude": { "name": "Gemiddelde magnitude" },
-      "latest_earthquake": { "name": "Laatste aardbeving" },
-      "latest_earthquake_time": { "name": "Tijd van laatste aardbeving" },
-      "earthquakes_last_hour": { "name": "Aardbevingen in het laatste uur" },
-      "significant_earthquakes": { "name": "Significante aardbevingen" },
-      "tsunami_warnings": { "name": "Actieve tsunami-waarschuwingen" },
-      "highest_alert_level": { "name": "Hoogste alarmniveau" },
-      "red_alert_count": { "name": "Gebeurtenissen met rood alarm" },
-      "nearest_distance": { "name": "Afstand tot dichtstbijzijnde aardbeving" },
-      "nearest_magnitude": { "name": "Magnitude van dichtstbijzijnde aardbeving" },
-      "last_update": { "name": "Laatste update" },
-      "api_status": { "name": "API-status" },
-      "events_fetched": { "name": "Opgehaalde gebeurtenissen" },
-      "events_displayed": { "name": "Weergegeven gebeurtenissen" }
+      "total_earthquakes": {
+        "name": "Totaal aantal aardbevingen"
+      },
+      "strongest_magnitude": {
+        "name": "Sterkste aardbeving"
+      },
+      "strongest_location": {
+        "name": "Locatie sterkste aardbeving"
+      },
+      "average_magnitude": {
+        "name": "Gemiddelde magnitude"
+      },
+      "latest_earthquake": {
+        "name": "Laatste aardbeving"
+      },
+      "latest_earthquake_time": {
+        "name": "Tijd laatste aardbeving"
+      },
+      "earthquakes_last_hour": {
+        "name": "Aardbevingen laatste uur"
+      },
+      "significant_earthquakes": {
+        "name": "Significante aardbevingen"
+      },
+      "tsunami_warnings": {
+        "name": "Actieve tsunamiewaarschuwingen"
+      },
+      "highest_alert_level": {
+        "name": "Hoogste alarmniveau"
+      },
+      "red_alert_count": {
+        "name": "Rode alarmgebeurtenissen"
+      },
+      "nearest_distance": {
+        "name": "Afstand tot dichtstbijzijnde aardbeving"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitude dichtstbijzijnde aardbeving"
+      },
+      "last_update": {
+        "name": "Laatste update"
+      },
+      "api_status": {
+        "name": "API-status"
+      },
+      "events_fetched": {
+        "name": "Opgehaalde gebeurtenissen"
+      },
+      "events_displayed": {
+        "name": "Getoonde gebeurtenissen"
+      }
     },
     "binary_sensor": {
-      "earthquake_alert": { "name": "Aardbevingsalarm" },
-      "tsunami_warning": { "name": "Tsunami-waarschuwing actief" }
+      "earthquake_alert": {
+        "name": "Aardbevingsalarm"
+      },
+      "tsunami_warning": {
+        "name": "Tsunamiewaarschuwing actief"
+      }
     },
     "button": {
-      "force_refresh": { "name": "Forceer vernieuwen" }
+      "force_refresh": {
+        "name": "Forceer verversing"
+      }
     },
     "image": {
-      "shakemap": { "name": "ShakeMap" }
+      "shakemap": {
+        "name": "Schudkaart"
+      }
     },
     "calendar": {
-      "earthquakes": { "name": "Aardbevingen" }
+      "earthquakes": {
+        "name": "Aardbevingen"
+      }
     },
     "event": {
       "new_earthquake": {
         "name": "Nieuwe aardbeving gedetecteerd",
         "state_attributes": {
           "event_type": {
-            "state": { "earthquake_detected": "Aardbeving gedetecteerd" }
+            "state": {
+              "earthquake_detected": "Aardbeving gedetecteerd"
+            }
           }
         }
       }

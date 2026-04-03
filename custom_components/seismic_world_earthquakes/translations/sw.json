@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Sanidi mfano huu wa ufuatiliaji. Unaweza kuunda mifano mingi ili kufuatilia maeneo tofauti au vizingiti vya ukubwa.",
+        "data": {
+          "name": "Jina la mfano",
+          "instance_type": "Aina ya mfano",
+          "min_magnitude": "Ukubwa wa chini (kipimo cha Richter)",
+          "feed_period": "Kipindi cha data",
+          "max_events": "Matukio ya juu zaidi kwenye ramani",
+          "units": "Vitengo vya umbali",
+          "sort_by": "Panga matukio kwa"
+        },
+        "data_description": {
+          "min_magnitude": "Matetemeko ya ardhi yenye ukubwa sawa au zaidi ya haya pekee ndiyo yatajumuishwa (0.0–9.9).",
+          "max_events": "Idadi ya juu zaidi ya matetemeko ya ardhi yanayoonyeshwa kwenye ramani (50–500). Matukio yenye M≥6.0 huhifadhiwa kila wakati bila kujali kikomo hiki.",
+          "sort_by": "Hufafanua mpangilio ambao matetemeko ya ardhi yanaonekana kwenye ramani na kwenye vitambuzi."
+        }
+      },
+      "area": {
+        "title": "Usanidi wa Eneo Maalum",
+        "description": "Fafanua eneo la kijiografia la kufuatilia. Matetemeko yote ya ardhi ndani ya eneo maalum kutoka kituo cha kati yatajumuishwa.",
+        "data": {
+          "latitude": "Latitudo ya kituo",
+          "longitude": "Longitudo ya kituo",
+          "radius_km": "Radi ya utafutaji (km)"
+        },
+        "data_description": {
+          "latitude": "Latitudo ya kituo cha eneo linalofuatiliwa (−90 hadi 90).",
+          "longitude": "Longitudo ya kituo cha eneo linalofuatiliwa (−180 hadi 180).",
+          "radius_km": "Radi katika kilomita kuzunguka kituo cha kati (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Vichujio na Kihisi cha Tahadhari",
+        "description": "Kwa hiari punguza ni matetemeko gani ya ardhi yanayoonyeshwa, na usanidi kihisi cha binary cha tahadhari ya tetemeko la ardhi.",
+        "data": {
+          "min_alert_level": "Kiwango cha chini cha tahadhari cha PAGER",
+          "only_tsunami": "Onyesha matukio yenye onyo la tsunami pekee",
+          "max_depth_km": "Kina cha juu zaidi (km)",
+          "only_reviewed": "Matukio yaliyokaguliwa pekee",
+          "alert_min_magnitude": "Kihisi cha tahadhari — ukubwa wa chini",
+          "alert_time_window": "Kihisi cha tahadhari — dirisha la muda"
+        },
+        "data_description": {
+          "min_alert_level": "Chuja matetemeko ya ardhi kulingana na kiwango cha tahadhari cha PAGER cha USGS. Chagua 'Hakuna' kuonyesha matukio yote bila kujali kiwango cha tahadhari.",
+          "max_depth_km": "Kina cha juu zaidi cha kitovu katika km (0–700). Weka hadi 700 ili kujumuisha matetemeko ya ardhi katika kina chochote. Matukio ya kina kifupi (<70 km) kwa ujumla yanaharibu zaidi.",
+          "only_reviewed": "Inapowezeshwa, inaonyesha tu matetemeko ya ardhi ambayo yamekaguliwa kwa mikono na USGS. Sahihi zaidi lakini yanaweza kuonekana kwa ucheleweshaji.",
+          "alert_min_magnitude": "Kihisi cha binary cha tahadhari ya tetemeko la ardhi huwashwa wakati tetemeko la ardhi la ukubwa huu au zaidi linagunduliwa ndani ya dirisha la muda.",
+          "alert_time_window": "Saa ngapi nyuma ya kutazama wakati wa kutathmini kihisi cha binary cha tahadhari ya tetemeko la ardhi (1–72 saa)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Kuratibu batili. Latitudo lazima iwe kati ya −90 na 90, longitudo kati ya −180 na 180.",
+      "invalid_radius": "Radi lazima iwe kati ya 10 na 20,000 km.",
+      "cannot_connect": "Haikuweza kuunganishwa kwa API ya USGS. Tafadhali angalia muunganisho wako wa intaneti na ujaribu tena.",
+      "unknown": "Hitilafu isiyotarajiwa. Tafadhali angalia kumbukumbu za Home Assistant kwa maelezo zaidi."
+    },
+    "abort": {
+      "already_configured": "Mfano huu tayari umesanidiwa."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Sanidi upya Seismic World Earthquakes",
+        "description": "Sasisha mipangilio ya msingi kwa mfano huu wa ufuatiliaji.",
+        "data": {
+          "name": "Jina la mfano",
+          "instance_type": "Aina ya mfano",
+          "min_magnitude": "Ukubwa wa chini (kipimo cha Richter)",
+          "feed_period": "Kipindi cha data",
+          "max_events": "Matukio ya juu zaidi kwenye ramani",
+          "units": "Vitengo vya umbali",
+          "sort_by": "Panga matukio kwa"
+        },
+        "data_description": {
+          "min_magnitude": "Matetemeko ya ardhi yenye ukubwa sawa au zaidi ya haya pekee ndiyo yatajumuishwa (0.0–9.9).",
+          "max_events": "Idadi ya juu zaidi ya matetemeko ya ardhi yanayoonyeshwa kwenye ramani (50–500). Matukio yenye M≥6.0 huhifadhiwa kila wakati bila kujali kikomo hiki.",
+          "sort_by": "Hufafanua mpangilio ambao matetemeko ya ardhi yanaonekana kwenye ramani na kwenye vitambuzi."
+        }
+      },
+      "area": {
+        "title": "Usanidi wa Eneo Maalum",
+        "description": "Sasisha eneo la kijiografia la kufuatilia.",
+        "data": {
+          "latitude": "Latitudo ya kituo",
+          "longitude": "Longitudo ya kituo",
+          "radius_km": "Radi ya utafutaji (km)"
+        },
+        "data_description": {
+          "latitude": "Latitudo ya kituo cha eneo linalofuatiliwa (−90 hadi 90).",
+          "longitude": "Longitudo ya kituo cha eneo linalofuatiliwa (−180 hadi 180).",
+          "radius_km": "Radi katika kilomita kuzunguka kituo cha kati (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Vichujio na Kihisi cha Tahadhari",
+        "description": "Sasisha vichujio vya hiari na usanidi wa kihisi cha binary cha tahadhari ya tetemeko la ardhi.",
+        "data": {
+          "min_alert_level": "Kiwango cha chini cha tahadhari cha PAGER",
+          "only_tsunami": "Onyesha matukio yenye onyo la tsunami pekee",
+          "max_depth_km": "Kina cha juu zaidi (km)",
+          "only_reviewed": "Matukio yaliyokaguliwa pekee",
+          "alert_min_magnitude": "Kihisi cha tahadhari — ukubwa wa chini",
+          "alert_time_window": "Kihisi cha tahadhari — dirisha la muda"
+        },
+        "data_description": {
+          "min_alert_level": "Chuja matetemeko ya ardhi kulingana na kiwango cha tahadhari cha PAGER cha USGS. Chagua 'Hakuna' kuonyesha matukio yote bila kujali kiwango cha tahadhari.",
+          "max_depth_km": "Kina cha juu zaidi cha kitovu katika km (0–700). Weka hadi 700 ili kujumuisha matetemeko ya ardhi katika kina chochote. Matukio ya kina kifupi (<70 km) kwa ujumla yanaharibu zaidi.",
+          "only_reviewed": "Inapowezeshwa, inaonyesha tu matetemeko ya ardhi ambayo yamekaguliwa kwa mikono na USGS. Sahihi zaidi lakini yanaweza kuonekana kwa ucheleweshaji.",
+          "alert_min_magnitude": "Kihisi cha binary cha tahadhari ya tetemeko la ardhi huwashwa wakati tetemeko la ardhi la ukubwa huu au zaidi linagunduliwa ndani ya dirisha la muda.",
+          "alert_time_window": "Saa ngapi nyuma ya kutazama wakati wa kutathmini kihisi cha binary cha tahadhari ya tetemeko la ardhi (1–72 saa)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Kuratibu batili. Latitudo lazima iwe kati ya −90 na 90, longitudo kati ya −180 na 180.",
+      "invalid_radius": "Radi lazima iwe kati ya 10 na 20,000 km.",
+      "unknown": "Hitilafu isiyotarajiwa. Tafadhali angalia kumbukumbu za Home Assistant kwa maelezo zaidi."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Ulimwenguni (dunia nzima)",
+        "custom_area": "Eneo maalum (radi)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Saa iliyopita",
+        "day": "Saa 24 zilizopita",
+        "week": "Siku 7 zilizopita",
+        "month": "Siku 30 zilizopita"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilomita (km)",
+        "mi": "Maili (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Ukubwa (kali zaidi kwanza)",
+        "time": "Muda (zaidi hivi karibuni kwanza)",
+        "distance": "Umbali (karibu zaidi kwanza)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Hakuna (onyesha yote)",
+        "green": "Kijani",
+        "yellow": "Njano",
+        "orange": "Machungwa",
+        "red": "Nyekundu (kali zaidi)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Jumla ya matetemeko ya ardhi"
+      },
+      "strongest_magnitude": {
+        "name": "Tetemeko kali zaidi la ardhi"
+      },
+      "strongest_location": {
+        "name": "Mahali pa tetemeko kali zaidi la ardhi"
+      },
+      "average_magnitude": {
+        "name": "Ukubwa wa wastani"
+      },
+      "latest_earthquake": {
+        "name": "Tetemeko la ardhi la hivi karibuni"
+      },
+      "latest_earthquake_time": {
+        "name": "Muda wa tetemeko la ardhi la hivi karibuni"
+      },
+      "earthquakes_last_hour": {
+        "name": "Matetemeko ya ardhi saa iliyopita"
+      },
+      "significant_earthquakes": {
+        "name": "Matetemeko muhimu ya ardhi"
+      },
+      "tsunami_warnings": {
+        "name": "Maonyo ya tsunami amilifu"
+      },
+      "highest_alert_level": {
+        "name": "Kiwango cha juu zaidi cha tahadhari"
+      },
+      "red_alert_count": {
+        "name": "Matukio ya tahadhari nyekundu"
+      },
+      "nearest_distance": {
+        "name": "Umbali wa tetemeko la ardhi lililo karibu zaidi"
+      },
+      "nearest_magnitude": {
+        "name": "Ukubwa wa tetemeko la ardhi lililo karibu zaidi"
+      },
+      "last_update": {
+        "name": "Sasisho la mwisho"
+      },
+      "api_status": {
+        "name": "Hali ya API"
+      },
+      "events_fetched": {
+        "name": "Matukio yaliyotolewa"
+      },
+      "events_displayed": {
+        "name": "Matukio yaliyoonyeshwa"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Tahadhari ya tetemeko la ardhi"
+      },
+      "tsunami_warning": {
+        "name": "Onyo la tsunami liko amilifu"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Lazimisha kuonyesha upya"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Ramani ya Mtetemeko"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Matetemeko ya ardhi"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Tetemeko jipya la ardhi limegunduliwa",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Tetemeko la ardhi limegunduliwa"
+            }
+          }
+        }
+      }
+    }
+  }
+}

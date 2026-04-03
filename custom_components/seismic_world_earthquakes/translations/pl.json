@@ -2,8 +2,8 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seismic World Trzęsienia ziemi",
-        "description": "Skonfiguruj tę instancję monitorowania. Możesz utworzyć wiele instancji, aby monitorować różne obszary lub progi magnitudy.",
+        "title": "Seismic World Earthquakes",
+        "description": "Skonfiguruj tę instancję monitorującą. Możesz utworzyć wiele instancji do monitorowania różnych obszarów lub progów magnitudy.",
         "data": {
           "name": "Nazwa instancji",
           "instance_type": "Typ instancji",
@@ -14,48 +14,48 @@
           "sort_by": "Sortuj zdarzenia według"
         },
         "data_description": {
-          "min_magnitude": "Uwzględnione zostaną tylko trzęsienia ziemi o magnitudzie równej lub większej od tej wartości (0.0–9.9).",
-          "max_events": "Maksymalna liczba trzęsień ziemi wyświetlanych na mapie (50–500). Zdarzenia o M≥6.0 są zawsze zachowywane, niezależnie od tego limitu.",
-          "sort_by": "Określa kolejność, w jakiej trzęsienia ziemi pojawiają się na mapie i w sensorach."
+          "min_magnitude": "Tylko trzęsienia ziemi o magnitudzie równej lub wyższej zostaną uwzględnione (0.0–9.9).",
+          "max_events": "Maksymalna liczba trzęsień ziemi wyświetlanych na mapie (50–500). Zdarzenia z M≥6.0 są zawsze zachowywane niezależnie od tego limitu.",
+          "sort_by": "Określa kolejność, w jakiej trzęsienia ziemi pojawiają się na mapie i w czujnikach."
         }
       },
       "area": {
-        "title": "Konfiguracja niestandardowego obszaru",
-        "description": "Zdefiniuj obszar geograficzny do monitorowania. Uwzględnione zostaną wszystkie trzęsienia ziemi w określonym promieniu od punktu centralnego.",
+        "title": "Konfiguracja obszaru niestandardowego",
+        "description": "Określ obszar geograficzny do monitorowania. Wszystkie trzęsienia ziemi w określonym promieniu od punktu centralnego zostaną uwzględnione.",
         "data": {
-          "latitude": "Szerokość geograficzna centrum",
-          "longitude": "Długość geograficzna centrum",
+          "latitude": "Szerokość geograficzna środka",
+          "longitude": "Długość geograficzna środka",
           "radius_km": "Promień wyszukiwania (km)"
         },
         "data_description": {
-          "latitude": "Szerokość geograficzna środka monitorowanego obszaru (-90 do 90).",
-          "longitude": "Długość geograficzna środka monitorowanego obszaru (-180 do 180).",
+          "latitude": "Szerokość geograficzna środka monitorowanego obszaru (−90 do 90).",
+          "longitude": "Długość geograficzna środka monitorowanego obszaru (−180 do 180).",
           "radius_km": "Promień w kilometrach wokół punktu centralnego (10–20 000 km)."
         }
       },
       "filters": {
-        "title": "Filtry i sensor alertu",
-        "description": "Opcjonalnie ogranicz wyświetlane trzęsienia ziemi i skonfiguruj binarny sensor alertu o trzęsieniu ziemi.",
+        "title": "Filtry i czujnik alertu",
+        "description": "Opcjonalnie ogranicz, które trzęsienia ziemi są wyświetlane, i skonfiguruj binarny czujnik alertu o trzęsieniu ziemi.",
         "data": {
           "min_alert_level": "Minimalny poziom alertu PAGER",
-          "only_tsunami": "Pokaż tylko zdarzenia z ostrzeżeniem o tsunami",
+          "only_tsunami": "Pokaż tylko zdarzenia z ostrzeżeniem przed tsunami",
           "max_depth_km": "Maksymalna głębokość (km)",
-          "only_reviewed": "Tylko zweryfikowane zdarzenia",
-          "alert_min_magnitude": "Sensor alertu — minimalna magnituda",
-          "alert_time_window": "Sensor alertu — okno czasowe"
+          "only_reviewed": "Tylko przejrzane zdarzenia",
+          "alert_min_magnitude": "Czujnik alertu — minimalna magnituda",
+          "alert_time_window": "Czujnik alertu — okno czasowe"
         },
         "data_description": {
-          "min_alert_level": "Filtruj trzęsienia ziemi według poziomu alertu USGS PAGER. Wybierz „Brak”, aby wyświetlić wszystkie zdarzenia niezależnie od poziomu alertu.",
-          "max_depth_km": "Maksymalna głębokość ogniska w km (0–700). Ustaw 700, aby uwzględnić trzęsienia ziemi na dowolnej głębokości. Płytkie zdarzenia (< 70 km) są zazwyczaj bardziej niszczycielskie.",
-          "only_reviewed": "Gdy włączone, pokazuje tylko trzęsienia ziemi, które zostały ręcznie sprawdzone przez USGS. Bardziej dokładne, ale może pojawiać się z opóźnieniem.",
-          "alert_min_magnitude": "Binarny sensor alertu o trzęsieniu ziemi włączy się (ON), gdy w oknie czasowym zostanie wykryte trzęsienie ziemi o tej lub większej magnitudzie.",
-          "alert_time_window": "Ile godzin wstecz sprawdzać podczas oceny binarnego sensora alertu o trzęsieniu ziemi (1–72 godziny)."
+          "min_alert_level": "Filtruj trzęsienia ziemi według poziomu alertu PAGER USGS. Wybierz 'Brak', aby pokazać wszystkie zdarzenia niezależnie od poziomu alertu.",
+          "max_depth_km": "Maksymalna głębokość ogniska w km (0–700). Ustaw na 700, aby uwzględnić trzęsienia ziemi na dowolnej głębokości. Płytkie zdarzenia (<70 km) są na ogół bardziej niszczycielskie.",
+          "only_reviewed": "Gdy włączone, pokazuje tylko trzęsienia ziemi, które zostały ręcznie przejrzane przez USGS. Bardziej dokładne, ale mogą pojawiać się z opóźnieniem.",
+          "alert_min_magnitude": "Binarny czujnik alertu o trzęsieniu ziemi WŁĄCZA się, gdy w oknie czasowym zostanie wykryte trzęsienie ziemi o tej lub większej magnitudzie.",
+          "alert_time_window": "Ile godzin wstecz patrzeć podczas oceny binarnego czujnika alertu o trzęsieniu ziemi (1–72 godziny)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Nieprawidłowe współrzędne. Szerokość musi mieścić się w zakresie -90 do 90, a długość w zakresie -180 do 180.",
-      "invalid_radius": "Promień musi mieścić się w zakresie od 10 do 20 000 km.",
+      "invalid_coordinates": "Nieprawidłowe współrzędne. Szerokość geograficzna musi być między −90 a 90, długość geograficzna między −180 a 180.",
+      "invalid_radius": "Promień musi być między 10 a 20 000 km.",
       "cannot_connect": "Nie można połączyć się z API USGS. Sprawdź połączenie internetowe i spróbuj ponownie.",
       "unknown": "Nieoczekiwany błąd. Sprawdź logi Home Assistant, aby uzyskać więcej szczegółów."
     },
@@ -66,8 +66,8 @@
   "options": {
     "step": {
       "init": {
-        "title": "Rekonfiguracja Seismic World Trzęsienia ziemi",
-        "description": "Zaktualizuj podstawowe ustawienia dla tej instancji monitorowania.",
+        "title": "Skonfiguruj ponownie Seismic World Earthquakes",
+        "description": "Zaktualizuj podstawowe ustawienia dla tej instancji monitorującej.",
         "data": {
           "name": "Nazwa instancji",
           "instance_type": "Typ instancji",
@@ -78,55 +78,55 @@
           "sort_by": "Sortuj zdarzenia według"
         },
         "data_description": {
-          "min_magnitude": "Uwzględnione zostaną tylko trzęsienia ziemi o magnitudzie równej lub większej od tej wartości (0.0–9.9).",
-          "max_events": "Maksymalna liczba trzęsień ziemi wyświetlanych na mapie (50–500). Zdarzenia o M≥6.0 są zawsze zachowywane, niezależnie od tego limitu.",
-          "sort_by": "Określa kolejność, w jakiej trzęsienia ziemi pojawiają się na mapie i w sensorach."
+          "min_magnitude": "Tylko trzęsienia ziemi o magnitudzie równej lub wyższej zostaną uwzględnione (0.0–9.9).",
+          "max_events": "Maksymalna liczba trzęsień ziemi wyświetlanych na mapie (50–500). Zdarzenia z M≥6.0 są zawsze zachowywane niezależnie od tego limitu.",
+          "sort_by": "Określa kolejność, w jakiej trzęsienia ziemi pojawiają się na mapie i w czujnikach."
         }
       },
       "area": {
-        "title": "Konfiguracja niestandardowego obszaru",
+        "title": "Konfiguracja obszaru niestandardowego",
         "description": "Zaktualizuj obszar geograficzny do monitorowania.",
         "data": {
-          "latitude": "Szerokość geograficzna centrum",
-          "longitude": "Długość geograficzna centrum",
+          "latitude": "Szerokość geograficzna środka",
+          "longitude": "Długość geograficzna środka",
           "radius_km": "Promień wyszukiwania (km)"
         },
         "data_description": {
-          "latitude": "Szerokość geograficzna środka monitorowanego obszaru (-90 do 90).",
-          "longitude": "Długość geograficzna środka monitorowanego obszaru (-180 do 180).",
+          "latitude": "Szerokość geograficzna środka monitorowanego obszaru (−90 do 90).",
+          "longitude": "Długość geograficzna środka monitorowanego obszaru (−180 do 180).",
           "radius_km": "Promień w kilometrach wokół punktu centralnego (10–20 000 km)."
         }
       },
       "filters": {
-        "title": "Filtry i sensor alertu",
-        "description": "Zaktualizuj opcjonalne filtry i konfigurację binarnego sensora alertu o trzęsieniu ziemi.",
+        "title": "Filtry i czujnik alertu",
+        "description": "Zaktualizuj opcjonalne filtry i konfigurację binarnego czujnika alertu o trzęsieniu ziemi.",
         "data": {
           "min_alert_level": "Minimalny poziom alertu PAGER",
-          "only_tsunami": "Pokaż tylko zdarzenia z ostrzeżeniem o tsunami",
+          "only_tsunami": "Pokaż tylko zdarzenia z ostrzeżeniem przed tsunami",
           "max_depth_km": "Maksymalna głębokość (km)",
-          "only_reviewed": "Tylko zweryfikowane zdarzenia",
-          "alert_min_magnitude": "Sensor alertu — minimalna magnituda",
-          "alert_time_window": "Sensor alertu — okno czasowe"
+          "only_reviewed": "Tylko przejrzane zdarzenia",
+          "alert_min_magnitude": "Czujnik alertu — minimalna magnituda",
+          "alert_time_window": "Czujnik alertu — okno czasowe"
         },
         "data_description": {
-          "min_alert_level": "Filtruj trzęsienia ziemi według poziomu alertu USGS PAGER. Wybierz „Brak”, aby wyświetlić wszystkie zdarzenia niezależnie od poziomu alertu.",
-          "max_depth_km": "Maksymalna głębokość ogniska w km (0–700). Ustaw 700, aby uwzględnić trzęsienia ziemi na dowolnej głębokości. Płytkie zdarzenia (< 70 km) są zazwyczaj bardziej niszczycielskie.",
-          "only_reviewed": "Gdy włączone, pokazuje tylko trzęsienia ziemi, które zostały ręcznie sprawdzone przez USGS. Bardziej dokładne, ale może pojawiać się z opóźnieniem.",
-          "alert_min_magnitude": "Binarny sensor alertu o trzęsieniu ziemi włączy się (ON), gdy w oknie czasowym zostanie wykryte trzęsienie ziemi o tej lub większej magnitudzie.",
-          "alert_time_window": "Ile godzin wstecz sprawdzać podczas oceny binarnego sensora alertu o trzęsieniu ziemi (1–72 godziny)."
+          "min_alert_level": "Filtruj trzęsienia ziemi według poziomu alertu PAGER USGS. Wybierz 'Brak', aby pokazać wszystkie zdarzenia niezależnie od poziomu alertu.",
+          "max_depth_km": "Maksymalna głębokość ogniska w km (0–700). Ustaw na 700, aby uwzględnić trzęsienia ziemi na dowolnej głębokości. Płytkie zdarzenia (<70 km) są na ogół bardziej niszczycielskie.",
+          "only_reviewed": "Gdy włączone, pokazuje tylko trzęsienia ziemi, które zostały ręcznie przejrzane przez USGS. Bardziej dokładne, ale mogą pojawiać się z opóźnieniem.",
+          "alert_min_magnitude": "Binarny czujnik alertu o trzęsieniu ziemi WŁĄCZA się, gdy w oknie czasowym zostanie wykryte trzęsienie ziemi o tej lub większej magnitudzie.",
+          "alert_time_window": "Ile godzin wstecz patrzeć podczas oceny binarnego czujnika alertu o trzęsieniu ziemi (1–72 godziny)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Nieprawidłowe współrzędne. Szerokość musi mieścić się w zakresie -90 do 90, a długość w zakresie -180 do 180.",
-      "invalid_radius": "Promień musi mieścić się w zakresie od 10 do 20 000 km.",
+      "invalid_coordinates": "Nieprawidłowe współrzędne. Szerokość geograficzna musi być między −90 a 90, długość geograficzna między −180 a 180.",
+      "invalid_radius": "Promień musi być między 10 a 20 000 km.",
       "unknown": "Nieoczekiwany błąd. Sprawdź logi Home Assistant, aby uzyskać więcej szczegółów."
     }
   },
   "selector": {
     "instance_type": {
       "options": {
-        "global": "Globalny (cały świat)",
+        "global": "Globalny (na całym świecie)",
         "custom_area": "Obszar niestandardowy (promień)"
       }
     },
@@ -146,9 +146,9 @@
     },
     "sort_by": {
       "options": {
-        "magnitude": "Magnituda (najsilniejsze najpierw)",
-        "time": "Czas (najnowsze najpierw)",
-        "distance": "Odległość (najbliższe najpierw)"
+        "magnitude": "Magnituda (najsilniejsze pierwsze)",
+        "time": "Czas (najnowsze pierwsze)",
+        "distance": "Odległość (najbliższe pierwsze)"
       }
     },
     "alert_level": {
@@ -163,43 +163,89 @@
   },
   "entity": {
     "sensor": {
-      "total_earthquakes": { "name": "Suma trzęsień ziemi" },
-      "strongest_magnitude": { "name": "Najsilniejsze trzęsienie ziemi" },
-      "strongest_location": { "name": "Lokalizacja najsilniejszego trzęsienia ziemi" },
-      "average_magnitude": { "name": "Średnia magnituda" },
-      "latest_earthquake": { "name": "Ostatnie trzęsienie ziemi" },
-      "latest_earthquake_time": { "name": "Czas ostatniego trzęsienia ziemi" },
-      "earthquakes_last_hour": { "name": "Trzęsienia ziemi w ostatniej godzinie" },
-      "significant_earthquakes": { "name": "Znaczące trzęsienia ziemi" },
-      "tsunami_warnings": { "name": "Aktywne ostrzeżenia przed tsunami" },
-      "highest_alert_level": { "name": "Najwyższy poziom alertu" },
-      "red_alert_count": { "name": "Zdarzenia z czerwonym alertem" },
-      "nearest_distance": { "name": "Odległość do najbliższego trzęsienia ziemi" },
-      "nearest_magnitude": { "name": "Magnituda najbliższego trzęsienia ziemi" },
-      "last_update": { "name": "Ostatnia aktualizacja" },
-      "api_status": { "name": "Status API" },
-      "events_fetched": { "name": "Pobrane zdarzenia" },
-      "events_displayed": { "name": "Wyświetlane zdarzenia" }
+      "total_earthquakes": {
+        "name": "Łączna liczba trzęsień ziemi"
+      },
+      "strongest_magnitude": {
+        "name": "Najsilniejsze trzęsienie ziemi"
+      },
+      "strongest_location": {
+        "name": "Lokalizacja najsilniejszego trzęsienia ziemi"
+      },
+      "average_magnitude": {
+        "name": "Średnia magnituda"
+      },
+      "latest_earthquake": {
+        "name": "Ostatnie trzęsienie ziemi"
+      },
+      "latest_earthquake_time": {
+        "name": "Czas ostatniego trzęsienia ziemi"
+      },
+      "earthquakes_last_hour": {
+        "name": "Trzęsienia ziemi w ostatniej godzinie"
+      },
+      "significant_earthquakes": {
+        "name": "Znaczące trzęsienia ziemi"
+      },
+      "tsunami_warnings": {
+        "name": "Aktywne ostrzeżenia przed tsunami"
+      },
+      "highest_alert_level": {
+        "name": "Najwyższy poziom alertu"
+      },
+      "red_alert_count": {
+        "name": "Zdarzenia z czerwonym alertem"
+      },
+      "nearest_distance": {
+        "name": "Odległość do najbliższego trzęsienia ziemi"
+      },
+      "nearest_magnitude": {
+        "name": "Magnituda najbliższego trzęsienia ziemi"
+      },
+      "last_update": {
+        "name": "Ostatnia aktualizacja"
+      },
+      "api_status": {
+        "name": "Status API"
+      },
+      "events_fetched": {
+        "name": "Pobrane zdarzenia"
+      },
+      "events_displayed": {
+        "name": "Wyświetlone zdarzenia"
+      }
     },
     "binary_sensor": {
-      "earthquake_alert": { "name": "Alert o trzęsieniu ziemi" },
-      "tsunami_warning": { "name": "Ostrzeżenie przed tsunami aktywne" }
+      "earthquake_alert": {
+        "name": "Alert trzęsienia ziemi"
+      },
+      "tsunami_warning": {
+        "name": "Aktywne ostrzeżenie przed tsunami"
+      }
     },
     "button": {
-      "force_refresh": { "name": "Wymuś odświeżanie" }
+      "force_refresh": {
+        "name": "Wymuś odświeżenie"
+      }
     },
     "image": {
-      "shakemap": { "name": "ShakeMap" }
+      "shakemap": {
+        "name": "Mapa wstrząsów"
+      }
     },
     "calendar": {
-      "earthquakes": { "name": "Trzęsienia ziemi" }
+      "earthquakes": {
+        "name": "Trzęsienia ziemi"
+      }
     },
     "event": {
       "new_earthquake": {
         "name": "Wykryto nowe trzęsienie ziemi",
         "state_attributes": {
           "event_type": {
-            "state": { "earthquake_detected": "Trzęsienie ziemi wykryte" }
+            "state": {
+              "earthquake_detected": "Wykryto trzęsienie ziemi"
+            }
           }
         }
       }

@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Stilltu þetta eftirlitstilvik. Þú getur búið til mörg tilvik til að fylgjast með mismunandi svæðum eða stærðarþröskuldum.",
+        "data": {
+          "name": "Heiti tilviks",
+          "instance_type": "Tegund tilviks",
+          "min_magnitude": "Lágmarksstærð (Richter-kvarði)",
+          "feed_period": "Gagnatímabil",
+          "max_events": "Hámarks atburðir á korti",
+          "units": "Fjarlægðareiningar",
+          "sort_by": "Raða atburðum eftir"
+        },
+        "data_description": {
+          "min_magnitude": "Aðeins jarðskjálftar af þessari stærð eða hærri verða teknir með (0,0–9,9).",
+          "max_events": "Hámarksfjöldi jarðskjálfta sem birtist á kortinu (50–500). Atburðir með M≥6,0 eru alltaf geymdir óháð þessari mörkum.",
+          "sort_by": "Skilgreinir röðina sem jarðskjálftar birtast á kortinu og í skynjurum."
+        }
+      },
+      "area": {
+        "title": "Stillingar sérsniðins svæðis",
+        "description": "Skilgreindu landfræðilega svæðið til að fylgjast með. Allir jarðskjálftar innan tilgreinds radíus frá miðpunkti verða teknir með.",
+        "data": {
+          "latitude": "Breiddargráða miðju",
+          "longitude": "Lengdargráða miðju",
+          "radius_km": "Leitarradíus (km)"
+        },
+        "data_description": {
+          "latitude": "Breiddargráða miðju svæðisins sem fylgst er með (−90 til 90).",
+          "longitude": "Lengdargráða miðju svæðisins sem fylgst er með (−180 til 180).",
+          "radius_km": "Radíus í kílómetrum í kringum miðpunkt (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Síur og viðvörunarskynjari",
+        "description": "Takmarkaðu valfrjálst hvaða jarðskjálftar eru sýndir og stilltu tvöfalda viðvörunarskynjara fyrir jarðskjálfta.",
+        "data": {
+          "min_alert_level": "Lágmarks PAGER viðvörunarstig",
+          "only_tsunami": "Sýna aðeins atburði með flóðbylgjuviðvörun",
+          "max_depth_km": "Hámarks dýpt (km)",
+          "only_reviewed": "Aðeins yfirfarnir atburðir",
+          "alert_min_magnitude": "Viðvörunarskynjari — lágmarksstærð",
+          "alert_time_window": "Viðvörunarskynjari — tímagluggi"
+        },
+        "data_description": {
+          "min_alert_level": "Síaðu jarðskjálfta eftir PAGER viðvörunarstigi USGS. Veldu 'Engin' til að sýna alla atburði óháð viðvörunarstigi.",
+          "max_depth_km": "Hámarks dýpt upptök í km (0–700). Stilltu á 700 til að hafa með jarðskjálfta á hvaða dýpt sem er. Grunnir atburðir (<70 km) eru almennt eyðileggjandi.",
+          "only_reviewed": "Þegar virkjað er, sýnir aðeins jarðskjálfta sem hafa verið yfirfarnir handvirkt af USGS. Nákvæmari en geta birst með seinkun.",
+                    "alert_min_magnitude": "Tvöfaldi viðvörunarskynjarinn fyrir jarðskjálfta KVÆKIR Á þegar jarðskjálfti af þessari stærð eða meiri greinist innan tímagluggans.",
+          "alert_time_window": "Hversu margar klukkustundir aftur á bak á að líða þegar metinn er tvöfaldi viðvörunarskynjarinn fyrir jarðskjálfta (1–72 klukkustundir)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Ógildar hnit. Breiddargráða verður að vera á milli −90 og 90, lengdargráða á milli −180 og 180.",
+      "invalid_radius": "Radíus verður að vera á milli 10 og 20.000 km.",
+      "cannot_connect": "Get ekki tengst USGS API. Vinsamlegast athugaðu nettenginguna þína og reyndu aftur.",
+      "unknown": "Óvænt villa. Skoðaðu Home Assistant skrár fyrir frekari upplýsingar."
+    },
+    "abort": {
+      "already_configured": "Þetta tilvik er þegar stillt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Endurstilla Seismic World Earthquakes",
+        "description": "Uppfærðu grunnstillingar fyrir þetta eftirlitstilvik.",
+        "data": {
+          "name": "Heiti tilviks",
+          "instance_type": "Tegund tilviks",
+          "min_magnitude": "Lágmarksstærð (Richter-kvarði)",
+          "feed_period": "Gagnatímabil",
+          "max_events": "Hámarks atburðir á korti",
+          "units": "Fjarlægðareiningar",
+          "sort_by": "Raða atburðum eftir"
+        },
+        "data_description": {
+          "min_magnitude": "Aðeins jarðskjálftar af þessari stærð eða hærri verða teknir með (0,0–9,9).",
+          "max_events": "Hámarksfjöldi jarðskjálfta sem birtist á kortinu (50–500). Atburðir með M≥6,0 eru alltaf geymdir óháð þessari mörkum.",
+          "sort_by": "Skilgreinir röðina sem jarðskjálftar birtast á kortinu og í skynjurum."
+        }
+      },
+      "area": {
+        "title": "Stillingar sérsniðins svæðis",
+        "description": "Uppfærðu landfræðilega svæðið til að fylgjast með.",
+        "data": {
+          "latitude": "Breiddargráða miðju",
+          "longitude": "Lengdargráða miðju",
+          "radius_km": "Leitarradíus (km)"
+        },
+        "data_description": {
+          "latitude": "Breiddargráða miðju svæðisins sem fylgst er með (−90 til 90).",
+          "longitude": "Lengdargráða miðju svæðisins sem fylgst er með (−180 til 180).",
+          "radius_km": "Radíus í kílómetrum í kringum miðpunkt (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Síur og viðvörunarskynjari",
+        "description": "Uppfærðu valfrjálsar síur og stillingar tvöfalda viðvörunarskynjarans fyrir jarðskjálfta.",
+        "data": {
+          "min_alert_level": "Lágmarks PAGER viðvörunarstig",
+          "only_tsunami": "Sýna aðeins atburði með flóðbylgjuviðvörun",
+          "max_depth_km": "Hámarks dýpt (km)",
+          "only_reviewed": "Aðeins yfirfarnir atburðir",
+          "alert_min_magnitude": "Viðvörunarskynjari — lágmarksstærð",
+          "alert_time_window": "Viðvörunarskynjari — tímagluggi"
+        },
+        "data_description": {
+          "min_alert_level": "Síaðu jarðskjálfta eftir PAGER viðvörunarstigi USGS. Veldu 'Engin' til að sýna alla atburði óháð viðvörunarstigi.",
+          "max_depth_km": "Hámarks dýpt upptök í km (0–700). Stilltu á 700 til að hafa með jarðskjálfta á hvaða dýpt sem er. Grunnir atburðir (<70 km) eru almennt eyðileggjandi.",
+          "only_reviewed": "Þegar virkjað er, sýnir aðeins jarðskjálfta sem hafa verið yfirfarnir handvirkt af USGS. Nákvæmari en geta birst með seinkun.",
+          "alert_min_magnitude": "Tvöfaldi viðvörunarskynjarinn fyrir jarðskjálfta KVÆKIR Á þegar jarðskjálfti af þessari stærð eða meiri greinist innan tímagluggans.",
+          "alert_time_window": "Hversu margar klukkustundir aftur á bak á að líða þegar metinn er tvöfaldi viðvörunarskynjarinn fyrir jarðskjálfta (1–72 klukkustundir)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Ógildar hnit. Breiddargráða verður að vera á milli −90 og 90, lengdargráða á milli −180 og 180.",
+      "invalid_radius": "Radíus verður að vera á milli 10 og 20.000 km.",
+      "unknown": "Óvænt villa. Skoðaðu Home Assistant skrár fyrir frekari upplýsingar."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Alþjóðlegt (heimsvíða)",
+        "custom_area": "Sérsniðið svæði (radíus)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Síðasta klukkustund",
+        "day": "Síðustu 24 klukkustundir",
+        "week": "Síðustu 7 dagar",
+        "month": "Síðustu 30 dagar"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kílómetrar (km)",
+        "mi": "Mílur (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Stærð (öflugustu fyrst)",
+        "time": "Tími (nýjustu fyrst)",
+        "distance": "Fjarlægð (næstir fyrst)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Engin (sýna allt)",
+        "green": "Grænt",
+        "yellow": "Gult",
+        "orange": "Appelsínugult",
+        "red": "Rautt (alvarlegast)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Jarðskjálftar samtals"
+      },
+      "strongest_magnitude": {
+        "name": "Öflugasti jarðskjálftinn"
+      },
+      "strongest_location": {
+        "name": "Staðsetning öflugasta jarðskjálftans"
+      },
+      "average_magnitude": {
+        "name": "Meðalstærð"
+      },
+      "latest_earthquake": {
+        "name": "Nýjasti jarðskjálftinn"
+      },
+      "latest_earthquake_time": {
+        "name": "Tími nýjasta jarðskjálftans"
+      },
+      "earthquakes_last_hour": {
+        "name": "Jarðskjálftar síðustu klukkustund"
+      },
+      "significant_earthquakes": {
+        "name": "Töluverðir jarðskjálftar"
+      },
+      "tsunami_warnings": {
+        "name": "Virkar flóðbylgjuviðvaranir"
+      },
+      "highest_alert_level": {
+        "name": "Hæsta viðvörunarstig"
+      },
+      "red_alert_count": {
+        "name": "Atburðir með rauða viðvörun"
+      },
+      "nearest_distance": {
+        "name": "Fjarlægð næsta jarðskjálfta"
+      },
+      "nearest_magnitude": {
+        "name": "Stærð næsta jarðskjálftans"
+      },
+      "last_update": {
+        "name": "Síðasta uppfærsla"
+      },
+      "api_status": {
+        "name": "API staða"
+      },
+      "events_fetched": {
+        "name": "Sóttir atburðir"
+      },
+      "events_displayed": {
+        "name": "Sýndir atburðir"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Jarðskjálftaviðvörun"
+      },
+      "tsunami_warning": {
+        "name": "Flóðbylgjuviðvörun virk"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Þvinga endurnýjun"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Skjálftakort"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Jarðskjálftar"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Nýr jarðskjálfti greindist",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Jarðskjálfti greindist"
+            }
+          }
+        }
+      }
+    }
+  }
+}

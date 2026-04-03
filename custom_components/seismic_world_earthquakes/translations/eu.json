@@ -2,131 +2,131 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seismic World Lurrikarak",
-        "description": "Konfiguratu monitorizazio instantzia hau. Hainbat instantzia sor ditzakezu eremu edo magnitude muga desberdinak monitorizatzeko.",
+        "title": "Seismic World Earthquakes",
+        "description": "Konfiguratu monitorizazio instantzia hau. Instantzia anitz sor ditzakezu eremu edo magnitude atalase desberdinak monitorizatzeko.",
         "data": {
           "name": "Instantziaren izena",
           "instance_type": "Instantzia mota",
           "min_magnitude": "Gutxieneko magnitudea (Richter eskala)",
-          "feed_period": "Datuen aldia",
+          "feed_period": "Datu epea",
           "max_events": "Gehienezko gertaerak mapan",
           "units": "Distantzia unitateak",
-          "sort_by": "Ordenatu gertaerak honen arabera"
+          "sort_by": "Gertaerak honela ordenatu"
         },
         "data_description": {
-          "min_magnitude": "Magnitude hau edo handiagoa duten lurrikarak bakarrik sartuko dira (0.0–9.9).",
-          "max_events": "Mapan bistaratutako gehienezko lurrikara kopurua (50–500). M≥6.0 duten gertaerak beti mantentzen dira muga hori gabe.",
+          "min_magnitude": "Magnitude honen berdina edo handiagoa duten lurrikarak bakarrik sartuko dira (0.0–9.9).",
+          "max_events": "Mapan erakutsiko diren lurrikara kopuru maximoa (50–500). M≥6.0 duten gertaerak beti gordetzen dira muga honetatik at.",
           "sort_by": "Lurrikarak mapan eta sentsoreetan agertzeko ordena definitzen du."
         }
       },
       "area": {
-        "title": "Eremu pertsonalizatuaren konfigurazioa",
-        "description": "Zehaztu monitorizatu beharreko eremu geografikoa. Erdigunetik zehaztutako erradioaren barruan dauden lurrikara guztiak sartuko dira.",
+        "title": "Eremu Pertsonalizatuaren Konfigurazioa",
+        "description": "Monitorizatzeko eremu geografikoa definitu. Erdiko puntutik zehaztutako erradioaren barruko lurrikara guztiak sartuko dira.",
         "data": {
           "latitude": "Erdiguneko latitudea",
           "longitude": "Erdiguneko longitudea",
-          "radius_km": "Bilaketa-erradioa (km)"
+          "radius_km": "Bilaketa erradioa (km)"
         },
         "data_description": {
-          "latitude": "Monitorizatutako eremuaren erdiguneko latitudea (−90etik 90era).",
-          "longitude": "Monitorizatutako eremuaren erdiguneko longitudea (−180tik 180ra).",
-          "radius_km": "Erdigunearen inguruko erradioa kilometrotan (10–20.000 km)."
+          "latitude": "Monitorizatutako eremuaren erdiguneko latitudea (−90 eta 90 artean).",
+          "longitude": "Monitorizatutako eremuaren erdiguneko longitudea (−180 eta 180 artean).",
+          "radius_km": "Erdiko puntuaren inguruko erradioa kilometrotan (10–20.000 km)."
         }
       },
       "filters": {
         "title": "Iragazkiak eta Alerta Sentsorea",
-        "description": "Aukeran, mugatu zein lurrikara erakutsiko diren eta konfiguratu lurrikara-alertaren sentsore bitarra.",
+        "description": "Aukeran, mugatu zein lurrikara erakutsiko diren, eta konfiguratu lurrikara alertaren sentsore bitarra.",
         "data": {
           "min_alert_level": "Gutxieneko PAGER alerta maila",
-          "only_tsunami": "Erakutsi tsunami abisua duten gertaerak bakarrik",
-          "max_depth_km": "Gehienezko sakonera (km)",
-          "only_reviewed": "Berrikusitako gertaerak bakarrik",
+          "only_tsunami": "Tsunami alerta duten gertaerak bakarrik erakutsi",
+          "max_depth_km": "Sakonera maximoa (km)",
+          "only_reviewed": "Berrikusitako gertaerak soilik",
           "alert_min_magnitude": "Alerta sentsorea — gutxieneko magnitudea",
-          "alert_time_window": "Alerta sentsorea — denbora-leihoa"
+          "alert_time_window": "Alerta sentsorea — denbora leihoa"
         },
         "data_description": {
-          "min_alert_level": "Iragazi lurrikarak USGS PAGER alerta-mailaren arabera. Hautatu 'Bat ere ez' gertaera guztiak ikusteko.",
-          "max_depth_km": "Gehienezko sakonera fokala km-tan (0–700). Ezarri 700 edozein sakoneratako lurrikarak sartzeko. Gertaera azalekoak (< 70 km) suntsitzaileagoak izan ohi dira.",
-          "only_reviewed": "Gaituta dagoenean, USGS-k eskuz berrikusi dituen lurrikarak bakarrik erakusten ditu. Zehatzagoa da, baina atzerapenarekin ager daiteke.",
-          "alert_min_magnitude": "Lurrikara-alertaren sentsore bitarra PIZTU egiten da magnitude honetako edo handiagoko lurrikara bat hautematen denean.",
-          "alert_time_window": "Zenbat ordu atzera begiratu behar den alerta sentsorea ebaluatzeko (1–72 ordu)."
+          "min_alert_level": "Iragazi lurrikarak USGS PAGER alerta mailaren arabera. Hautatu 'Bat ere ez' alerta maila edozein dela ere gertaera guztiak erakusteko.",
+          "max_depth_km": "Sakonera fokala maximoa km-tan (0–700). Ezarri 700 edozein sakonerako lurrikarak sartzeko. Azaleko gertaerak (<70 km) oro har suntsitzaileagoak izaten dira.",
+          "only_reviewed": "Gaituz gero, USGSk eskuz berrikusitako lurrikarak soilik erakusten ditu. Zehatzagoak, baina atzerapenarekin ager daitezke.",
+          "alert_min_magnitude": "Lurrikara alertaren sentsore bitarra PIZTEN da magnitude honetako edo handiagoko lurrikara bat atzematen denean denbora leihoaren barruan.",
+          "alert_time_window": "Zenbat ordu atzera begiratu behar den lurrikara alertaren sentsore bitarra ebaluatzean (1–72 ordu)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Koordenatu baliogabeak. Latitudeak −90 eta 90 artekoa izan behar du, longitudeak −180 eta 180 artekoa.",
-      "invalid_radius": "Erradioak 10 eta 20.000 km artekoa izan behar du.",
-      "cannot_connect": "Ezin izan da konektatu USGS APIarekin. Egiaztatu Interneteko konexioa eta saiatu berriro.",
-      "unknown": "Ustekabeko errorea. Begiratu Home Assistant-en log-ak xehetasun gehiago lortzeko."
+      "invalid_coordinates": "Koordenatu baliogabeak. Latitudea −90 eta 90 artean egon behar da, longitudea −180 eta 180 artean.",
+      "invalid_radius": "Erradioa 10 eta 20.000 km artean egon behar da.",
+      "cannot_connect": "Ezin da USGS APIra konektatu. Mesedez, egiaztatu internet konexioa eta saiatu berriro.",
+      "unknown": "Ustekabeko errorea. Mesedez, egiaztatu Home Assistant-en erregistroak xehetasun gehiago lortzeko."
     },
     "abort": {
-      "already_configured": "Instantzia hau dagoeneko konfiguratuta dago."
+      "already_configured": "Instantzia hau jada konfiguratuta dago."
     }
   },
   "options": {
     "step": {
       "init": {
-        "title": "Seismic World Lurrikarak birkonfiguratu",
+        "title": "Seismic World Earthquakes berriro konfiguratu",
         "description": "Eguneratu monitorizazio instantzia honen oinarrizko ezarpenak.",
         "data": {
           "name": "Instantziaren izena",
           "instance_type": "Instantzia mota",
           "min_magnitude": "Gutxieneko magnitudea (Richter eskala)",
-          "feed_period": "Datuen aldia",
+          "feed_period": "Datu epea",
           "max_events": "Gehienezko gertaerak mapan",
           "units": "Distantzia unitateak",
-          "sort_by": "Ordenatu gertaerak honen arabera"
+          "sort_by": "Gertaerak honela ordenatu"
         },
         "data_description": {
-          "min_magnitude": "Magnitude hau edo handiagoa duten lurrikarak bakarrik sartuko dira (0.0–9.9).",
-          "max_events": "Mapan bistaratutako gehienezko lurrikara kopurua (50–500). M≥6.0 duten gertaerak beti mantentzen dira muga hori gabe.",
+          "min_magnitude": "Magnitude honen berdina edo handiagoa duten lurrikarak bakarrik sartuko dira (0.0–9.9).",
+          "max_events": "Mapan erakutsiko diren lurrikara kopuru maximoa (50–500). M≥6.0 duten gertaerak beti gordetzen dira muga honetatik at.",
           "sort_by": "Lurrikarak mapan eta sentsoreetan agertzeko ordena definitzen du."
         }
       },
       "area": {
-        "title": "Eremu pertsonalizatuaren konfigurazioa",
-        "description": "Eguneratu monitorizatu beharreko eremu geografikoa.",
+        "title": "Eremu Pertsonalizatuaren Konfigurazioa",
+        "description": "Eguneratu monitorizatzeko eremu geografikoa.",
         "data": {
           "latitude": "Erdiguneko latitudea",
           "longitude": "Erdiguneko longitudea",
-          "radius_km": "Bilaketa-erradioa (km)"
+          "radius_km": "Bilaketa erradioa (km)"
         },
         "data_description": {
-          "latitude": "Monitorizatutako eremuaren erdiguneko latitudea (−90etik 90era).",
-          "longitude": "Monitorizatutako eremuaren erdiguneko longitudea (−180tik 180ra).",
-          "radius_km": "Erdigunearen inguruko erradioa kilometrotan (10–20.000 km)."
+          "latitude": "Monitorizatutako eremuaren erdiguneko latitudea (−90 eta 90 artean).",
+          "longitude": "Monitorizatutako eremuaren erdiguneko longitudea (−180 eta 180 artean).",
+          "radius_km": "Erdiko puntuaren inguruko erradioa kilometrotan (10–20.000 km)."
         }
       },
       "filters": {
         "title": "Iragazkiak eta Alerta Sentsorea",
-        "description": "Eguneratu aukerako iragazkiak eta lurrikara-alertaren sentsore bitarraren konfigurazioa.",
+        "description": "Eguneratu aukerako iragazkiak eta lurrikara alertaren sentsore bitarraren konfigurazioa.",
         "data": {
           "min_alert_level": "Gutxieneko PAGER alerta maila",
-          "only_tsunami": "Erakutsi tsunami abisua duten gertaerak bakarrik",
-          "max_depth_km": "Gehienezko sakonera (km)",
-          "only_reviewed": "Berrikusitako gertaerak bakarrik",
+          "only_tsunami": "Tsunami alerta duten gertaerak bakarrik erakutsi",
+          "max_depth_km": "Sakonera maximoa (km)",
+          "only_reviewed": "Berrikusitako gertaerak soilik",
           "alert_min_magnitude": "Alerta sentsorea — gutxieneko magnitudea",
-          "alert_time_window": "Alerta sentsorea — denbora-leihoa"
+          "alert_time_window": "Alerta sentsorea — denbora leihoa"
         },
         "data_description": {
-          "min_alert_level": "Iragazi lurrikarak USGS PAGER alerta-mailaren arabera. Hautatu 'Bat ere ez' gertaera guztiak ikusteko.",
-          "max_depth_km": "Gehienezko sakonera fokala km-tan (0–700). Ezarri 700 edozein sakoneratako lurrikarak sartzeko. Gertaera azalekoak (< 70 km) suntsitzaileagoak izan ohi dira.",
-          "only_reviewed": "Gaituta dagoenean, USGS-k eskuz berrikusi dituen lurrikarak bakarrik erakusten ditu. Zehatzagoa da, baina atzerapenarekin ager daiteke.",
-          "alert_min_magnitude": "Lurrikara-alertaren sentsore bitarra PIZTU egiten da magnitude honetako edo handiagoko lurrikara bat hautematen denean.",
-          "alert_time_window": "Zenbat ordu atzera begiratu behar den alerta sentsorea ebaluatzeko (1–72 ordu)."
+          "min_alert_level": "Iragazi lurrikarak USGS PAGER alerta mailaren arabera. Hautatu 'Bat ere ez' alerta maila edozein dela ere gertaera guztiak erakusteko.",
+          "max_depth_km": "Sakonera fokala maximoa km-tan (0–700). Ezarri 700 edozein sakonerako lurrikarak sartzeko. Azaleko gertaerak (<70 km) oro har suntsitzaileagoak izaten dira.",
+          "only_reviewed": "Gaituz gero, USGSk eskuz berrikusitako lurrikarak soilik erakusten ditu. Zehatzagoak, baina atzerapenarekin ager daitezke.",
+          "alert_min_magnitude": "Lurrikara alertaren sentsore bitarra PIZTEN da magnitude honetako edo handiagoko lurrikara bat atzematen denean denbora leihoaren barruan.",
+          "alert_time_window": "Zenbat ordu atzera begiratu behar den lurrikara alertaren sentsore bitarra ebaluatzean (1–72 ordu)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Koordenatu baliogabeak. Latitudeak −90 eta 90 artekoa izan behar du, longitudeak −180 eta 180 artekoa.",
-      "invalid_radius": "Erradioak 10 eta 20.000 km artekoa izan behar du.",
-      "unknown": "Ustekabeko errorea. Begiratu Home Assistant-en log-ak xehetasun gehiago lortzeko."
+      "invalid_coordinates": "Koordenatu baliogabeak. Latitudea −90 eta 90 artean egon behar da, longitudea −180 eta 180 artean.",
+      "invalid_radius": "Erradioa 10 eta 20.000 km artean egon behar da.",
+      "unknown": "Ustekabeko errorea. Mesedez, egiaztatu Home Assistant-en erregistroak xehetasun gehiago lortzeko."
     }
   },
   "selector": {
     "instance_type": {
       "options": {
-        "global": "Globala (mundu osoan)",
+        "global": "Globala (mundu mailakoa)",
         "custom_area": "Eremu pertsonalizatua (erradioa)"
       }
     },
@@ -141,19 +141,19 @@
     "units": {
       "options": {
         "km": "Kilometroak (km)",
-        "mi": "Miliak (mi)"
+        "mi": "Milak (mi)"
       }
     },
     "sort_by": {
       "options": {
-        "magnitude": "Magnitudea (indartsuena lehenago)",
-        "time": "Denbora (berriena lehenago)",
-        "distance": "Distantzia (hurbilena lehenago)"
+        "magnitude": "Magnitudea (indartsuenak lehenengo)",
+        "time": "Denbora (berrienak lehenengo)",
+        "distance": "Distantzia (gertuenak lehenengo)"
       }
     },
     "alert_level": {
       "options": {
-        "none": "Bat ere ez (erakutsi guztiak)",
+        "none": "Bat ere ez (denak erakutsi)",
         "green": "Berdea",
         "yellow": "Horia",
         "orange": "Laranja",
@@ -164,13 +164,13 @@
   "entity": {
     "sensor": {
       "total_earthquakes": {
-        "name": "Lurrikarak guztira"
+        "name": "Lurrikara guztira"
       },
       "strongest_magnitude": {
-        "name": "Lurrikara indartsuena"
+        "name": "Lurrikararik indartsuena"
       },
       "strongest_location": {
-        "name": "Lurrikara indartsuenaren kokapena"
+        "name": "Lurrikararik indartsuaren kokapena"
       },
       "average_magnitude": {
         "name": "Batez besteko magnitudea"
@@ -179,16 +179,16 @@
         "name": "Azken lurrikara"
       },
       "latest_earthquake_time": {
-        "name": "Azken lurrikararen denbora"
+        "name": "Azken lurrikararen ordua"
       },
       "earthquakes_last_hour": {
-        "name": "Lurrikarak azken orduan"
+        "name": "Azken orduko lurrikarak"
       },
       "significant_earthquakes": {
-        "name": "Lurrikara esanguratsuak"
+        "name": "Lurrikara nabarmenak"
       },
       "tsunami_warnings": {
-        "name": "Tsunami abisu aktiboak"
+        "name": "Tsunami alerta aktiboak"
       },
       "highest_alert_level": {
         "name": "Alerta maila altuena"
@@ -197,22 +197,22 @@
         "name": "Alerta gorriko gertaerak"
       },
       "nearest_distance": {
-        "name": "Hurbilen dagoen lurrikararen distantzia"
+        "name": "Gertueneko lurrikararen distantzia"
       },
       "nearest_magnitude": {
-        "name": "Hurbilen dagoen lurrikararen magnitudea"
+        "name": "Gertueneko lurrikararen magnitudea"
       },
       "last_update": {
-        "name": "Azken eguneratzea"
+        "name": "Azken eguneraketa"
       },
       "api_status": {
         "name": "API egoera"
       },
       "events_fetched": {
-        "name": "Jasotako gertaerak"
+        "name": "Eskuratutako gertaerak"
       },
       "events_displayed": {
-        "name": "Bistaratutako gertaerak"
+        "name": "Erakutsitako gertaerak"
       }
     },
     "binary_sensor": {
@@ -220,17 +220,17 @@
         "name": "Lurrikara alerta"
       },
       "tsunami_warning": {
-        "name": "Tsunami abisua aktibo"
+        "name": "Tsunami alerta aktiboa"
       }
     },
     "button": {
       "force_refresh": {
-        "name": "Berritu indarrez"
+        "name": "Behartu freskatzea"
       }
     },
     "image": {
       "shakemap": {
-        "name": "ShakeMap"
+        "name": "Astintze Mapa"
       }
     },
     "calendar": {
@@ -240,11 +240,11 @@
     },
     "event": {
       "new_earthquake": {
-        "name": "Lurrikara berria hauteman da",
+        "name": "Lurrikara berria atzeman da",
         "state_attributes": {
           "event_type": {
             "state": {
-              "earthquake_detected": "Lurrikara hauteman da"
+              "earthquake_detected": "Lurrikara atzeman da"
             }
           }
         }

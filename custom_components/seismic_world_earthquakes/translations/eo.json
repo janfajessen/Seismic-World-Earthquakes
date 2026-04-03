@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Agordu ĉi tiun monitoran ekzempleron. Vi povas krei plurajn ekzemplerojn por monitori malsamajn areojn aŭ grando-sojlojn.",
+        "data": {
+          "name": "Nomo de ekzemplero",
+          "instance_type": "Tipo de ekzemplero",
+          "min_magnitude": "Minimuma grando (Richter-skalo)",
+          "feed_period": "Datumperiodo",
+          "max_events": "Maksimumaj eventoj sur mapo",
+          "units": "Distanco-unuoj",
+          "sort_by": "Ordigi eventojn laŭ"
+        },
+        "data_description": {
+          "min_magnitude": "Nur tertremoj kun grando egala aŭ pli alta ol tiu ĉi estos inkluzivitaj (0.0–9.9).",
+          "max_events": "Maksimuma nombro da tertremoj montrataj sur la mapo (50–500). Eventoj kun M≥6.0 estas ĉiam konservataj sendepende de ĉi tiu limo.",
+          "sort_by": "Difinas la ordon laŭ kiu tertremoj aperas sur la mapo kaj en sensiloj."
+        }
+      },
+      "area": {
+        "title": "Agordo de Propra Areo",
+        "description": "Difinu la geografian areon por monitori. Ĉiuj tertremoj ene de la specifita radiuso de la centra punkto estos inkluzivitaj.",
+        "data": {
+          "latitude": "Latitudo de centro",
+          "longitude": "Longitudo de centro",
+          "radius_km": "Serĉradiuso (km)"
+        },
+        "data_description": {
+          "latitude": "Latitudo de la centro de la monitorata areo (−90 ĝis 90).",
+          "longitude": "Longitudo de la centro de la monitorata areo (−180 ĝis 180).",
+          "radius_km": "Radiuso en kilometroj ĉirkaŭ la centra punkto (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtriloj & Alarma Sensilo",
+        "description": "Laŭvole limigu kiuj tertremoj estas montrataj, kaj agordu la duuman sensilon por tertrema alarmo.",
+        "data": {
+          "min_alert_level": "Minimuma PAGER-alarma nivelo",
+          "only_tsunami": "Montri nur eventojn kun cunama averto",
+          "max_depth_km": "Maksimuma profundo (km)",
+          "only_reviewed": "Nur reviziitaj eventoj",
+          "alert_min_magnitude": "Alarma sensilo — minimuma grando",
+          "alert_time_window": "Alarma sensilo — tempofenestro"
+        },
+        "data_description": {
+          "min_alert_level": "Filtru tertremojn laŭ USGS PAGER-alarma nivelo. Elektu 'Neniu' por montri ĉiujn eventojn sendepende de la alarma nivelo.",
+          "max_depth_km": "Maksimuma fokusa profundo en km (0–700). Agordu al 700 por inkluzivi tertremojn je ajna profundo. Malprofundaj eventoj (<70 km) estas ĝenerale pli detruaj.",
+          "only_reviewed": "Kiam ebligita, montras nur tertremojn kiuj estis mane reviziitaj de USGS. Pli precizaj sed povas aperi kun prokrasto.",
+          "alert_min_magnitude": "La duuma sensilo por tertrema alarmo ŜALTIĜAS kiam tertremo de ĉi tiu grando aŭ pli granda estas detektita ene de la tempofenestro.",
+          "alert_time_window": "Kiom da horoj malantaŭen rigardi dum taksado de la duuma sensilo por tertrema alarmo (1–72 horoj)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Nevalidaj koordinatoj. Latitudo devas esti inter −90 kaj 90, longitudo inter −180 kaj 180.",
+      "invalid_radius": "Radiuso devas esti inter 10 kaj 20,000 km.",
+      "cannot_connect": "Ne eblas konekti al la USGS API. Bonvolu kontroli vian interretan konekton kaj provi denove.",
+      "unknown": "Neatendita eraro. Bonvolu kontroli la protokolojn de Home Assistant por pliaj detaloj."
+    },
+    "abort": {
+      "already_configured": "Ĉi tiu ekzemplero jam estas agordita."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Reagordi Seismic World Earthquakes",
+        "description": "Ĝisdatigu la bazajn agordojn por ĉi tiu monitora ekzemplero.",
+        "data": {
+          "name": "Nomo de ekzemplero",
+          "instance_type": "Tipo de ekzemplero",
+          "min_magnitude": "Minimuma grando (Richter-skalo)",
+          "feed_period": "Datumperiodo",
+          "max_events": "Maksimumaj eventoj sur mapo",
+          "units": "Distanco-unuoj",
+          "sort_by": "Ordigi eventojn laŭ"
+        },
+        "data_description": {
+          "min_magnitude": "Nur tertremoj kun grando egala aŭ pli alta ol tiu ĉi estos inkluzivitaj (0.0–9.9).",
+          "max_events": "Maksimuma nombro da tertremoj montrataj sur la mapo (50–500). Eventoj kun M≥6.0 estas ĉiam konservataj sendepende de ĉi tiu limo.",
+          "sort_by": "Difinas la ordon laŭ kiu tertremoj aperas sur la mapo kaj en sensiloj."
+        }
+      },
+      "area": {
+        "title": "Agordo de Propra Areo",
+        "description": "Ĝisdatigu la geografian areon por monitori.",
+        "data": {
+          "latitude": "Latitudo de centro",
+          "longitude": "Longitudo de centro",
+          "radius_km": "Serĉradiuso (km)"
+        },
+        "data_description": {
+          "latitude": "Latitudo de la centro de la monitorata areo (−90 ĝis 90).",
+          "longitude": "Longitudo de la centro de la monitorata areo (−180 ĝis 180).",
+          "radius_km": "Radiuso en kilometroj ĉirkaŭ la centra punkto (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtriloj & Alarma Sensilo",
+        "description": "Ĝisdatigu laŭvolajn filtrilojn kaj la agordon de la duuma sensilo por tertrema alarmo.",
+        "data": {
+          "min_alert_level": "Minimuma PAGER-alarma nivelo",
+          "only_tsunami": "Montri nur eventojn kun cunama averto",
+          "max_depth_km": "Maksimuma profundo (km)",
+          "only_reviewed": "Nur reviziitaj eventoj",
+          "alert_min_magnitude": "Alarma sensilo — minimuma grando",
+          "alert_time_window": "Alarma sensilo — tempofenestro"
+        },
+        "data_description": {
+          "min_alert_level": "Filtru tertremojn laŭ USGS PAGER-alarma nivelo. Elektu 'Neniu' por montri ĉiujn eventojn sendepende de la alarma nivelo.",
+          "max_depth_km": "Maksimuma fokusa profundo en km (0–700). Agordu al 700 por inkluzivi tertremojn je ajna profundo. Malprofundaj eventoj (<70 km) estas ĝenerale pli detruaj.",
+          "only_reviewed": "Kiam ebligita, montras nur tertremojn kiuj estis mane reviziitaj de USGS. Pli precizaj sed povas aperi kun prokrasto.",
+          "alert_min_magnitude": "La duuma sensilo por tertrema alarmo ŜALTIĜAS kiam tertremo de ĉi tiu grando aŭ pli granda estas detektita ene de la tempofenestro.",
+          "alert_time_window": "Kiom da horoj malantaŭen rigardi dum taksado de la duuma sensilo por tertrema alarmo (1–72 horoj)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Nevalidaj koordinatoj. Latitudo devas esti inter −90 kaj 90, longitudo inter −180 kaj 180.",
+      "invalid_radius": "Radiuso devas esti inter 10 kaj 20,000 km.",
+      "unknown": "Neatendita eraro. Bonvolu kontroli la protokolojn de Home Assistant por pliaj detaloj."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Tutmonda (tutmonde)",
+        "custom_area": "Propra areo (radiuso)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Lasta horo",
+        "day": "Lastaj 24 horoj",
+        "week": "Lastaj 7 tagoj",
+        "month": "Lastaj 30 tagoj"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometroj (km)",
+        "mi": "Mejloj (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Grando (plej fortaj unue)",
+        "time": "Tempo (plej novaj unue)",
+        "distance": "Distanco (plej proksimaj unue)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Neniu (montri ĉiujn)",
+        "green": "Verda",
+        "yellow": "Flava",
+        "orange": "Oranĝa",
+        "red": "Ruĝa (plej severa)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Sumo da tertremoj"
+      },
+      "strongest_magnitude": {
+        "name": "Plej forta tertremo"
+      },
+      "strongest_location": {
+        "name": "Loko de la plej forta tertremo"
+      },
+      "average_magnitude": {
+        "name": "Averaĝa grando"
+      },
+      "latest_earthquake": {
+        "name": "Plej lasta tertremo"
+      },
+      "latest_earthquake_time": {
+        "name": "Tempo de la plej lasta tertremo"
+      },
+      "earthquakes_last_hour": {
+        "name": "Tertremoj dum la lasta horo"
+      },
+      "significant_earthquakes": {
+        "name": "Gravaj tertremoj"
+      },
+      "tsunami_warnings": {
+        "name": "Aktivaj cunamaj avertoj"
+      },
+      "highest_alert_level": {
+        "name": "Plej alta alarma nivelo"
+      },
+      "red_alert_count": {
+        "name": "Eventoj kun ruĝa alarmo"
+      },
+      "nearest_distance": {
+        "name": "Distanco de la plej proksima tertremo"
+      },
+      "nearest_magnitude": {
+        "name": "Grando de la plej proksima tertremo"
+      },
+      "last_update": {
+        "name": "Plej lasta ĝisdatigo"
+      },
+      "api_status": {
+        "name": "Stato de API"
+      },
+      "events_fetched": {
+        "name": "Alportitaj eventoj"
+      },
+      "events_displayed": {
+        "name": "Montrataj eventoj"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Tertrema alarmo"
+      },
+      "tsunami_warning": {
+        "name": "Cunama averto aktiva"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Devigi refreŝigon"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Skua Mapo"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Tertremoj"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Nova tertremo detektita",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Tertremo detektita"
+            }
+          }
+        }
+      }
+    }
+  }
+}

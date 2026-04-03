@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfigurējiet šo uzraudzības instanci. Varat izveidot vairākas instances, lai uzraudzītu dažādus apgabalus vai stipruma sliekšņus.",
+        "data": {
+          "name": "Instances nosaukums",
+          "instance_type": "Instances veids",
+          "min_magnitude": "Minimālais stiprums (Rihtera skala)",
+          "feed_period": "Datu periods",
+          "max_events": "Maksimālais notikumu skaits kartē",
+          "units": "Attāluma vienības",
+          "sort_by": "Kārtot notikumus pēc"
+        },
+        "data_description": {
+          "min_magnitude": "Tiks iekļautas tikai zemestrīces ar šo vai lielāku stiprumu (0.0–9.9).",
+          "max_events": "Maksimālais kartē parādāmo zemestrīču skaits (50–500). Notikumi ar M≥6.0 vienmēr tiek saglabāti neatkarīgi no šī ierobežojuma.",
+          "sort_by": "Nosaka secību, kādā zemestrīces parādās kartē un sensoros."
+        }
+      },
+      "area": {
+        "title": "Pielāgota apgabala konfigurācija",
+        "description": "Definējiet ģeogrāfisko apgabalu uzraudzībai. Tiks iekļautas visas zemestrīces norādītajā rādiusā no centra punkta.",
+        "data": {
+          "latitude": "Centra platums",
+          "longitude": "Centra garums",
+          "radius_km": "Meklēšanas rādiuss (km)"
+        },
+        "data_description": {
+          "latitude": "Uzraudzītā apgabala centra platums (−90 līdz 90).",
+          "longitude": "Uzraudzītā apgabala centra garums (−180 līdz 180).",
+          "radius_km": "Rādiuss kilometros ap centra punktu (10–20 000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtri un brīdinājuma sensors",
+        "description": "Neobligāti ierobežojiet, kuras zemestrīces tiek rādītas, un konfigurējiet zemestrīces brīdinājuma bināro sensoru.",
+        "data": {
+          "min_alert_level": "Minimālais PAGER brīdinājuma līmenis",
+          "only_tsunami": "Rādīt tikai notikumus ar cunami brīdinājumu",
+          "max_depth_km": "Maksimālais dziļums (km)",
+          "only_reviewed": "Tikai pārskatīti notikumi",
+          "alert_min_magnitude": "Brīdinājuma sensors — minimālais stiprums",
+          "alert_time_window": "Brīdinājuma sensors — laika logs"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrējiet zemestrīces pēc USGS PAGER brīdinājuma līmeņa. Atlasiet 'Nav', lai parādītu visus notikumus neatkarīgi no brīdinājuma līmeņa.",
+          "max_depth_km": "Maksimālais fokusa dziļums km (0–700). Iestatiet uz 700, lai iekļautu zemestrīces jebkurā dziļumā. Sekli notikumi (<70 km) parasti ir postošāki.",
+          "only_reviewed": "Kad iespējots, rāda tikai zemestrīces, kuras USGS ir manuāli pārskatījis. Precīzākas, bet var parādīties ar aizkavi.",
+          "alert_min_magnitude": "Zemestrīces brīdinājuma binārais sensors IESLĒDZAS, kad laika logā tiek atklāta zemestrīce ar šo vai lielāku stiprumu.",
+          "alert_time_window": "Cik stundas atpakaļ skatīties, novērtējot zemestrīces brīdinājuma bināro sensoru (1–72 stundas)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Nederīgas koordinātas. Platumam jābūt no −90 līdz 90, garumam no −180 līdz 180.",
+      "invalid_radius": "Rādiusam jābūt no 10 līdz 20 000 km.",
+      "cannot_connect": "Nevar izveidot savienojumu ar USGS API. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.",
+      "unknown": "Negaidīta kļūda. Lūdzu, skatiet Home Assistant žurnālus, lai iegūtu sīkāku informāciju."
+    },
+    "abort": {
+      "already_configured": "Šī instance jau ir konfigurēta."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Pārkonfigurēt Seismic World Earthquakes",
+        "description": "Atjauniniet šīs uzraudzības instances pamata iestatījumus.",
+        "data": {
+          "name": "Instances nosaukums",
+          "instance_type": "Instances veids",
+          "min_magnitude": "Minimālais stiprums (Rihtera skala)",
+          "feed_period": "Datu periods",
+          "max_events": "Maksimālais notikumu skaits kartē",
+          "units": "Attāluma vienības",
+          "sort_by": "Kārtot notikumus pēc"
+        },
+        "data_description": {
+          "min_magnitude": "Tiks iekļautas tikai zemestrīces ar šo vai lielāku stiprumu (0.0–9.9).",
+          "max_events": "Maksimālais kartē parādāmo zemestrīču skaits (50–500). Notikumi ar M≥6.0 vienmēr tiek saglabāti neatkarīgi no šī ierobežojuma.",
+          "sort_by": "Nosaka secību, kādā zemestrīces parādās kartē un sensoros."
+        }
+      },
+      "area": {
+        "title": "Pielāgota apgabala konfigurācija",
+        "description": "Atjauniniet ģeogrāfisko apgabalu uzraudzībai.",
+        "data": {
+          "latitude": "Centra platums",
+          "longitude": "Centra garums",
+          "radius_km": "Meklēšanas rādiuss (km)"
+        },
+        "data_description": {
+          "latitude": "Uzraudzītā apgabala centra platums (−90 līdz 90).",
+          "longitude": "Uzraudzītā apgabala centra garums (−180 līdz 180).",
+          "radius_km": "Rādiuss kilometros ap centra punktu (10–20 000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtri un brīdinājuma sensors",
+        "description": "Atjauniniet neobligātos filtrus un zemestrīces brīdinājuma binārā sensora konfigurāciju.",
+        "data": {
+          "min_alert_level": "Minimālais PAGER brīdinājuma līmenis",
+          "only_tsunami": "Rādīt tikai notikumus ar cunami brīdinājumu",
+          "max_depth_km": "Maksimālais dziļums (km)",
+          "only_reviewed": "Tikai pārskatīti notikumi",
+          "alert_min_magnitude": "Brīdinājuma sensors — minimālais stiprums",
+          "alert_time_window": "Brīdinājuma sensors — laika logs"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrējiet zemestrīces pēc USGS PAGER brīdinājuma līmeņa. Atlasiet 'Nav', lai parādītu visus notikumus neatkarīgi no brīdinājuma līmeņa.",
+          "max_depth_km": "Maksimālais fokusa dziļums km (0–700). Iestatiet uz 700, lai iekļautu zemestrīces jebkurā dziļumā. Sekli notikumi (<70 km) parasti ir postošāki.",
+          "only_reviewed": "Kad iespējots, rāda tikai zemestrīces, kuras USGS ir manuāli pārskatījis. Precīzākas, bet var parādīties ar aizkavi.",
+          "alert_min_magnitude": "Zemestrīces brīdinājuma binārais sensors IESLĒDZAS, kad laika logā tiek atklāta zemestrīce ar šo vai lielāku stiprumu.",
+          "alert_time_window": "Cik stundas atpakaļ skatīties, novērtējot zemestrīces brīdinājuma bināro sensoru (1–72 stundas)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Nederīgas koordinātas. Platumam jābūt no −90 līdz 90, garumam no −180 līdz 180.",
+      "invalid_radius": "Rādiusam jābūt no 10 līdz 20 000 km.",
+      "unknown": "Negaidīta kļūda. Lūdzu, skatiet Home Assistant žurnālus, lai iegūtu sīkāku informāciju."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Globāls (visā pasaulē)",
+        "custom_area": "Pielāgots apgabals (rādiuss)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Pēdējā stunda",
+        "day": "Pēdējās 24 stundas",
+        "week": "Pēdējās 7 dienas",
+        "month": "Pēdējās 30 dienas"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometri (km)",
+        "mi": "Jūdzes (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Stiprums (spēcīgākie pirmie)",
+        "time": "Laiks (jaunākie pirmie)",
+        "distance": "Attālums (tuvākie pirmie)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Nav (rādīt visus)",
+        "green": "Zaļš",
+        "yellow": "Dzeltens",
+        "orange": "Oranžs",
+        "red": "Sarkans (visnopietnākais)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Kopējais zemestrīču skaits"
+      },
+      "strongest_magnitude": {
+        "name": "Spēcīgākā zemestrīce"
+      },
+      "strongest_location": {
+        "name": "Spēcīgākās zemestrīces vieta"
+      },
+      "average_magnitude": {
+        "name": "Vidējais stiprums"
+      },
+      "latest_earthquake": {
+        "name": "Pēdējā zemestrīce"
+      },
+      "latest_earthquake_time": {
+        "name": "Pēdējās zemestrīces laiks"
+      },
+      "earthquakes_last_hour": {
+        "name": "Zemestrīces pēdējā stundā"
+      },
+      "significant_earthquakes": {
+        "name": "Nozīmīgas zemestrīces"
+      },
+      "tsunami_warnings": {
+        "name": "Aktīvi cunami brīdinājumi"
+      },
+      "highest_alert_level": {
+        "name": "Augstākais brīdinājuma līmenis"
+      },
+      "red_alert_count": {
+        "name": "Sarkanā brīdinājuma notikumi"
+      },
+      "nearest_distance": {
+        "name": "Tuvākās zemestrīces attālums"
+      },
+      "nearest_magnitude": {
+        "name": "Tuvākās zemestrīces stiprums"
+      },
+      "last_update": {
+        "name": "Pēdējais atjauninājums"
+      },
+      "api_status": {
+        "name": "API statuss"
+      },
+      "events_fetched": {
+        "name": "Iegūtie notikumi"
+      },
+      "events_displayed": {
+        "name": "Parādītie notikumi"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Zemestrīces brīdinājums"
+      },
+      "tsunami_warning": {
+        "name": "Cunami brīdinājums aktīvs"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Piespiedu atsvaidzināšana"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Satikšanās karte"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Zemestrīces"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Atklāta jauna zemestrīce",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Zemestrīce atklāta"
+            }
+          }
+        }
+      }
+    }
+  }
+}

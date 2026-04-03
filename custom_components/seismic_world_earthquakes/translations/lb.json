@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfiguréiert dës Iwwerwaachungsinstanz. Dir kënnt verschidde Instanzen erstellen, fir verschidde Beräicher oder Magnitudenschwellen z'iwwerwaachen.",
+        "data": {
+          "name": "Instanznumm",
+          "instance_type": "Instanztyp",
+          "min_magnitude": "Minimal Magnitude (Richter-Skala)",
+          "feed_period": "Dateperiod",
+          "max_events": "Maximal Evenementer op der Kaart",
+          "units": "Distanzeenheeten",
+          "sort_by": "Evenementer sortéieren no"
+        },
+        "data_description": {
+          "min_magnitude": "Nëmmen Äerdbiewen mat enger Magnitude gläich oder iwwer dësem Wäert ginn agebonnen (0,0–9,9).",
+          "max_events": "Maximal Zuel vun Äerdbiewen, déi op der Kaart gewise ginn (50–500). Evenementer mat M≥6,0 ginn ëmmer behalen, onofhängeg vun dëser Limit.",
+          "sort_by": "Definéiert d'Reiefolleg, an där Äerdbiewen op der Kaart an a Sensoren erschéngen."
+        }
+      },
+      "area": {
+        "title": "Konfiguratioun vum benotzerdefinéierte Beräich",
+        "description": "Definéiert de geographesche Beräich fir ze iwwerwaachen. All Äerdbiewen am definéierte Radius ronderëm de Mëttelpunkt ginn agebonnen.",
+        "data": {
+          "latitude": "Breedegrad vum Zentrum",
+          "longitude": "Längtegrad vum Zentrum",
+          "radius_km": "Sichradius (km)"
+        },
+        "data_description": {
+          "latitude": "Breedegrad vum Zentrum vum iwwerwaachten Gebitt (−90 bis 90).",
+          "longitude": "Längtegrad vum Zentrum vum iwwerwaachten Gebitt (−180 bis 180).",
+          "radius_km": "Radius a Kilometer ronderëm de Mëttelpunkt (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filteren an Alarmsensor",
+        "description": "Schränkt optional ag, wéi eng Äerdbiewen ugewise ginn, a konfiguréiert de binären Äerdbiewen-Alarmsensor.",
+        "data": {
+          "min_alert_level": "Minimal PAGER-Alarmstuf",
+          "only_tsunami": "Nëmmen Evenementer mat Tsunami-Warnung weisen",
+          "max_depth_km": "Maximal Déift (km)",
+          "only_reviewed": "Nëmmen iwwerpréift Evenementer",
+          "alert_min_magnitude": "Alarmsensor — minimal Magnitude",
+          "alert_time_window": "Alarmsensor — Zäitfenster"
+        },
+        "data_description": {
+          "min_alert_level": "Filtert Äerdbiewen no der USGS PAGER-Alarmstuf. Wielt 'Keng' fir all Evenementer onofhängeg vun der Alarmstuf unzeweisen.",
+          "max_depth_km": "Maximal Herdéift a km (0–700). Setzt op 700 fir Äerdbiewen an all Déift anzeschléissen. Flach Evenementer (<70 km) si meeschtens zerstéierender.",
+          "only_reviewed": "Wann aktivéiert, weist nëmmen Äerdbiewen, déi manuell vum USGS iwwerpréift goufen. Méi genee, kënnen awer mat Verzögerung erschéngen.",
+          "alert_min_magnitude": "De binären Äerdbiewen-Alarmsensor gëtt AGESCHALT, wann an der Zäitfenster en Äerdbiewen vun dëser oder enger méi grousser Magnitude erkannt gëtt.",
+          "alert_time_window": "Wéi vill Stonnen zréck geluecht gëtt, wann de binären Äerdbiewen-Alarmsensor ausgewäert gëtt (1–72 Stonnen)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Ongülteg Koordinaten. De Breedegrad muss tëscht −90 an 90 leien, de Längtegrad tëscht −180 an 180.",
+      "invalid_radius": "De Radius muss tëscht 10 an 20.000 km leien.",
+      "cannot_connect": "Kann net mat der USGS-API verbannen. Iwwerpréift w.e.g. Är Internetverbindung a probéiert et nach eng Kéier.",
+      "unknown": "Onerwaarte Feeler. Kontrolléiert w.e.g. d'Home Assistant-Protokoller fir méi Detailer."
+    },
+    "abort": {
+      "already_configured": "Dës Instanz ass scho konfiguréiert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Earthquakes nei konfiguréieren",
+        "description": "Aktualiséiert d'Basisastellunge fir dës Iwwerwaachungsinstanz.",
+        "data": {
+          "name": "Instanznumm",
+          "instance_type": "Instanztyp",
+          "min_magnitude": "Minimal Magnitude (Richter-Skala)",
+          "feed_period": "Dateperiod",
+          "max_events": "Maximal Evenementer op der Kaart",
+          "units": "Distanzeenheeten",
+          "sort_by": "Evenementer sortéieren no"
+        },
+        "data_description": {
+          "min_magnitude": "Nëmmen Äerdbiewen mat enger Magnitude gläich oder iwwer dësem Wäert ginn agebonnen (0,0–9,9).",
+          "max_events": "Maximal Zuel vun Äerdbiewen, déi op der Kaart gewise ginn (50–500). Evenementer mat M≥6,0 ginn ëmmer behalen, onofhängeg vun dëser Limit.",
+          "sort_by": "Definéiert d'Reiefolleg, an där Äerdbiewen op der Kaart an a Sensoren erschéngen."
+        }
+      },
+      "area": {
+        "title": "Konfiguratioun vum benotzerdefinéierte Beräich",
+        "description": "Aktualiséiert de geographesche Beräich fir ze iwwerwaachen.",
+        "data": {
+          "latitude": "Breedegrad vum Zentrum",
+          "longitude": "Längtegrad vum Zentrum",
+          "radius_km": "Sichradius (km)"
+        },
+        "data_description": {
+          "latitude": "Breedegrad vum Zentrum vum iwwerwaachten Gebitt (−90 bis 90).",
+          "longitude": "Längtegrad vum Zentrum vum iwwerwaachten Gebitt (−180 bis 180).",
+          "radius_km": "Radius a Kilometer ronderëm de Mëttelpunkt (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filteren an Alarmsensor",
+        "description": "Aktualiséiert optional Filteren an d'Konfiguratioun vum binären Äerdbiewen-Alarmsensor.",
+        "data": {
+          "min_alert_level": "Minimal PAGER-Alarmstuf",
+          "only_tsunami": "Nëmmen Evenementer mat Tsunami-Warnung weisen",
+          "max_depth_km": "Maximal Déift (km)",
+          "only_reviewed": "Nëmmen iwwerpréift Evenementer",
+          "alert_min_magnitude": "Alarmsensor — minimal Magnitude",
+          "alert_time_window": "Alarmsensor — Zäitfenster"
+        },
+        "data_description": {
+          "min_alert_level": "Filtert Äerdbiewen no der USGS PAGER-Alarmstuf. Wielt 'Keng' fir all Evenementer onofhängeg vun der Alarmstuf unzeweisen.",
+          "max_depth_km": "Maximal Herdéift a km (0–700). Setzt op 700 fir Äerdbiewen an all Déift anzeschléissen. Flach Evenementer (<70 km) si meeschtens zerstéierender.",
+          "only_reviewed": "Wann aktivéiert, weist nëmmen Äerdbiewen, déi manuell vum USGS iwwerpréift goufen. Méi genee, kënnen awer mat Verzögerung erschéngen.",
+          "alert_min_magnitude": "De binären Äerdbiewen-Alarmsensor gëtt AGESCHALT, wann an der Zäitfenster en Äerdbiewen vun dëser oder enger méi grousser Magnitude erkannt gëtt.",
+          "alert_time_window": "Wéi vill Stonnen zréck geluecht gëtt, wann de binären Äerdbiewen-Alarmsensor ausgewäert gëtt (1–72 Stonnen)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Ongülteg Koordinaten. De Breedegrad muss tëscht −90 an 90 leien, de Längtegrad tëscht −180 an 180.",
+      "invalid_radius": "De Radius muss tëscht 10 an 20.000 km leien.",
+      "unknown": "Onerwaarte Feeler. Kontrolléiert w.e.g. d'Home Assistant-Protokoller fir méi Detailer."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (weltwäit)",
+        "custom_area": "Benotzerdefinéierte Beräich (Radius)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Leschte Stonn",
+        "day": "Leschte 24 Stonnen",
+        "week": "Leschte 7 Deeg",
+        "month": "Leschte 30 Deeg"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometer (km)",
+        "mi": "Meilen (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitude (stäerkst als éischt)",
+        "time": "Zäit (neisten als éischt)",
+        "distance": "Distanz (noosten als éischt)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Keng (all weisen)",
+        "green": "Gréng",
+        "yellow": "Giel",
+        "orange": "Orange",
+        "red": "Rout (am schwéiersten)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Äerdbiewen insgesamt"
+      },
+      "strongest_magnitude": {
+        "name": "Stäerkst Äerdbiewen"
+      },
+      "strongest_location": {
+        "name": "Plaz vum stäerksten Äerdbiewen"
+      },
+      "average_magnitude": {
+        "name": "Duerchschnëttlech Magnitude"
+      },
+      "latest_earthquake": {
+        "name": "Leschten Äerdbiewen"
+      },
+      "latest_earthquake_time": {
+        "name": "Zäit vum leschten Äerdbiewen"
+      },
+      "earthquakes_last_hour": {
+        "name": "Äerdbiewen lescht Stonn"
+      },
+      "significant_earthquakes": {
+        "name": "Bedeitend Äerdbiewen"
+      },
+      "tsunami_warnings": {
+        "name": "Aktiv Tsunami-Warnungen"
+      },
+      "highest_alert_level": {
+        "name": "Héchst Alarmstuf"
+      },
+      "red_alert_count": {
+        "name": "Evenementer mat rout Alarmstuf"
+      },
+      "nearest_distance": {
+        "name": "Distanz vum noosten Äerdbiewen"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitude vum noosten Äerdbiewen"
+      },
+      "last_update": {
+        "name": "Leschten Update"
+      },
+      "api_status": {
+        "name": "API-Status"
+      },
+      "events_fetched": {
+        "name": "Ofgeruff Evenementer"
+      },
+      "events_displayed": {
+        "name": "Ugewisen Evenementer"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Äerdbiewen-Alarm"
+      },
+      "tsunami_warning": {
+        "name": "Tsunami-Warnung aktiv"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Update forcéieren"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Rëselkaart"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Äerdbiewen"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Neit Äerdbiewen erkannt",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Äerdbiewen erkannt"
+            }
+          }
+        }
+      }
+    }
+  }
+}

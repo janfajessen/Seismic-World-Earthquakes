@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Sukonfigūruokite šį stebėjimo egzempliorių. Galite sukurti kelis egzempliorius skirtingoms sritims arba stiprumo slenksčiams stebėti.",
+        "data": {
+          "name": "Egzemplioriaus pavadinimas",
+          "instance_type": "Egzemplioriaus tipas",
+          "min_magnitude": "Minimalus stipris (Richterio skalė)",
+          "feed_period": "Duomenų laikotarpis",
+          "max_events": "Maksimalus įvykių skaičius žemėlapyje",
+          "units": "Atstumo vienetai",
+          "sort_by": "Rūšiuoti įvykius pagal"
+        },
+        "data_description": {
+          "min_magnitude": "Bus įtraukti tik šio ar didesnio stiprio žemės drebėjimai (0.0–9.9).",
+          "max_events": "Maksimalus žemėlapyje rodomų žemės drebėjimų skaičius (50–500). Įvykiai, kurių M≥6.0, visada išsaugomi neatsižvelgiant į šį apribojimą.",
+          "sort_by": "Apibrėžia tvarką, kuria žemės drebėjimai rodomi žemėlapyje ir jutikliuose."
+        }
+      },
+      "area": {
+        "title": "Pasirinktinės srities konfigūracija",
+        "description": "Apibrėžkite geografinę sritį, kurią norite stebėti. Visi žemės drebėjimai, esantys nurodytame spinduliu nuo centro taško, bus įtraukti.",
+        "data": {
+          "latitude": "Centro platuma",
+          "longitude": "Centro ilguma",
+          "radius_km": "Paieškos spindulys (km)"
+        },
+        "data_description": {
+          "latitude": "Stebimos srities centro platuma (−90 iki 90).",
+          "longitude": "Stebimos srities centro ilguma (−180 iki 180).",
+          "radius_km": "Spindulys kilometrais aplink centro tašką (10–20 000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrai ir pavojaus jutiklis",
+        "description": "Neprivalomai apribokite, kurie žemės drebėjimai rodomi, ir sukonfigūruokite žemės drebėjimo pavojaus dvejetainį jutiklį.",
+        "data": {
+          "min_alert_level": "Minimalus PAGER pavojaus lygis",
+          "only_tsunami": "Rodyti tik įvykius su cunami įspėjimu",
+          "max_depth_km": "Maksimalus gylis (km)",
+          "only_reviewed": "Tik peržiūrėti įvykiai",
+          "alert_min_magnitude": "Pavojaus jutiklis — minimalus stipris",
+          "alert_time_window": "Pavojaus jutiklis — laiko langas"
+        },
+        "data_description": {
+          "min_alert_level": "Filtruokite žemės drebėjimus pagal USGS PAGER pavojaus lygį. Pasirinkite 'Nėra', kad būtų rodomi visi įvykiai, neatsižvelgiant į pavojaus lygį.",
+          "max_depth_km": "Maksimalus židinio gylis km (0–700). Nustatykite 700, kad įtrauktumėte žemės drebėjimus bet kuriame gylyje. Seklūs įvykiai (<70 km) paprastai yra destruktyvesni.",
+          "only_reviewed": "Kai įjungta, rodo tik žemės drebėjimus, kuriuos rankiniu būdu peržiūrėjo USGS. Tikslesni, bet gali pasirodyti su vėlavimu.",
+          "alert_min_magnitude": "Žemės drebėjimo pavojaus dvejetainis jutiklis ĮSIJUNGIA, kai laiko lange aptinkamas šio ar didesnio stiprio žemės drebėjimas.",
+          "alert_time_window": "Kiek valandų atgal žiūrėti vertinant žemės drebėjimo pavojaus dvejetainį jutiklį (1–72 valandos)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Neteisingos koordinatės. Platuma turi būti tarp −90 ir 90, ilguma tarp −180 ir 180.",
+      "invalid_radius": "Spindulys turi būti nuo 10 iki 20 000 km.",
+      "cannot_connect": "Nepavyksta prisijungti prie USGS API. Patikrinkite interneto ryšį ir bandykite dar kartą.",
+      "unknown": "Netikėta klaida. Išsamesnės informacijos ieškokite Home Assistant žurnaluose."
+    },
+    "abort": {
+      "already_configured": "Šis egzempliorius jau sukonfigūruotas."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Iš naujo konfigūruoti Seismic World Earthquakes",
+        "description": "Atnaujinkite pagrindinius šio stebėjimo egzemplioriaus nustatymus.",
+        "data": {
+          "name": "Egzemplioriaus pavadinimas",
+          "instance_type": "Egzemplioriaus tipas",
+          "min_magnitude": "Minimalus stipris (Richterio skalė)",
+          "feed_period": "Duomenų laikotarpis",
+          "max_events": "Maksimalus įvykių skaičius žemėlapyje",
+          "units": "Atstumo vienetai",
+          "sort_by": "Rūšiuoti įvykius pagal"
+        },
+        "data_description": {
+          "min_magnitude": "Bus įtraukti tik šio ar didesnio stiprio žemės drebėjimai (0.0–9.9).",
+          "max_events": "Maksimalus žemėlapyje rodomų žemės drebėjimų skaičius (50–500). Įvykiai, kurių M≥6.0, visada išsaugomi neatsižvelgiant į šį apribojimą.",
+          "sort_by": "Apibrėžia tvarką, kuria žemės drebėjimai rodomi žemėlapyje ir jutikliuose."
+        }
+      },
+      "area": {
+        "title": "Pasirinktinės srities konfigūracija",
+        "description": "Atnaujinkite geografinę sritį, kurią norite stebėti.",
+        "data": {
+          "latitude": "Centro platuma",
+          "longitude": "Centro ilguma",
+          "radius_km": "Paieškos spindulys (km)"
+        },
+        "data_description": {
+          "latitude": "Stebimos srities centro platuma (−90 iki 90).",
+          "longitude": "Stebimos srities centro ilguma (−180 iki 180).",
+          "radius_km": "Spindulys kilometrais aplink centro tašką (10–20 000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrai ir pavojaus jutiklis",
+        "description": "Atnaujinkite neprivalomus filtrus ir žemės drebėjimo pavojaus dvejetainio jutiklio konfigūraciją.",
+        "data": {
+          "min_alert_level": "Minimalus PAGER pavojaus lygis",
+          "only_tsunami": "Rodyti tik įvykius su cunami įspėjimu",
+          "max_depth_km": "Maksimalus gylis (km)",
+          "only_reviewed": "Tik peržiūrėti įvykiai",
+          "alert_min_magnitude": "Pavojaus jutiklis — minimalus stipris",
+          "alert_time_window": "Pavojaus jutiklis — laiko langas"
+        },
+        "data_description": {
+          "min_alert_level": "Filtruokite žemės drebėjimus pagal USGS PAGER pavojaus lygį. Pasirinkite 'Nėra', kad būtų rodomi visi įvykiai, neatsižvelgiant į pavojaus lygį.",
+          "max_depth_km": "Maksimalus židinio gylis km (0–700). Nustatykite 700, kad įtrauktumėte žemės drebėjimus bet kuriame gylyje. Seklūs įvykiai (<70 km) paprastai yra destruktyvesni.",
+          "only_reviewed": "Kai įjungta, rodo tik žemės drebėjimus, kuriuos rankiniu būdu peržiūrėjo USGS. Tikslesni, bet gali pasirodyti su vėlavimu.",
+          "alert_min_magnitude": "Žemės drebėjimo pavojaus dvejetainis jutiklis ĮSIJUNGIA, kai laiko lange aptinkamas šio ar didesnio stiprio žemės drebėjimas.",
+          "alert_time_window": "Kiek valandų atgal žiūrėti vertinant žemės drebėjimo pavojaus dvejetainį jutiklį (1–72 valandos)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Neteisingos koordinatės. Platuma turi būti tarp −90 ir 90, ilguma tarp −180 ir 180.",
+      "invalid_radius": "Spindulys turi būti nuo 10 iki 20 000 km.",
+      "unknown": "Netikėta klaida. Išsamesnės informacijos ieškokite Home Assistant žurnaluose."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Pasaulinis (visame pasaulyje)",
+        "custom_area": "Pasirinktinė sritis (spindulys)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Paskutinė valanda",
+        "day": "Paskutinės 24 valandos",
+        "week": "Paskutinės 7 dienos",
+        "month": "Paskutinės 30 dienų"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometrai (km)",
+        "mi": "Mylios (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Stipris (stipriausi pirmi)",
+        "time": "Laikas (naujausi pirmi)",
+        "distance": "Atstumas (artimiausi pirmi)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Nėra (rodyti visus)",
+        "green": "Žalia",
+        "yellow": "Geltona",
+        "orange": "Oranžinė",
+        "red": "Raudona (rimčiausias)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Iš viso žemės drebėjimų"
+      },
+      "strongest_magnitude": {
+        "name": "Stipriausias žemės drebėjimas"
+      },
+      "strongest_location": {
+        "name": "Stipriausio žemės drebėjimo vieta"
+      },
+      "average_magnitude": {
+        "name": "Vidutinis stipris"
+      },
+      "latest_earthquake": {
+        "name": "Naujausias žemės drebėjimas"
+      },
+      "latest_earthquake_time": {
+        "name": "Naujausio žemės drebėjimo laikas"
+      },
+      "earthquakes_last_hour": {
+        "name": "Žemės drebėjimai per paskutinę valandą"
+      },
+      "significant_earthquakes": {
+        "name": "Reikšmingi žemės drebėjimai"
+      },
+      "tsunami_warnings": {
+        "name": "Aktyvūs cunami įspėjimai"
+      },
+      "highest_alert_level": {
+        "name": "Aukščiausias pavojaus lygis"
+      },
+      "red_alert_count": {
+        "name": "Įvykiai su raudonu pavojumi"
+      },
+      "nearest_distance": {
+        "name": "Artimiausio žemės drebėjimo atstumas"
+      },
+      "nearest_magnitude": {
+        "name": "Artimiausio žemės drebėjimo stipris"
+      },
+      "last_update": {
+        "name": "Paskutinis atnaujinimas"
+      },
+      "api_status": {
+        "name": "API būsena"
+      },
+      "events_fetched": {
+        "name": "Gauti įvykiai"
+      },
+      "events_displayed": {
+        "name": "Rodyti įvykiai"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Žemės drebėjimo pavojus"
+      },
+      "tsunami_warning": {
+        "name": "Cunami įspėjimas aktyvus"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Priverstinis atnaujinimas"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Purtymo žemėlapis"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Žemės drebėjimai"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Aptiktas naujas žemės drebėjimas",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Aptiktas žemės drebėjimas"
+            }
+          }
+        }
+      }
+    }
+  }
+}

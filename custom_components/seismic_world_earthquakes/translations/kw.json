@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Kessettwra an darvos monitores mayn. Y hyllowgh hwi gul lies darvos rag mires orth ranndiryow po trethow myns dyffrans.",
+        "data": {
+          "name": "Hanow an darvos",
+          "instance_type": "Gis an darvos",
+          "min_magnitude": "Mynn an leha (solen Richter)",
+          "feed_period": "Termyn data",
+          "max_events": "Hwarvosow an brassa war an gart",
+          "units": "Unses pelder",
+          "sort_by": "Sortya hwarvosow herwydh"
+        },
+        "data_description": {
+          "min_magnitude": "Mynsow-dor a'n myns ma po brassa a vydh ynkledhys (0.0–9.9).",
+          "max_events": "An niver brassa a vynsow-dor a omdhiskwa war an gart (50–500). Hwarvosow gans M≥6.0 a vydh synsys pupprys heb styrya an or na.",
+          "sort_by": "Ystyn an reth may hwarvosow-dor war an gart hag yn sensellow."
+        }
+      },
+      "area": {
+        "title": "Kessettwra Ranndir Personel",
+        "description": "Styn an ranndir doroniethel rag mires. Hwarvosow-dor oll a-ji dhe'n kylgh a-dro dhe'n poynt kres a vydh ynkledhys.",
+        "data": {
+          "latitude": "Lettys an kres",
+          "longitude": "Hys an kres",
+          "radius_km": "Kylgh hwithra (km)"
+        },
+        "data_description": {
+          "latitude": "Lettys kres an ranndir yw gwelys (−90 dhe 90).",
+          "longitude": "Hys kres an ranndir yw gwelys (−180 dhe 180).",
+          "radius_km": "Kylgh yn kilometerow a-dro dhe'n poynt kres (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Silynnow & Sensell Gwarnyans",
+        "description": "Mar mynnyn, nagoni pyth hwarvosow-dor a omdhiskwa, ha kessettwra an sensell dewelgorn a warnyans hwarvos-dor.",
+        "data": {
+          "min_alert_level": "Leha nivel gwarnyans PAGER",
+          "only_tsunami": "Diskwedhes hwarvosow gans gwarnyans tsunami yn unnik",
+          "max_depth_km": "Downna an brassa (km)",
+          "only_reviewed": "Hwarvosow daswelys yn unnik",
+          "alert_min_magnitude": "Sensell warnyans — myns an leha",
+          "alert_time_window": "Sensell warnyans — fenester termyn"
+        },
+        "data_description": {
+          "min_alert_level": "Silyn hwarvosow-dor herwydh nivel gwarnyans PAGER USGS. Dewis 'Bynytha' rag diskwedhes hwarvosow oll heb styrya nivel an gwarnyans.",
+          "max_depth_km": "Downna an brassa fogel yn km (0–700). Gorrys 700 rag ynkledhya hwarvosow-dor yn downnys vyth. Hwarvosow down (<70 km) yw kemmyn moy diswresek.",
+          "only_reviewed": "Pan usi a-dro, diskwedhes hwarvosow-dor a veu daswelys gans USGS yn unn vri yn unnik. Kewarrakka mes hyllir aga gweles gans lett.",
+          "alert_min_magnitude": "Sensell dewelgorn a warnyans hwarvos-dor a wra TROILYA WAR PAN vo hwarvos-dor a'n myns ma po brassa aswonys a-ji dhe'n fenester termyn.",
+          "alert_time_window": "Py lies our war-dhelergh dhe vires orth derivas an sensell dewelgorn a warnyans hwarvos-dor (1–72 our)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Kesordnansow anwir. Res yw dhe lettys bos ynter −90 ha 90, ha dhe hys bos ynter −180 ha 180.",
+      "invalid_radius": "Res yw dhe'n kylgh bos ynter 10 ha 20,000 km.",
+      "cannot_connect": "Ny yllir junya dhe API USGS. Gwrewgh hwithra agas kesroesweyth ha kwilkynna arta.",
+      "unknown": "Kammweyth ankoth. Gwrewgh hwithra kovadhow Home Assistant rag kedhlow pella."
+    },
+    "abort": {
+      "already_configured": "An darvos ma yw kessettwys seulabrys."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Daskessettwra Seismic World Earthquakes",
+        "description": "Hedhewi an selvednow selvenek rag an darvos monitores mayn.",
+        "data": {
+          "name": "Hanow an darvos",
+          "instance_type": "Gis an darvos",
+          "min_magnitude": "Mynn an leha (solen Richter)",
+          "feed_period": "Termyn data",
+          "max_events": "Hwarvosow an brassa war an gart",
+          "units": "Unses pelder",
+          "sort_by": "Sortya hwarvosow herwydh"
+        },
+        "data_description": {
+          "min_magnitude": "Mynsow-dor a'n myns ma po brassa a vydh ynkledhys (0.0–9.9).",
+          "max_events": "An niver brassa a vynsow-dor a omdhiskwa war an gart (50–500). Hwarvosow gans M≥6.0 a vydh synsys pupprys heb styrya an or na.",
+          "sort_by": "Ystyn an reth may hwarvosow-dor war an gart hag yn sensellow."
+        }
+      },
+      "area": {
+        "title": "Kessettwra Ranndir Personel",
+        "description": "Hedhewi an ranndir doroniethel rag mires.",
+        "data": {
+          "latitude": "Lettys an kres",
+          "longitude": "Hys an kres",
+          "radius_km": "Kylgh hwithra (km)"
+        },
+        "data_description": {
+          "latitude": "Lettys kres an ranndir yw gwelys (−90 dhe 90).",
+          "longitude": "Hys kres an ranndir yw gwelys (−180 dhe 180).",
+          "radius_km": "Kylgh yn kilometerow a-dro dhe'n poynt kres (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Silynnow & Sensell Gwarnyans",
+        "description": "Hedhewi silynnow dewisyans ha kessettwra an sensell dewelgorn a warnyans hwarvos-dor.",
+        "data": {
+          "min_alert_level": "Leha nivel gwarnyans PAGER",
+          "only_tsunami": "Diskwedhes hwarvosow gans gwarnyans tsunami yn unnik",
+          "max_depth_km": "Downna an brassa (km)",
+          "only_reviewed": "Hwarvosow daswelys yn unnik",
+          "alert_min_magnitude": "Sensell warnyans — myns an leha",
+          "alert_time_window": "Sensell warnyans — fenester termyn"
+        },
+        "data_description": {
+          "min_alert_level": "Silyn hwarvosow-dor herwydh nivel gwarnyans PAGER USGS. Dewis 'Bynytha' rag diskwedhes hwarvosow oll heb styrya nivel an gwarnyans.",
+          "max_depth_km": "Downna an brassa fogel yn km (0–700). Gorrys 700 rag ynkledhya hwarvosow-dor yn downnys vyth. Hwarvosow down (<70 km) yw kemmyn moy diswresek.",
+          "only_reviewed": "Pan usi a-dro, diskwedhes hwarvosow-dor a veu daswelys gans USGS yn unn vri yn unnik. Kewarrakka mes hyllir aga gweles gans lett.",
+          "alert_min_magnitude": "Sensell dewelgorn a warnyans hwarvos-dor a wra TROILYA WAR PAN vo hwarvos-dor a'n myns ma po brassa aswonys a-ji dhe'n fenester termyn.",
+          "alert_time_window": "Py lies our war-dhelergh dhe vires orth derivas an sensell dewelgorn a warnyans hwarvos-dor (1–72 our)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Kesordnansow anwir. Res yw dhe lettys bos ynter −90 ha 90, ha dhe hys bos ynter −180 ha 180.",
+      "invalid_radius": "Res yw dhe'n kylgh bos ynter 10 ha 20,000 km.",
+      "unknown": "Kammweyth ankoth. Gwrewgh hwithra kovadhow Home Assistant rag kedhlow pella."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Bys (oll an bys)",
+        "custom_area": "Ranndir personel (kylgh)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "An our diwettha",
+        "day": "An 24 our diwettha",
+        "week": "An 7 dydh diwettha",
+        "month": "An 30 dydh diwettha"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometerow (km)",
+        "mi": "Mildiryow (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Myns (kreffa kynsa)",
+        "time": "Termyn (diywettha kynsa)",
+        "distance": "Pelder (nesa kynsa)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Bynytha (diskwa oll)",
+        "green": "Gwyrdh",
+        "yellow": "Melyn",
+        "orange": "Pithen",
+        "red": "Ruth (an brass an galester)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Hwarvosow-dor oll"
+      },
+      "strongest_magnitude": {
+        "name": "An hwarvos-dor kreffa"
+      },
+      "strongest_location": {
+        "name": "Tylder an hwarvos-dor kreffa"
+      },
+      "average_magnitude": {
+        "name": "Myns kresek"
+      },
+      "latest_earthquake": {
+        "name": "An hwarvos-dor diwettha"
+      },
+      "latest_earthquake_time": {
+        "name": "Termyn an hwarvos-dor diwettha"
+      },
+      "earthquakes_last_hour": {
+        "name": "Hwarvosow-dor an our diwettha"
+      },
+      "significant_earthquakes": {
+        "name": "Hwarvosow-dor arvowek"
+      },
+      "tsunami_warnings": {
+        "name": "Gwarnyansow tsunami bew"
+      },
+      "highest_alert_level": {
+        "name": "Nivel warnyans ughella"
+      },
+      "red_alert_count": {
+        "name": "Hwarvosow gwarnyans ruth"
+      },
+      "nearest_distance": {
+        "name": "Pelder an hwarvos-dor nesa"
+      },
+      "nearest_magnitude": {
+        "name": "Myns an hwarvos-dor nesa"
+      },
+      "last_update": {
+        "name": "An diwettha hepwhyans"
+      },
+      "api_status": {
+        "name": "Studh API"
+      },
+      "events_fetched": {
+        "name": "Hwarvosow degys"
+      },
+      "events_displayed": {
+        "name": "Hwarvosow diskeys"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Gwarnyans hwarvos-dor"
+      },
+      "tsunami_warning": {
+        "name": "Gwarnyans tsunami bew"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Dastrevellyans dre nerth"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Kart Screa"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Hwarvosow-dor"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Hwarvos-dor nowydh aswonys",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Hwarvos-dor aswonys"
+            }
+          }
+        }
+      }
+    }
+  }
+}

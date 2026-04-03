@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfigurasikan instance pemantauan ini. Anda dapat membuat beberapa instance untuk memantau area atau ambang magnitudo yang berbeda.",
+        "data": {
+          "name": "Nama instance",
+          "instance_type": "Tipe instance",
+          "min_magnitude": "Magnitudo minimum (Skala Richter)",
+          "feed_period": "Periode data",
+          "max_events": "Peristiwa maksimum pada peta",
+          "units": "Satuan jarak",
+          "sort_by": "Urutkan peristiwa berdasarkan"
+        },
+        "data_description": {
+          "min_magnitude": "Hanya gempa bumi dengan magnitudo sama atau di atas ini yang akan disertakan (0.0–9.9).",
+          "max_events": "Jumlah maksimum gempa bumi yang ditampilkan pada peta (50–500). Peristiwa dengan M≥6.0 selalu dipertahankan terlepas dari batas ini.",
+          "sort_by": "Menentukan urutan kemunculan gempa bumi pada peta dan sensor."
+        }
+      },
+      "area": {
+        "title": "Konfigurasi Area Kustom",
+        "description": "Tentukan area geografis untuk dipantau. Semua gempa bumi dalam radius yang ditentukan dari titik pusat akan disertakan.",
+        "data": {
+          "latitude": "Garis lintang pusat",
+          "longitude": "Garis bujur pusat",
+          "radius_km": "Radius pencarian (km)"
+        },
+        "data_description": {
+          "latitude": "Garis lintang pusat area yang dipantau (−90 hingga 90).",
+          "longitude": "Garis bujur pusat area yang dipantau (−180 hingga 180).",
+          "radius_km": "Radius dalam kilometer di sekitar titik pusat (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filter & Sensor Peringatan",
+        "description": "Secara opsional batasi gempa bumi mana yang ditampilkan, dan konfigurasikan sensor biner peringatan gempa bumi.",
+        "data": {
+          "min_alert_level": "Tingkat peringatan PAGER minimum",
+          "only_tsunami": "Hanya tampilkan peristiwa dengan peringatan tsunami",
+          "max_depth_km": "Kedalaman maksimum (km)",
+          "only_reviewed": "Hanya peristiwa yang ditinjau",
+          "alert_min_magnitude": "Sensor peringatan — magnitudo minimum",
+          "alert_time_window": "Sensor peringatan — jendela waktu"
+        },
+        "data_description": {
+          "min_alert_level": "Filter gempa bumi berdasarkan tingkat peringatan PAGER USGS. Pilih 'Tidak Ada' untuk menampilkan semua peristiwa terlepas dari tingkat peringatan.",
+          "max_depth_km": "Kedalaman fokus maksimum dalam km (0–700). Atur ke 700 untuk menyertakan gempa bumi pada kedalaman berapa pun. Peristiwa dangkal (<70 km) umumnya lebih destruktif.",
+          "only_reviewed": "Saat diaktifkan, hanya menampilkan gempa bumi yang telah ditinjau secara manual oleh USGS. Lebih akurat tetapi mungkin muncul dengan penundaan.",
+          "alert_min_magnitude": "Sensor biner peringatan gempa bumi AKTIF ketika gempa bumi dengan magnitudo ini atau lebih besar terdeteksi dalam jendela waktu.",
+          "alert_time_window": "Berapa jam ke belakang untuk melihat saat mengevaluasi sensor biner peringatan gempa bumi (1–72 jam)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Koordinat tidak valid. Garis lintang harus antara −90 dan 90, garis bujur antara −180 dan 180.",
+      "invalid_radius": "Radius harus antara 10 dan 20.000 km.",
+      "cannot_connect": "Tidak dapat terhubung ke API USGS. Periksa koneksi internet Anda dan coba lagi.",
+      "unknown": "Kesalahan tak terduga. Periksa log Home Assistant untuk detail lebih lanjut."
+    },
+    "abort": {
+      "already_configured": "Instance ini sudah dikonfigurasi."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Konfigurasi Ulang Seismic World Earthquakes",
+        "description": "Perbarui pengaturan dasar untuk instance pemantauan ini.",
+        "data": {
+          "name": "Nama instance",
+          "instance_type": "Tipe instance",
+          "min_magnitude": "Magnitudo minimum (Skala Richter)",
+          "feed_period": "Periode data",
+          "max_events": "Peristiwa maksimum pada peta",
+          "units": "Satuan jarak",
+          "sort_by": "Urutkan peristiwa berdasarkan"
+        },
+        "data_description": {
+          "min_magnitude": "Hanya gempa bumi dengan magnitudo sama atau di atas ini yang akan disertakan (0.0–9.9).",
+          "max_events": "Jumlah maksimum gempa bumi yang ditampilkan pada peta (50–500). Peristiwa dengan M≥6.0 selalu dipertahankan terlepas dari batas ini.",
+          "sort_by": "Menentukan urutan kemunculan gempa bumi pada peta dan sensor."
+        }
+      },
+      "area": {
+        "title": "Konfigurasi Area Kustom",
+        "description": "Perbarui area geografis untuk dipantau.",
+        "data": {
+          "latitude": "Garis lintang pusat",
+          "longitude": "Garis bujur pusat",
+          "radius_km": "Radius pencarian (km)"
+        },
+        "data_description": {
+          "latitude": "Garis lintang pusat area yang dipantau (−90 hingga 90).",
+          "longitude": "Garis bujur pusat area yang dipantau (−180 hingga 180).",
+          "radius_km": "Radius dalam kilometer di sekitar titik pusat (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filter & Sensor Peringatan",
+        "description": "Perbarui filter opsional dan konfigurasi sensor biner peringatan gempa bumi.",
+        "data": {
+          "min_alert_level": "Tingkat peringatan PAGER minimum",
+          "only_tsunami": "Hanya tampilkan peristiwa dengan peringatan tsunami",
+          "max_depth_km": "Kedalaman maksimum (km)",
+          "only_reviewed": "Hanya peristiwa yang ditinjau",
+          "alert_min_magnitude": "Sensor peringatan — magnitudo minimum",
+          "alert_time_window": "Sensor peringatan — jendela waktu"
+        },
+        "data_description": {
+          "min_alert_level": "Filter gempa bumi berdasarkan tingkat peringatan PAGER USGS. Pilih 'Tidak Ada' untuk menampilkan semua peristiwa terlepas dari tingkat peringatan.",
+          "max_depth_km": "Kedalaman fokus maksimum dalam km (0–700). Atur ke 700 untuk menyertakan gempa bumi pada kedalaman berapa pun. Peristiwa dangkal (<70 km) umumnya lebih destruktif.",
+          "only_reviewed": "Saat diaktifkan, hanya menampilkan gempa bumi yang telah ditinjau secara manual oleh USGS. Lebih akurat tetapi mungkin muncul dengan penundaan.",
+          "alert_min_magnitude": "Sensor biner peringatan gempa bumi AKTIF ketika gempa bumi dengan magnitudo ini atau lebih besar terdeteksi dalam jendela waktu.",
+          "alert_time_window": "Berapa jam ke belakang untuk melihat saat mengevaluasi sensor biner peringatan gempa bumi (1–72 jam)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Koordinat tidak valid. Garis lintang harus antara −90 dan 90, garis bujur antara −180 dan 180.",
+      "invalid_radius": "Radius harus antara 10 dan 20.000 km.",
+      "unknown": "Kesalahan tak terduga. Periksa log Home Assistant untuk detail lebih lanjut."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (di seluruh dunia)",
+        "custom_area": "Area kustom (radius)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Jam terakhir",
+        "day": "24 jam terakhir",
+        "week": "7 hari terakhir",
+        "month": "30 hari terakhir"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometer (km)",
+        "mi": "Mil (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitudo (terkuat pertama)",
+        "time": "Waktu (terbaru pertama)",
+        "distance": "Jarak (terdekat pertama)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Tidak Ada (tampilkan semua)",
+        "green": "Hijau",
+        "yellow": "Kuning",
+        "orange": "Oranye",
+        "red": "Merah (paling parah)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Total gempa bumi"
+      },
+      "strongest_magnitude": {
+        "name": "Gempa bumi terkuat"
+      },
+      "strongest_location": {
+        "name": "Lokasi gempa bumi terkuat"
+      },
+      "average_magnitude": {
+        "name": "Magnitudo rata-rata"
+      },
+      "latest_earthquake": {
+        "name": "Gempa bumi terbaru"
+      },
+      "latest_earthquake_time": {
+        "name": "Waktu gempa bumi terbaru"
+      },
+      "earthquakes_last_hour": {
+        "name": "Gempa bumi jam terakhir"
+      },
+      "significant_earthquakes": {
+        "name": "Gempa bumi signifikan"
+      },
+      "tsunami_warnings": {
+        "name": "Peringatan tsunami aktif"
+      },
+      "highest_alert_level": {
+        "name": "Tingkat peringatan tertinggi"
+      },
+      "red_alert_count": {
+        "name": "Peristiwa peringatan merah"
+      },
+      "nearest_distance": {
+        "name": "Jarak gempa bumi terdekat"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitudo gempa bumi terdekat"
+      },
+      "last_update": {
+        "name": "Pembaruan terakhir"
+      },
+      "api_status": {
+        "name": "Status API"
+      },
+      "events_fetched": {
+        "name": "Peristiwa yang diambil"
+      },
+      "events_displayed": {
+        "name": "Peristiwa yang ditampilkan"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Peringatan gempa bumi"
+      },
+      "tsunami_warning": {
+        "name": "Peringatan tsunami aktif"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Paksa segarkan"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Peta Guncangan"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Gempa bumi"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Gempa bumi baru terdeteksi",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Gempa bumi terdeteksi"
+            }
+          }
+        }
+      }
+    }
+  }
+}

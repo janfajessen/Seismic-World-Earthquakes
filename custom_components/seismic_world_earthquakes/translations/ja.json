@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "この監視インスタンスを設定します。複数のインスタンスを作成して、異なるエリアやマグニチュードのしきい値を監視できます。",
+        "data": {
+          "name": "インスタンス名",
+          "instance_type": "インスタンスタイプ",
+          "min_magnitude": "最小マグニチュード（リヒタースケール）",
+          "feed_period": "データ期間",
+          "max_events": "マップ上の最大イベント数",
+          "units": "距離の単位",
+          "sort_by": "イベントの並び順"
+        },
+        "data_description": {
+          "min_magnitude": "このマグニチュード以上の地震のみが含まれます（0.0–9.9）。",
+          "max_events": "マップに表示される地震の最大数（50–500）。M≥6.0のイベントはこの制限に関係なく常に保持されます。",
+          "sort_by": "地震がマップやセンサーに表示される順序を定義します。"
+        }
+      },
+      "area": {
+        "title": "カスタムエリア設定",
+        "description": "監視する地理的エリアを定義します。中心点から指定された半径内のすべての地震が含まれます。",
+        "data": {
+          "latitude": "中心の緯度",
+          "longitude": "中心の経度",
+          "radius_km": "検索半径（km）"
+        },
+        "data_description": {
+          "latitude": "監視エリアの中心の緯度（−90 から 90）。",
+          "longitude": "監視エリアの中心の経度（−180 から 180）。",
+          "radius_km": "中心点からの半径（キロメートル）（10–20,000 km）。"
+        }
+      },
+      "filters": {
+        "title": "フィルターとアラートセンサー",
+        "description": "表示する地震をオプションで制限し、地震アラートバイナリセンサーを設定します。",
+        "data": {
+          "min_alert_level": "最小PAGERアラートレベル",
+          "only_tsunami": "津波警報があるイベントのみ表示",
+          "max_depth_km": "最大深度（km）",
+          "only_reviewed": "レビュー済みイベントのみ",
+          "alert_min_magnitude": "アラートセンサー — 最小マグニチュード",
+          "alert_time_window": "アラートセンサー — 時間枠"
+        },
+        "data_description": {
+          "min_alert_level": "USGS PAGERアラートレベルで地震をフィルタリングします。アラートレベルに関係なくすべてのイベントを表示するには「なし」を選択します。",
+          "max_depth_km": "最大震源深度（km）（0–700）。任意の深さの地震を含めるには700に設定します。浅い地震（<70 km）は一般的により破壊的です。",
+          "only_reviewed": "有効にすると、USGSによって手動でレビューされた地震のみを表示します。より正確ですが、表示に遅れが生じることがあります。",
+          "alert_min_magnitude": "地震アラートバイナリセンサーは、時間枠内にこのマグニチュード以上の地震が検出されたときにONになります。",
+          "alert_time_window": "地震アラートバイナリセンサーを評価する際に何時間さかのぼって見るか（1–72時間）。"
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "無効な座標です。緯度は−90から90の間、経度は−180から180の間である必要があります。",
+      "invalid_radius": "半径は10から20,000 kmの間である必要があります。",
+      "cannot_connect": "USGS APIに接続できません。インターネット接続を確認してからもう一度お試しください。",
+      "unknown": "予期しないエラーが発生しました。詳細についてはHome Assistantのログを確認してください。"
+    },
+    "abort": {
+      "already_configured": "このインスタンスはすでに設定されています。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Earthquakesを再設定",
+        "description": "この監視インスタンスの基本設定を更新します。",
+        "data": {
+          "name": "インスタンス名",
+          "instance_type": "インスタンスタイプ",
+          "min_magnitude": "最小マグニチュード（リヒタースケール）",
+          "feed_period": "データ期間",
+          "max_events": "マップ上の最大イベント数",
+          "units": "距離の単位",
+          "sort_by": "イベントの並び順"
+        },
+        "data_description": {
+          "min_magnitude": "このマグニチュード以上の地震のみが含まれます（0.0–9.9）。",
+          "max_events": "マップに表示される地震の最大数（50–500）。M≥6.0のイベントはこの制限に関係なく常に保持されます。",
+          "sort_by": "地震がマップやセンサーに表示される順序を定義します。"
+        }
+      },
+      "area": {
+        "title": "カスタムエリア設定",
+        "description": "監視する地理的エリアを更新します。",
+        "data": {
+          "latitude": "中心の緯度",
+          "longitude": "中心の経度",
+          "radius_km": "検索半径（km）"
+        },
+        "data_description": {
+          "latitude": "監視エリアの中心の緯度（−90 から 90）。",
+          "longitude": "監視エリアの中心の経度（−180 から 180）。",
+          "radius_km": "中心点からの半径（キロメートル）（10–20,000 km）。"
+        }
+      },
+      "filters": {
+        "title": "フィルターとアラートセンサー",
+        "description": "オプションのフィルターと地震アラートバイナリセンサーの設定を更新します。",
+        "data": {
+          "min_alert_level": "最小PAGERアラートレベル",
+          "only_tsunami": "津波警報があるイベントのみ表示",
+          "max_depth_km": "最大深度（km）",
+          "only_reviewed": "レビュー済みイベントのみ",
+          "alert_min_magnitude": "アラートセンサー — 最小マグニチュード",
+          "alert_time_window": "アラートセンサー — 時間枠"
+        },
+        "data_description": {
+          "min_alert_level": "USGS PAGERアラートレベルで地震をフィルタリングします。アラートレベルに関係なくすべてのイベントを表示するには「なし」を選択します。",
+          "max_depth_km": "最大震源深度（km）（0–700）。任意の深さの地震を含めるには700に設定します。浅い地震（<70 km）は一般的により破壊的です。",
+          "only_reviewed": "有効にすると、USGSによって手動でレビューされた地震のみを表示します。より正確ですが、表示に遅れが生じることがあります。",
+          "alert_min_magnitude": "地震アラートバイナリセンサーは、時間枠内にこのマグニチュード以上の地震が検出されたときにONになります。",
+          "alert_time_window": "地震アラートバイナリセンサーを評価する際に何時間さかのぼって見るか（1–72時間）。"
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "無効な座標です。緯度は−90から90の間、経度は−180から180の間である必要があります。",
+      "invalid_radius": "半径は10から20,000 kmの間である必要があります。",
+      "unknown": "予期しないエラーが発生しました。詳細についてはHome Assistantのログを確認してください。"
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "グローバル（全世界）",
+        "custom_area": "カスタムエリア（半径）"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "過去1時間",
+        "day": "過去24時間",
+        "week": "過去7日間",
+        "month": "過去30日間"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "キロメートル (km)",
+        "mi": "マイル (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "マグニチュード（強い順）",
+        "time": "時間（新しい順）",
+        "distance": "距離（近い順）"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "なし（すべて表示）",
+        "green": "緑",
+        "yellow": "黄",
+        "orange": "橙",
+        "red": "赤（最も深刻）"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "地震総数"
+      },
+      "strongest_magnitude": {
+        "name": "最大地震"
+      },
+      "strongest_location": {
+        "name": "最大地震の場所"
+      },
+      "average_magnitude": {
+        "name": "平均マグニチュード"
+      },
+      "latest_earthquake": {
+        "name": "最新の地震"
+      },
+      "latest_earthquake_time": {
+        "name": "最新の地震の時刻"
+      },
+      "earthquakes_last_hour": {
+        "name": "過去1時間の地震"
+      },
+      "significant_earthquakes": {
+        "name": "顕著な地震"
+      },
+      "tsunami_warnings": {
+        "name": "アクティブな津波警報"
+      },
+      "highest_alert_level": {
+        "name": "最高アラートレベル"
+      },
+      "red_alert_count": {
+        "name": "赤色警報イベント"
+      },
+      "nearest_distance": {
+        "name": "最寄りの地震までの距離"
+      },
+      "nearest_magnitude": {
+        "name": "最寄りの地震のマグニチュード"
+      },
+      "last_update": {
+        "name": "最終更新"
+      },
+      "api_status": {
+        "name": "APIステータス"
+      },
+      "events_fetched": {
+        "name": "取得したイベント数"
+      },
+      "events_displayed": {
+        "name": "表示されたイベント数"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "地震警報"
+      },
+      "tsunami_warning": {
+        "name": "津波警報発令中"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "強制更新"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "震度分布図"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "地震"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "新しい地震を検出しました",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "地震を検出しました"
+            }
+          }
+        }
+      }
+    }
+  }
+}

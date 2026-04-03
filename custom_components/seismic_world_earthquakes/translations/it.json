@@ -2,62 +2,62 @@
   "config": {
     "step": {
       "user": {
-        "title": "Terremoti Seismic World",
+        "title": "Seismic World Earthquakes",
         "description": "Configura questa istanza di monitoraggio. Puoi creare più istanze per monitorare diverse aree o soglie di magnitudo.",
         "data": {
-          "name": "Nome dell'istanza",
-          "instance_type": "Tipo di istanza",
+          "name": "Nome istanza",
+          "instance_type": "Tipo istanza",
           "min_magnitude": "Magnitudo minima (scala Richter)",
-          "feed_period": "Periodo dei dati",
-          "max_events": "Massimo eventi sulla mappa",
+          "feed_period": "Periodo dati",
+          "max_events": "Numero massimo di eventi sulla mappa",
           "units": "Unità di distanza",
           "sort_by": "Ordina eventi per"
         },
         "data_description": {
-          "min_magnitude": "Verranno inclusi solo i terremoti con magnitudo uguale o superiore a questa (0.0–9.9).",
-          "max_events": "Numero massimo di terremoti visualizzati sulla mappa (50–500). Gli eventi con M≥6.0 vengono sempre mantenuti, indipendentemente da questo limite.",
+          "min_magnitude": "Saranno inclusi solo i terremoti di magnitudo pari o superiore a questa (0.0–9.9).",
+          "max_events": "Numero massimo di terremoti visualizzati sulla mappa (50–500). Gli eventi con M≥6.0 vengono sempre mantenuti indipendentemente da questo limite.",
           "sort_by": "Definisce l'ordine in cui i terremoti appaiono sulla mappa e nei sensori."
         }
       },
       "area": {
         "title": "Configurazione Area Personalizzata",
-        "description": "Definisci l'area geografica da monitorare. Saranno inclusi tutti i terremoti entro il raggio specificato dal punto centrale.",
+        "description": "Definisci l'area geografica da monitorare. Tutti i terremoti entro il raggio specificato dal punto centrale saranno inclusi.",
         "data": {
-          "latitude": "Latitudine centrale",
-          "longitude": "Longitudine centrale",
+          "latitude": "Latitudine del centro",
+          "longitude": "Longitudine del centro",
           "radius_km": "Raggio di ricerca (km)"
         },
         "data_description": {
-          "latitude": "Latitudine del centro dell'area monitorata (-90 a 90).",
-          "longitude": "Longitudine del centro dell'area monitorata (-180 a 180).",
+          "latitude": "Latitudine del centro dell'area monitorata (−90 a 90).",
+          "longitude": "Longitudine del centro dell'area monitorata (−180 a 180).",
           "radius_km": "Raggio in chilometri attorno al punto centrale (10–20.000 km)."
         }
       },
       "filters": {
-        "title": "Filtri e Sensore di Allerta",
-        "description": "Opzionalmente, limita quali terremoti mostrare e configura il sensore binario di allerta terremoto.",
+        "title": "Filtri e Sensore di Allarme",
+        "description": "Limita opzionalmente quali terremoti vengono mostrati e configura il sensore binario di allarme terremoto.",
         "data": {
-          "min_alert_level": "Livello minimo di allerta PAGER",
-          "only_tsunami": "Mostra solo eventi con allerta tsunami",
+          "min_alert_level": "Livello di allarme PAGER minimo",
+          "only_tsunami": "Mostra solo eventi con allarme tsunami",
           "max_depth_km": "Profondità massima (km)",
           "only_reviewed": "Solo eventi revisionati",
-          "alert_min_magnitude": "Sensore allerta — magnitudo minima",
-          "alert_time_window": "Sensore allerta — finestra temporale"
+          "alert_min_magnitude": "Sensore di allarme — magnitudo minima",
+          "alert_time_window": "Sensore di allarme — finestra temporale"
         },
         "data_description": {
-          "min_alert_level": "Filtra i terremoti per livello di allerta USGS PAGER. Seleziona 'Nessuno' per vedere tutti gli eventi indipendentemente dal livello di allerta.",
-          "max_depth_km": "Massima profondità focale in km (0–700). Imposta 700 per includere terremoti a qualsiasi profondidade. Gli eventi superficiali (< 70 km) tendono a essere più distruttivi.",
-          "only_reviewed": "Se abilitato, mostra solo i terremoti che sono stati revisionati manualmente dall'USGS. Più preciso, ma può apparire con ritardo.",
-          "alert_min_magnitude": "Il sensore binario di allerta terremoto si attiva (ON) quando viene rilevato un terremoto di questa magnitudo o superiore entro la finestra temporale.",
-          "alert_time_window": "Quante ore guardare indietro durante la valutazione del sensore binario di allerta terremoto (1–72 ore)."
+          "min_alert_level": "Filtra i terremoti per livello di allarme PAGER dell'USGS. Seleziona 'Nessuno' per mostrare tutti gli eventi indipendentemente dal livello di allarme.",
+          "max_depth_km": "Profondità focale massima in km (0–700). Imposta su 700 per includere terremoti a qualsiasi profondità. Gli eventi superficiali (<70 km) sono generalmente più distruttivi.",
+          "only_reviewed": "Quando abilitato, mostra solo i terremoti che sono stati revisionati manualmente dall'USGS. Più accurati ma possono apparire con ritardo.",
+          "alert_min_magnitude": "Il sensore binario di allarme terremoto si ATTIVA quando viene rilevato un terremoto di questa magnitudo o superiore entro la finestra temporale.",
+          "alert_time_window": "Quante ore indietro guardare quando si valuta il sensore binario di allarme terremoto (1–72 ore)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Coordinate non valide. La latitudine deve essere compresa tra -90 e 90, la longitudine tra -180 e 180.",
+      "invalid_coordinates": "Coordinate non valide. La latitudine deve essere compresa tra −90 e 90, la longitudine tra −180 e 180.",
       "invalid_radius": "Il raggio deve essere compreso tra 10 e 20.000 km.",
-      "cannot_connect": "Impossibile connettersi all'API USGS. Controlla la tua connessione Internet e riprova.",
-      "unknown": "Errore imprevisto. Controlla i log di Home Assistant per ulteriori dettagli."
+      "cannot_connect": "Impossibile connettersi all'API dell'USGS. Controlla la tua connessione internet e riprova.",
+      "unknown": "Errore imprevisto. Controlla i log di Home Assistant per maggiori dettagli."
     },
     "abort": {
       "already_configured": "Questa istanza è già configurata."
@@ -66,20 +66,20 @@
   "options": {
     "step": {
       "init": {
-        "title": "Riconfigura Terremoti Seismic World",
+        "title": "Riconfigura Seismic World Earthquakes",
         "description": "Aggiorna le impostazioni di base per questa istanza di monitoraggio.",
         "data": {
-          "name": "Nome dell'istanza",
-          "instance_type": "Tipo di istanza",
+          "name": "Nome istanza",
+          "instance_type": "Tipo istanza",
           "min_magnitude": "Magnitudo minima (scala Richter)",
-          "feed_period": "Periodo dei datos",
-          "max_events": "Massimo eventi sulla mappa",
+          "feed_period": "Periodo dati",
+          "max_events": "Numero massimo di eventi sulla mappa",
           "units": "Unità di distanza",
           "sort_by": "Ordina eventi per"
         },
         "data_description": {
-          "min_magnitude": "Verranno inclusi solo i terremoti con magnitudo uguale o superiore a questa (0.0–9.9).",
-          "max_events": "Numero massimo di terremoti visualizzati sulla mappa (50–500). Gli eventi con M≥6.0 vengono sempre mantenuti, indipendentemente da questo limite.",
+          "min_magnitude": "Saranno inclusi solo i terremoti di magnitudo pari o superiore a questa (0.0–9.9).",
+          "max_events": "Numero massimo di terremoti visualizzati sulla mappa (50–500). Gli eventi con M≥6.0 vengono sempre mantenuti indipendentemente da questo limite.",
           "sort_by": "Definisce l'ordine in cui i terremoti appaiono sulla mappa e nei sensori."
         }
       },
@@ -87,46 +87,46 @@
         "title": "Configurazione Area Personalizzata",
         "description": "Aggiorna l'area geografica da monitorare.",
         "data": {
-          "latitude": "Latitudine centrale",
-          "longitude": "Longitudine centrale",
+          "latitude": "Latitudine del centro",
+          "longitude": "Longitudine del centro",
           "radius_km": "Raggio di ricerca (km)"
         },
         "data_description": {
-          "latitude": "Latitudine del centro dell'area monitorata (-90 a 90).",
-          "longitude": "Longitudine del centro dell'area monitorata (-180 a 180).",
+          "latitude": "Latitudine del centro dell'area monitorata (−90 a 90).",
+          "longitude": "Longitudine del centro dell'area monitorata (−180 a 180).",
           "radius_km": "Raggio in chilometri attorno al punto centrale (10–20.000 km)."
         }
       },
       "filters": {
-        "title": "Filtri e Sensore di Allerta",
-        "description": "Aggiorna i filtri opzionali e la configurazione del sensore binario di allerta terremoto.",
+        "title": "Filtri e Sensore di Allarme",
+        "description": "Aggiorna i filtri opzionali e la configurazione del sensore binario di allarme terremoto.",
         "data": {
-          "min_alert_level": "Livello minimo di allerta PAGER",
-          "only_tsunami": "Mostra solo eventi con allerta tsunami",
+          "min_alert_level": "Livello di allarme PAGER minimo",
+          "only_tsunami": "Mostra solo eventi con allarme tsunami",
           "max_depth_km": "Profondità massima (km)",
           "only_reviewed": "Solo eventi revisionati",
-          "alert_min_magnitude": "Sensore allerta — magnitudo minima",
-          "alert_time_window": "Sensore allerta — finestra temporale"
+          "alert_min_magnitude": "Sensore di allarme — magnitudo minima",
+          "alert_time_window": "Sensore di allarme — finestra temporale"
         },
         "data_description": {
-          "min_alert_level": "Filtra i terremoti per livello di allerta USGS PAGER. Seleziona 'Nessuno' per vedere tutti gli eventi indipendentemente dal livello di allerta.",
-          "max_depth_km": "Massima profondità focale in km (0–700). Imposta 700 per includere terremoti a qualsiasi profondidade. Gli eventi superficiali (< 70 km) tendono a essere più distruttivi.",
-          "only_reviewed": "Se abilitato, mostra solo i terremoti che sono stati revisionati manualmente dall'USGS. Più preciso, ma può apparire con ritardo.",
-          "alert_min_magnitude": "Il sensore binario di allerta terremoto si attiva (ON) quando viene rilevato un terremoto di questa magnitudo o superiore entro la finestra temporale.",
-          "alert_time_window": "Quante ore guardare indietro durante la valutazione del sensore binario di allerta terremoto (1–72 ore)."
+          "min_alert_level": "Filtra i terremoti per livello di allarme PAGER dell'USGS. Seleziona 'Nessuno' per mostrare tutti gli eventi indipendentemente dal livello di allarme.",
+          "max_depth_km": "Profondità focale massima in km (0–700). Imposta su 700 per includere terremoti a qualsiasi profondità. Gli eventi superficiali (<70 km) sono generalmente più distruttivi.",
+          "only_reviewed": "Quando abilitato, mostra solo i terremoti che sono stati revisionati manualmente dall'USGS. Più accurati ma possono apparire con ritardo.",
+          "alert_min_magnitude": "Il sensore binario di allarme terremoto si ATTIVA quando viene rilevato un terremoto di questa magnitudo o superiore entro la finestra temporale.",
+          "alert_time_window": "Quante ore indietro guardare quando si valuta il sensore binario di allarme terremoto (1–72 ore)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Coordinate non valide. La latitudine deve essere compresa tra -90 e 90, la longitudine tra -180 e 180.",
+      "invalid_coordinates": "Coordinate non valide. La latitudine deve essere compresa tra −90 e 90, la longitudine tra −180 e 180.",
       "invalid_radius": "Il raggio deve essere compreso tra 10 e 20.000 km.",
-      "unknown": "Errore imprevisto. Controlla i log di Home Assistant per ulteriori dettagli."
+      "unknown": "Errore imprevisto. Controlla i log di Home Assistant per maggiori dettagli."
     }
   },
   "selector": {
     "instance_type": {
       "options": {
-        "global": "Globale (tutto il mondo)",
+        "global": "Globale (in tutto il mondo)",
         "custom_area": "Area personalizzata (raggio)"
       }
     },
@@ -163,43 +163,89 @@
   },
   "entity": {
     "sensor": {
-      "total_earthquakes": { "name": "Totale terremoti" },
-      "strongest_magnitude": { "name": "Terremoto più forte" },
-      "strongest_location": { "name": "Posizione del terremoto più forte" },
-      "average_magnitude": { "name": "Magnitudo media" },
-      "latest_earthquake": { "name": "Ultimo terremoto" },
-      "latest_earthquake_time": { "name": "Ora dell'ultimo terremoto" },
-      "earthquakes_last_hour": { "name": "Terremoti nell'ultima ora" },
-      "significant_earthquakes": { "name": "Terremoti significativi" },
-      "tsunami_warnings": { "name": "Allerte tsunami attive" },
-      "highest_alert_level": { "name": "Livello di allerta più alto" },
-      "red_alert_count": { "name": "Eventi con allerta rossa" },
-      "nearest_distance": { "name": "Distanza dal terremoto più vicino" },
-      "nearest_magnitude": { "name": "Magnitudo del terremoto più vicino" },
-      "last_update": { "name": "Ultimo aggiornamento" },
-      "api_status": { "name": "Stato API" },
-      "events_fetched": { "name": "Eventi recuperati" },
-      "events_displayed": { "name": "Eventos visualizzati" }
+      "total_earthquakes": {
+        "name": "Totale terremoti"
+      },
+      "strongest_magnitude": {
+        "name": "Terremoto più forte"
+      },
+      "strongest_location": {
+        "name": "Posizione del terremoto più forte"
+      },
+      "average_magnitude": {
+        "name": "Magnitudo media"
+      },
+      "latest_earthquake": {
+        "name": "Ultimo terremoto"
+      },
+      "latest_earthquake_time": {
+        "name": "Ora dell'ultimo terremoto"
+      },
+      "earthquakes_last_hour": {
+        "name": "Terremoti nell'ultima ora"
+      },
+      "significant_earthquakes": {
+        "name": "Terremoti significativi"
+      },
+      "tsunami_warnings": {
+        "name": "Allarmi tsunami attivi"
+      },
+      "highest_alert_level": {
+        "name": "Livello di allarme più alto"
+      },
+      "red_alert_count": {
+        "name": "Eventi di allarme rosso"
+      },
+      "nearest_distance": {
+        "name": "Distanza del terremoto più vicino"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitudo del terremoto più vicino"
+      },
+      "last_update": {
+        "name": "Ultimo aggiornamento"
+      },
+      "api_status": {
+        "name": "Stato API"
+      },
+      "events_fetched": {
+        "name": "Eventi recuperati"
+      },
+      "events_displayed": {
+        "name": "Eventi visualizzati"
+      }
     },
     "binary_sensor": {
-      "earthquake_alert": { "name": "Allerta terremoto" },
-      "tsunami_warning": { "name": "Allerta tsunami attiva" }
+      "earthquake_alert": {
+        "name": "Allarme terremoto"
+      },
+      "tsunami_warning": {
+        "name": "Allarme tsunami attivo"
+      }
     },
     "button": {
-      "force_refresh": { "name": "Forza aggiornamento" }
+      "force_refresh": {
+        "name": "Forza aggiornamento"
+      }
     },
     "image": {
-      "shakemap": { "name": "ShakeMap" }
+      "shakemap": {
+        "name": "Mappa delle scosse"
+      }
     },
     "calendar": {
-      "earthquakes": { "name": "Terremoti" }
+      "earthquakes": {
+        "name": "Terremoti"
+      }
     },
     "event": {
       "new_earthquake": {
-        "name": "Rilevato nuovo terremoto",
+        "name": "Nuovo terremoto rilevato",
         "state_attributes": {
           "event_type": {
-            "state": { "earthquake_detected": "Terremoto rilevato" }
+            "state": {
+              "earthquake_detected": "Terremoto rilevato"
+            }
           }
         }
       }

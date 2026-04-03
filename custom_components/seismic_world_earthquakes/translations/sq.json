@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfiguroni këtë instancë monitorimi. Ju mund të krijoni instanca të shumta për të monitoruar zona të ndryshme ose pragje të magnitudës.",
+        "data": {
+          "name": "Emri i instancës",
+          "instance_type": "Lloji i instancës",
+          "min_magnitude": "Magnituda minimale (Shkalla Rihter)",
+          "feed_period": "Periudha e të dhënave",
+          "max_events": "Ngjarjet maksimale në hartë",
+          "units": "Njësitë e distancës",
+          "sort_by": "Rendit ngjarjet sipas"
+        },
+        "data_description": {
+          "min_magnitude": "Vetëm tërmetet me magnitudë të barabartë ose më të lartë se kjo do të përfshihen (0.0–9.9).",
+          "max_events": "Numri maksimal i tërmeteve të shfaqura në hartë (50–500). Ngjarjet me M≥6.0 ruhen gjithmonë pavarësisht nga ky kufi.",
+          "sort_by": "Përcakton rendin në të cilin tërmetet shfaqen në hartë dhe në sensorë."
+        }
+      },
+      "area": {
+        "title": "Konfigurimi i Zonës me Porosi",
+        "description": "Përcaktoni zonën gjeografike për t'u monitoruar. Të gjithë tërmetet brenda rrezes së specifikuar nga pika qendrore do të përfshihen.",
+        "data": {
+          "latitude": "Gjerësia gjeografike e qendrës",
+          "longitude": "Gjatësia gjeografike e qendrës",
+          "radius_km": "Rrezja e kërkimit (km)"
+        },
+        "data_description": {
+          "latitude": "Gjerësia gjeografike e qendrës së zonës së monitoruar (−90 deri në 90).",
+          "longitude": "Gjatësia gjeografike e qendrës së zonës së monitoruar (−180 deri në 180).",
+          "radius_km": "Rrezja në kilometra rreth pikës qendrore (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrat dhe Sensori i Alarmit",
+        "description": "Opsionalisht kufizoni cilët tërmete shfaqen dhe konfiguroni sensorin binar të alarmit të tërmetit.",
+        "data": {
+          "min_alert_level": "Niveli minimal i alarmit PAGER",
+          "only_tsunami": "Shfaq vetëm ngjarje me paralajmërim cunami",
+          "max_depth_km": "Thellësia maksimale (km)",
+          "only_reviewed": "Vetëm ngjarje të rishikuara",
+          "alert_min_magnitude": "Sensori i alarmit — magnituda minimale",
+          "alert_time_window": "Sensori i alarmit — dritarja kohore"
+        },
+        "data_description": {
+          "min_alert_level": "Filtroni tërmetet sipas nivelit të alarmit PAGER të USGS. Zgjidhni 'Asnjë' për të shfaqur të gjitha ngjarjet pavarësisht nga niveli i alarmit.",
+          "max_depth_km": "Thellësia maksimale fokale në km (0–700). Vendoseni në 700 për të përfshirë tërmetet në çdo thellësi. Ngjarjet e cekëta (<70 km) janë përgjithësisht më shkatërruese.",
+          "only_reviewed": "Kur aktivizohet, tregon vetëm tërmete që janë rishikuar manualisht nga USGS. Më të sakta, por mund të shfaqen me vonesë.",
+          "alert_min_magnitude": "Sensori binar i alarmit të tërmetit NDIZET kur një tërmet i kësaj magnitude ose më i madh zbulohet brenda dritares kohore.",
+          "alert_time_window": "Sa orë prapa të shikohet kur vlerësohet sensori binar i alarmit të tërmetit (1–72 orë)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Koordinata të pavlefshme. Gjerësia gjeografike duhet të jetë midis −90 dhe 90, gjatësia midis −180 dhe 180.",
+      "invalid_radius": "Rrezja duhet të jetë midis 10 dhe 20,000 km.",
+      "cannot_connect": "Nuk mund të lidhet me API-në e USGS. Ju lutemi kontrolloni lidhjen tuaj të internetit dhe provoni përsëri.",
+      "unknown": "Gabim i papritur. Ju lutemi kontrolloni regjistrat e Home Assistant për më shumë detaje."
+    },
+    "abort": {
+      "already_configured": "Kjo instancë është konfiguruar tashmë."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rikonfiguro Seismic World Earthquakes",
+        "description": "Përditësoni cilësimet bazë për këtë instancë monitorimi.",
+        "data": {
+          "name": "Emri i instancës",
+          "instance_type": "Lloji i instancës",
+          "min_magnitude": "Magnituda minimale (Shkalla Rihter)",
+          "feed_period": "Periudha e të dhënave",
+          "max_events": "Ngjarjet maksimale në hartë",
+          "units": "Njësitë e distancës",
+          "sort_by": "Rendit ngjarjet sipas"
+        },
+        "data_description": {
+          "min_magnitude": "Vetëm tërmetet me magnitudë të barabartë ose më të lartë se kjo do të përfshihen (0.0–9.9).",
+          "max_events": "Numri maksimal i tërmeteve të shfaqura në hartë (50–500). Ngjarjet me M≥6.0 ruhen gjithmonë pavarësisht nga ky kufi.",
+          "sort_by": "Përcakton rendin në të cilin tërmetet shfaqen në hartë dhe në sensorë."
+        }
+      },
+      "area": {
+        "title": "Konfigurimi i Zonës me Porosi",
+        "description": "Përditësoni zonën gjeografike për t'u monitoruar.",
+        "data": {
+          "latitude": "Gjerësia gjeografike e qendrës",
+          "longitude": "Gjatësia gjeografike e qendrës",
+          "radius_km": "Rrezja e kërkimit (km)"
+        },
+        "data_description": {
+          "latitude": "Gjerësia gjeografike e qendrës së zonës së monitoruar (−90 deri në 90).",
+          "longitude": "Gjatësia gjeografike e qendrës së zonës së monitoruar (−180 deri në 180).",
+          "radius_km": "Rrezja në kilometra rreth pikës qendrore (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrat dhe Sensori i Alarmit",
+        "description": "Përditësoni filtrat opsionalë dhe konfigurimin e sensorit binar të alarmit të tërmetit.",
+        "data": {
+          "min_alert_level": "Niveli minimal i alarmit PAGER",
+          "only_tsunami": "Shfaq vetëm ngjarje me paralajmërim cunami",
+          "max_depth_km": "Thellësia maksimale (km)",
+          "only_reviewed": "Vetëm ngjarje të rishikuara",
+          "alert_min_magnitude": "Sensori i alarmit — magnituda minimale",
+          "alert_time_window": "Sensori i alarmit — dritarja kohore"
+        },
+        "data_description": {
+          "min_alert_level": "Filtroni tërmetet sipas nivelit të alarmit PAGER të USGS. Zgjidhni 'Asnjë' për të shfaqur të gjitha ngjarjet pavarësisht nga niveli i alarmit.",
+          "max_depth_km": "Thellësia maksimale fokale në km (0–700). Vendoseni në 700 për të përfshirë tërmetet në çdo thellësi. Ngjarjet e cekëta (<70 km) janë përgjithësisht më shkatërruese.",
+          "only_reviewed": "Kur aktivizohet, tregon vetëm tërmete që janë rishikuar manualisht nga USGS. Më të sakta, por mund të shfaqen me vonesë.",
+          "alert_min_magnitude": "Sensori binar i alarmit të tërmetit NDIZET kur një tërmet i kësaj magnitude ose më i madh zbulohet brenda dritares kohore.",
+          "alert_time_window": "Sa orë prapa të shikohet kur vlerësohet sensori binar i alarmit të tërmetit (1–72 orë)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Koordinata të pavlefshme. Gjerësia gjeografike duhet të jetë midis −90 dhe 90, gjatësia midis −180 dhe 180.",
+      "invalid_radius": "Rrezja duhet të jetë midis 10 dhe 20,000 km.",
+      "unknown": "Gabim i papritur. Ju lutemi kontrolloni regjistrat e Home Assistant për më shumë detaje."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (në mbarë botën)",
+        "custom_area": "Zonë me porosi (rreze)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Ora e fundit",
+        "day": "24 orët e fundit",
+        "week": "7 ditët e fundit",
+        "month": "30 ditët e fundit"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometra (km)",
+        "mi": "Milje (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnituda (më të fortët të parët)",
+        "time": "Koha (më të fundit të parët)",
+        "distance": "Distanca (më të afërtit të parët)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Asnjë (shfaq të gjitha)",
+        "green": "E gjelbër",
+        "yellow": "E verdhë",
+        "orange": "Portokalli",
+        "red": "E kuqe (më e rënda)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Totali i tërmeteve"
+      },
+      "strongest_magnitude": {
+        "name": "Tërmeti më i fortë"
+      },
+      "strongest_location": {
+        "name": "Vendndodhja e tërmetit më të fortë"
+      },
+      "average_magnitude": {
+        "name": "Magnituda mesatare"
+      },
+      "latest_earthquake": {
+        "name": "Tërmeti i fundit"
+      },
+      "latest_earthquake_time": {
+        "name": "Ora e tërmetit të fundit"
+      },
+      "earthquakes_last_hour": {
+        "name": "Tërmetet në orën e fundit"
+      },
+      "significant_earthquakes": {
+        "name": "Tërmete të rëndësishme"
+      },
+      "tsunami_warnings": {
+        "name": "Paralajmërime aktive për cunami"
+      },
+      "highest_alert_level": {
+        "name": "Niveli më i lartë i alarmit"
+      },
+      "red_alert_count": {
+        "name": "Ngjarje me alarm të kuq"
+      },
+      "nearest_distance": {
+        "name": "Distanca e tërmetit më të afërt"
+      },
+      "nearest_magnitude": {
+        "name": "Magnituda e tërmetit më të afërt"
+      },
+      "last_update": {
+        "name": "Përditësimi i fundit"
+      },
+      "api_status": {
+        "name": "Statusi i API"
+      },
+      "events_fetched": {
+        "name": "Ngjarjet e marra"
+      },
+      "events_displayed": {
+        "name": "Ngjarjet e shfaqura"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Alarmi i tërmetit"
+      },
+      "tsunami_warning": {
+        "name": "Paralajmërimi për cunami aktiv"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Detyro rifreskimin"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Harta e dridhjeve"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Tërmetet"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Tërmet i ri i zbuluar",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Tërmet i zbuluar"
+            }
+          }
+        }
+      }
+    }
+  }
+}

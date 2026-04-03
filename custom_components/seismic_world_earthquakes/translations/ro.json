@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Configurați această instanță de monitorizare. Puteți crea mai multe instanțe pentru a monitoriza diferite zone sau praguri de magnitudine.",
+        "data": {
+          "name": "Numele instanței",
+          "instance_type": "Tipul instanței",
+          "min_magnitude": "Magnitudinea minimă (scara Richter)",
+          "feed_period": "Perioada de date",
+          "max_events": "Numărul maxim de evenimente pe hartă",
+          "units": "Unități de distanță",
+          "sort_by": "Sortați evenimentele după"
+        },
+        "data_description": {
+          "min_magnitude": "Vor fi incluse doar cutremurele cu magnitudinea egală sau mai mare decât aceasta (0.0–9.9).",
+          "max_events": "Numărul maxim de cutremure afișate pe hartă (50–500). Evenimentele cu M≥6.0 sunt întotdeauna păstrate indiferent de această limită.",
+          "sort_by": "Definește ordinea în care cutremurele apar pe hartă și în senzori."
+        }
+      },
+      "area": {
+        "title": "Configurarea zonei personalizate",
+        "description": "Definiți zona geografică de monitorizat. Toate cutremurele din raza specificată a punctului central vor fi incluse.",
+        "data": {
+          "latitude": "Latitudinea centrului",
+          "longitude": "Longitudinea centrului",
+          "radius_km": "Raza de căutare (km)"
+        },
+        "data_description": {
+          "latitude": "Latitudinea centrului zonei monitorizate (−90 la 90).",
+          "longitude": "Longitudinea centrului zonei monitorizate (−180 la 180).",
+          "radius_km": "Raza în kilometri în jurul punctului central (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtre și senzor de alertă",
+        "description": "Opțional, restricționați ce cutremure sunt afișate și configurați senzorul binar de alertă pentru cutremur.",
+        "data": {
+          "min_alert_level": "Nivelul minim de alertă PAGER",
+          "only_tsunami": "Afișați doar evenimentele cu avertizare de tsunami",
+          "max_depth_km": "Adâncimea maximă (km)",
+          "only_reviewed": "Doar evenimente verificate",
+          "alert_min_magnitude": "Senzor de alertă — magnitudinea minimă",
+          "alert_time_window": "Senzor de alertă — fereastra de timp"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrați cutremurele după nivelul de alertă PAGER al USGS. Selectați 'Niciunul' pentru a afișa toate evenimentele indiferent de nivelul de alertă.",
+          "max_depth_km": "Adâncimea focală maximă în km (0–700). Setați la 700 pentru a include cutremure la orice adâncime. Evenimentele superficiale (<70 km) sunt în general mai distructive.",
+          "only_reviewed": "Când este activat, afișează doar cutremurele care au fost verificate manual de USGS. Mai precise, dar pot apărea cu întârziere.",
+          "alert_min_magnitude": "Senzorul binar de alertă pentru cutremur se ACTIVEAZĂ atunci când un cutremur de această magnitudine sau mai mare este detectat în fereastra de timp.",
+          "alert_time_window": "Câte ore în urmă să se uite la evaluarea senzorului binar de alertă pentru cutremur (1–72 de ore)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Coordonate invalide. Latitudinea trebuie să fie între −90 și 90, longitudinea între −180 și 180.",
+      "invalid_radius": "Raza trebuie să fie între 10 și 20.000 km.",
+      "cannot_connect": "Nu se poate conecta la API-ul USGS. Verificați conexiunea la internet și încercați din nou.",
+      "unknown": "Eroare neașteptată. Verificați jurnalele Home Assistant pentru mai multe detalii."
+    },
+    "abort": {
+      "already_configured": "Această instanță este deja configurată."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Reconfigurați Seismic World Earthquakes",
+        "description": "Actualizați setările de bază pentru această instanță de monitorizare.",
+        "data": {
+          "name": "Numele instanței",
+          "instance_type": "Tipul instanței",
+          "min_magnitude": "Magnitudinea minimă (scara Richter)",
+          "feed_period": "Perioada de date",
+          "max_events": "Numărul maxim de evenimente pe hartă",
+          "units": "Unități de distanță",
+          "sort_by": "Sortați evenimentele după"
+        },
+        "data_description": {
+          "min_magnitude": "Vor fi incluse doar cutremurele cu magnitudinea egală sau mai mare decât aceasta (0.0–9.9).",
+          "max_events": "Numărul maxim de cutremure afișate pe hartă (50–500). Evenimentele cu M≥6.0 sunt întotdeauna păstrate indiferent de această limită.",
+          "sort_by": "Definește ordinea în care cutremurele apar pe hartă și în senzori."
+        }
+      },
+      "area": {
+        "title": "Configurarea zonei personalizate",
+        "description": "Actualizați zona geografică de monitorizat.",
+        "data": {
+          "latitude": "Latitudinea centrului",
+          "longitude": "Longitudinea centrului",
+          "radius_km": "Raza de căutare (km)"
+        },
+        "data_description": {
+          "latitude": "Latitudinea centrului zonei monitorizate (−90 la 90).",
+          "longitude": "Longitudinea centrului zonei monitorizate (−180 la 180).",
+          "radius_km": "Raza în kilometri în jurul punctului central (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtre și senzor de alertă",
+        "description": "Actualizați filtrele opționale și configurația senzorului binar de alertă pentru cutremur.",
+        "data": {
+          "min_alert_level": "Nivelul minim de alertă PAGER",
+          "only_tsunami": "Afișați doar evenimentele cu avertizare de tsunami",
+          "max_depth_km": "Adâncimea maximă (km)",
+          "only_reviewed": "Doar evenimente verificate",
+          "alert_min_magnitude": "Senzor de alertă — magnitudinea minimă",
+          "alert_time_window": "Senzor de alertă — fereastra de timp"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrați cutremurele după nivelul de alertă PAGER al USGS. Selectați 'Niciunul' pentru a afișa toate evenimentele indiferent de nivelul de alertă.",
+          "max_depth_km": "Adâncimea focală maximă în km (0–700). Setați la 700 pentru a include cutremure la orice adâncime. Evenimentele superficiale (<70 km) sunt în general mai distructive.",
+          "only_reviewed": "Când este activat, afișează doar cutremurele care au fost verificate manual de USGS. Mai precise, dar pot apărea cu întârziere.",
+          "alert_min_magnitude": "Senzorul binar de alertă pentru cutremur se ACTIVEAZĂ atunci când un cutremur de această magnitudine sau mai mare este detectat în fereastra de timp.",
+          "alert_time_window": "Câte ore în urmă să se uite la evaluarea senzorului binar de alertă pentru cutremur (1–72 de ore)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Coordonate invalide. Latitudinea trebuie să fie între −90 și 90, longitudinea între −180 și 180.",
+      "invalid_radius": "Raza trebuie să fie între 10 și 20.000 km.",
+      "unknown": "Eroare neașteptată. Verificați jurnalele Home Assistant pentru mai multe detalii."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (în întreaga lume)",
+        "custom_area": "Zonă personalizată (rază)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Ultima oră",
+        "day": "Ultimele 24 de ore",
+        "week": "Ultimele 7 zile",
+        "month": "Ultimele 30 de zile"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometri (km)",
+        "mi": "Mile (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitudine (cele mai puternice primele)",
+        "time": "Timp (cele mai recente primele)",
+        "distance": "Distanță (cele mai apropiate primele)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Niciunul (afișează toate)",
+        "green": "Verde",
+        "yellow": "Galben",
+        "orange": "Portocaliu",
+        "red": "Roșu (cel mai sever)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Total cutremure"
+      },
+      "strongest_magnitude": {
+        "name": "Cel mai puternic cutremur"
+      },
+      "strongest_location": {
+        "name": "Locația celui mai puternic cutremur"
+      },
+      "average_magnitude": {
+        "name": "Magnitudinea medie"
+      },
+      "latest_earthquake": {
+        "name": "Ultimul cutremur"
+      },
+      "latest_earthquake_time": {
+        "name": "Ora ultimului cutremur"
+      },
+      "earthquakes_last_hour": {
+        "name": "Cutremure în ultima oră"
+      },
+      "significant_earthquakes": {
+        "name": "Cutremure semnificative"
+      },
+      "tsunami_warnings": {
+        "name": "Avertizări de tsunami active"
+      },
+      "highest_alert_level": {
+        "name": "Cel mai înalt nivel de alertă"
+      },
+      "red_alert_count": {
+        "name": "Evenimente de alertă roșie"
+      },
+      "nearest_distance": {
+        "name": "Distanța celui mai apropiat cutremur"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitudinea celui mai apropiat cutremur"
+      },
+      "last_update": {
+        "name": "Ultima actualizare"
+      },
+      "api_status": {
+        "name": "Starea API"
+      },
+      "events_fetched": {
+        "name": "Evenimente preluate"
+      },
+      "events_displayed": {
+        "name": "Evenimente afișate"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Alertă de cutremur"
+      },
+      "tsunami_warning": {
+        "name": "Avertizare de tsunami activă"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Forțare reîmprospătare"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Harta zguduirii"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Cutremure"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Cutremur nou detectat",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Cutremur detectat"
+            }
+          }
+        }
+      }
+    }
+  }
+}

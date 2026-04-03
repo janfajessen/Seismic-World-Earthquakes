@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "配置此监控实例。您可以创建多个实例来监控不同的区域或震级阈值。",
+        "data": {
+          "name": "实例名称",
+          "instance_type": "实例类型",
+          "min_magnitude": "最小震级（里氏震级）",
+          "feed_period": "数据周期",
+          "max_events": "地图上的最大事件数",
+          "units": "距离单位",
+          "sort_by": "事件排序方式"
+        },
+        "data_description": {
+          "min_magnitude": "仅包含震级等于或高于此值的地震（0.0–9.9）。",
+          "max_events": "地图上显示的最大地震数量（50–500）。震级 M≥6.0 的事件始终保留，不受此限制影响。",
+          "sort_by": "定义地震在地图和传感器中显示的顺序。"
+        }
+      },
+      "area": {
+        "title": "自定义区域配置",
+        "description": "定义要监控的地理区域。将包括中心点指定半径内的所有地震。",
+        "data": {
+          "latitude": "中心纬度",
+          "longitude": "中心经度",
+          "radius_km": "搜索半径（公里）"
+        },
+        "data_description": {
+          "latitude": "监控区域中心的纬度（−90 至 90）。",
+          "longitude": "监控区域中心的经度（−180 至 180）。",
+          "radius_km": "中心点周围的半径（公里）（10–20,000 公里）。"
+        }
+      },
+      "filters": {
+        "title": "过滤器和警报传感器",
+        "description": "可选择限制显示哪些地震，并配置地震警报二进制传感器。",
+        "data": {
+          "min_alert_level": "最低 PAGER 警报级别",
+          "only_tsunami": "仅显示有海啸警报的事件",
+          "max_depth_km": "最大深度（公里）",
+          "only_reviewed": "仅经过审核的事件",
+          "alert_min_magnitude": "警报传感器 — 最小震级",
+          "alert_time_window": "警报传感器 — 时间窗口"
+        },
+        "data_description": {
+          "min_alert_level": "根据 USGS PAGER 警报级别过滤地震。选择“无”可显示所有事件，无论警报级别如何。",
+          "max_depth_km": "最大震源深度（公里）（0–700）。设置为 700 可包含任何深度的地震。浅源事件（<70 公里）通常更具破坏性。",
+          "only_reviewed": "启用后，仅显示 USGS 手动审核过的地震。更准确，但可能会出现延迟。",
+          "alert_min_magnitude": "当地震警报二进制传感器在时间窗口内检测到等于或大于此震级的地震时，将打开。",
+          "alert_time_window": "评估地震警报二进制传感器时，需要回溯多少小时（1–72 小时）。"
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "无效坐标。纬度必须在 −90 到 90 之间，经度必须在 −180 到 180 之间。",
+      "invalid_radius": "半径必须在 10 到 20,000 公里之间。",
+      "cannot_connect": "无法连接到 USGS API。请检查您的互联网连接并重试。",
+      "unknown": "意外错误。请检查 Home Assistant 日志以获取更多详细信息。"
+    },
+    "abort": {
+      "already_configured": "此实例已配置。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "重新配置 Seismic World Earthquakes",
+        "description": "更新此监控实例的基本设置。",
+        "data": {
+          "name": "实例名称",
+          "instance_type": "实例类型",
+          "min_magnitude": "最小震级（里氏震级）",
+          "feed_period": "数据周期",
+          "max_events": "地图上的最大事件数",
+          "units": "距离单位",
+          "sort_by": "事件排序方式"
+        },
+        "data_description": {
+          "min_magnitude": "仅包含震级等于或高于此值的地震（0.0–9.9）。",
+          "max_events": "地图上显示的最大地震数量（50–500）。震级 M≥6.0 的事件始终保留，不受此限制影响。",
+          "sort_by": "定义地震在地图和传感器中显示的顺序。"
+        }
+      },
+      "area": {
+        "title": "自定义区域配置",
+        "description": "更新要监控的地理区域。",
+        "data": {
+          "latitude": "中心纬度",
+          "longitude": "中心经度",
+          "radius_km": "搜索半径（公里）"
+        },
+        "data_description": {
+          "latitude": "监控区域中心的纬度（−90 至 90）。",
+          "longitude": "监控区域中心的经度（−180 至 180）。",
+          "radius_km": "中心点周围的半径（公里）（10–20,000 公里）。"
+        }
+      },
+      "filters": {
+        "title": "过滤器和警报传感器",
+        "description": "更新可选过滤器和地震警报二进制传感器配置。",
+        "data": {
+          "min_alert_level": "最低 PAGER 警报级别",
+          "only_tsunami": "仅显示有海啸警报的事件",
+          "max_depth_km": "最大深度（公里）",
+          "only_reviewed": "仅经过审核的事件",
+          "alert_min_magnitude": "警报传感器 — 最小震级",
+          "alert_time_window": "警报传感器 — 时间窗口"
+        },
+        "data_description": {
+          "min_alert_level": "根据 USGS PAGER 警报级别过滤地震。选择“无”可显示所有事件，无论警报级别如何。",
+          "max_depth_km": "最大震源深度（公里）（0–700）。设置为 700 可包含任何深度的地震。浅源事件（<70 公里）通常更具破坏性。",
+          "only_reviewed": "启用后，仅显示 USGS 手动审核过的地震。更准确，但可能会出现延迟。",
+          "alert_min_magnitude": "当地震警报二进制传感器在时间窗口内检测到等于或大于此震级的地震时，将打开。",
+          "alert_time_window": "评估地震警报二进制传感器时，需要回溯多少小时（1–72 小时）。"
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "无效坐标。纬度必须在 −90 到 90 之间，经度必须在 −180 到 180 之间。",
+      "invalid_radius": "半径必须在 10 到 20,000 公里之间。",
+      "unknown": "意外错误。请检查 Home Assistant 日志以获取更多详细信息。"
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "全球（全世界）",
+        "custom_area": "自定义区域（半径）"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "最后一小时",
+        "day": "最后 24 小时",
+        "week": "最后 7 天",
+        "month": "最后 30 天"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "公里 (km)",
+        "mi": "英里 (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "震级（最强在前）",
+        "time": "时间（最新在前）",
+        "distance": "距离（最近在前）"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "无（显示所有）",
+        "green": "绿色",
+        "yellow": "黄色",
+        "orange": "橙色",
+        "red": "红色（最严重）"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "地震总数"
+      },
+      "strongest_magnitude": {
+        "name": "最强地震"
+      },
+      "strongest_location": {
+        "name": "最强地震位置"
+      },
+      "average_magnitude": {
+        "name": "平均震级"
+      },
+      "latest_earthquake": {
+        "name": "最新地震"
+      },
+      "latest_earthquake_time": {
+        "name": "最新地震时间"
+      },
+      "earthquakes_last_hour": {
+        "name": "过去一小时地震数"
+      },
+      "significant_earthquakes": {
+        "name": "显著地震"
+      },
+      "tsunami_warnings": {
+        "name": "活跃的海啸警报"
+      },
+      "highest_alert_level": {
+        "name": "最高警报级别"
+      },
+      "red_alert_count": {
+        "name": "红色警报事件"
+      },
+      "nearest_distance": {
+        "name": "最近地震的距离"
+      },
+      "nearest_magnitude": {
+        "name": "最近地震的震级"
+      },
+      "last_update": {
+        "name": "最后更新"
+      },
+      "api_status": {
+        "name": "API 状态"
+      },
+      "events_fetched": {
+        "name": "已获取的事件"
+      },
+      "events_displayed": {
+        "name": "已显示的事件"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "地震警报"
+      },
+      "tsunami_warning": {
+        "name": "海啸警报激活"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "强制刷新"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "震动图"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "地震"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "检测到新地震",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "检测到地震"
+            }
+          }
+        }
+      }
+    }
+  }
+}

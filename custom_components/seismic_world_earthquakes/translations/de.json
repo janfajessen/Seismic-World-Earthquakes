@@ -2,26 +2,26 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seismic World Erdbeben",
+        "title": "Seismic World Earthquakes",
         "description": "Konfigurieren Sie diese Überwachungsinstanz. Sie können mehrere Instanzen erstellen, um verschiedene Gebiete oder Magnitudenschwellen zu überwachen.",
         "data": {
           "name": "Instanzname",
           "instance_type": "Instanztyp",
-          "min_magnitude": "Mindestmagnitude (Richter-Skala)",
+          "min_magnitude": "Minimale Magnitude (Richter-Skala)",
           "feed_period": "Datenzeitraum",
-          "max_events": "Maximale Ereignisse auf der Karte",
+          "max_events": "Maximale Ereignisse auf Karte",
           "units": "Entfernungseinheiten",
           "sort_by": "Ereignisse sortieren nach"
         },
         "data_description": {
-          "min_magnitude": "Nur Erdbeben mit dieser oder einer höheren Magnitude werden berücksichtigt (0,0–9,9).",
-          "max_events": "Maximale Anzahl der auf der Karte angezeigten Erdbeben (50–500). Ereignisse mit M≥6,0 werden unabhängig von diesem Limit immer beibehalten.",
-          "sort_by": "Definiert die Reihenfolge, in der Erdbeben auf der Karte und in den Sensoren erscheinen."
+          "min_magnitude": "Nur Erdbeben mit einer Magnitude gleich oder über diesem Wert werden einbezogen (0,0–9,9).",
+          "max_events": "Maximale Anzahl der auf der Karte angezeigten Erdbeben (50–500). Ereignisse mit M≥6,0 werden unabhängig von dieser Grenze immer behalten.",
+          "sort_by": "Definiert die Reihenfolge, in der Erdbeben auf der Karte und in Sensoren erscheinen."
         }
       },
       "area": {
-        "title": "Benutzerdefinierte Gebietskonfiguration",
-        "description": "Definieren Sie das zu überwachende geografische Gebiet. Alle Erdbeben innerhalb des angegebenen Radius um den Mittelpunkt werden berücksichtigt.",
+        "title": "Konfiguration des benutzerdefinierten Bereichs",
+        "description": "Definieren Sie den zu überwachenden geografischen Bereich. Alle Erdbeben innerhalb des angegebenen Radius um den Mittelpunkt werden einbezogen.",
         "data": {
           "latitude": "Breitengrad des Zentrums",
           "longitude": "Längengrad des Zentrums",
@@ -34,30 +34,30 @@
         }
       },
       "filters": {
-        "title": "Filter & Alarmsensor",
-        "description": "Schränken Sie optional ein, welche Erdbeben angezeigt werden, und konfigurieren Sie den Binärsensor für den Erdbebenalarm.",
+        "title": "Filter und Alarmsensor",
+        "description": "Schränken Sie optional ein, welche Erdbeben angezeigt werden, und konfigurieren Sie den binären Erdbeben-Alarmsensor.",
         "data": {
-          "min_alert_level": "Mindest-PAGER-Alarmstufe",
+          "min_alert_level": "Minimale PAGER-Alarmstufe",
           "only_tsunami": "Nur Ereignisse mit Tsunami-Warnung anzeigen",
           "max_depth_km": "Maximale Tiefe (km)",
-          "only_reviewed": "Nur geprüfte Ereignisse",
-          "alert_min_magnitude": "Alarmsensor — Mindestmagnitude",
+          "only_reviewed": "Nur überprüfte Ereignisse",
+          "alert_min_magnitude": "Alarmsensor — minimale Magnitude",
           "alert_time_window": "Alarmsensor — Zeitfenster"
         },
         "data_description": {
-          "min_alert_level": "Erdbeben nach USGS PAGER-Alarmstufe filtern. Wählen Sie 'Keine', um alle Ereignisse unabhängig von der Alarmstufe anzuzeigen.",
-          "max_depth_km": "Maximale Herdtiefe in km (0–700). Auf 700 setzen, um Erdbeben in jeder Tiefe einzubeziehen. Flache Ereignisse (< 70 km) sind in der Regel zerstörerischer.",
-          "only_reviewed": "Wenn aktiviert, werden nur Erdbeben angezeigt, die manuell vom USGS überprüft wurden. Genauer, kann aber verzögert erscheinen.",
-          "alert_min_magnitude": "Der Erdbebenalarm-Binärsensor schaltet sich EIN, wenn ein Erdbeben dieser Magnitude oder höher innerhalb des Zeitfensters erkannt wird.",
-          "alert_time_window": "Wie viele Stunden zurückgeblickt werden soll, um den Erdbebenalarm-Binärsensor auszuwerten (1–72 Stunden)."
+          "min_alert_level": "Filtern Sie Erdbeben nach der USGS PAGER-Alarmstufe. Wählen Sie 'Keine', um alle Ereignisse unabhängig von der Alarmstufe anzuzeigen.",
+          "max_depth_km": "Maximale Herdtiefe in km (0–700). Stellen Sie 700 ein, um Erdbeben in jeder Tiefe einzuschließen. Flache Ereignisse (<70 km) sind in der Regel zerstörerischer.",
+          "only_reviewed": "Wenn aktiviert, werden nur Erdbeben angezeigt, die manuell vom USGS überprüft wurden. Genauer, können aber mit Verzögerung erscheinen.",
+          "alert_min_magnitude": "Der binäre Erdbeben-Alarmsensor wird EINGESCHALTET, wenn innerhalb des Zeitfensters ein Erdbeben dieser oder einer größeren Magnitude erkannt wird.",
+          "alert_time_window": "Wie viele Stunden zurückgeschaut werden soll, wenn der binäre Erdbeben-Alarmsensor ausgewertet wird (1–72 Stunden)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Ungültige Koordinaten. Breitengrad muss zwischen −90 und 90 liegen, Längengrad zwischen −180 und 180.",
+      "invalid_coordinates": "Ungültige Koordinaten. Der Breitengrad muss zwischen −90 und 90 liegen, der Längengrad zwischen −180 und 180.",
       "invalid_radius": "Der Radius muss zwischen 10 und 20.000 km liegen.",
-      "cannot_connect": "Verbindung zur USGS-API nicht möglich. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
-      "unknown": "Unerwarteter Fehler. Bitte prüfen Sie die Home Assistant Logs für weitere Details."
+      "cannot_connect": "Verbindung zur USGS-API kann nicht hergestellt werden. Bitte überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut.",
+      "unknown": "Unerwarteter Fehler. Bitte überprüfen Sie die Home Assistant-Protokolle für weitere Details."
     },
     "abort": {
       "already_configured": "Diese Instanz ist bereits konfiguriert."
@@ -66,26 +66,26 @@
   "options": {
     "step": {
       "init": {
-        "title": "Seismic World Erdbeben neu konfigurieren",
+        "title": "Seismic World Earthquakes neu konfigurieren",
         "description": "Aktualisieren Sie die Grundeinstellungen für diese Überwachungsinstanz.",
         "data": {
           "name": "Instanzname",
           "instance_type": "Instanztyp",
-          "min_magnitude": "Mindestmagnitude (Richter-Skala)",
+          "min_magnitude": "Minimale Magnitude (Richter-Skala)",
           "feed_period": "Datenzeitraum",
-          "max_events": "Maximale Ereignisse auf der Karte",
+          "max_events": "Maximale Ereignisse auf Karte",
           "units": "Entfernungseinheiten",
           "sort_by": "Ereignisse sortieren nach"
         },
         "data_description": {
-          "min_magnitude": "Nur Erdbeben mit dieser oder einer höheren Magnitude werden berücksichtigt (0,0–9,9).",
-          "max_events": "Maximale Anzahl der auf der Karte angezeigten Erdbeben (50–500). Ereignisse mit M≥6,0 werden unabhängig von diesem Limit immer beibehalten.",
-          "sort_by": "Definiert die Reihenfolge, in der Erdbeben auf der Karte und in den Sensoren erscheinen."
+          "min_magnitude": "Nur Erdbeben mit einer Magnitude gleich oder über diesem Wert werden einbezogen (0,0–9,9).",
+          "max_events": "Maximale Anzahl der auf der Karte angezeigten Erdbeben (50–500). Ereignisse mit M≥6,0 werden unabhängig von dieser Grenze immer behalten.",
+          "sort_by": "Definiert die Reihenfolge, in der Erdbeben auf der Karte und in Sensoren erscheinen."
         }
       },
       "area": {
-        "title": "Benutzerdefinierte Gebietskonfiguration",
-        "description": "Aktualisieren Sie das zu überwachende geografische Gebiet.",
+        "title": "Konfiguration des benutzerdefinierten Bereichs",
+        "description": "Aktualisieren Sie den zu überwachenden geografischen Bereich.",
         "data": {
           "latitude": "Breitengrad des Zentrums",
           "longitude": "Längengrad des Zentrums",
@@ -98,29 +98,29 @@
         }
       },
       "filters": {
-        "title": "Filter & Alarmsensor",
-        "description": "Aktualisieren Sie optionale Filter und die Konfiguration des Binärsensors für den Erdbebenalarm.",
+        "title": "Filter und Alarmsensor",
+        "description": "Aktualisieren Sie optionale Filter und die Konfiguration des binären Erdbeben-Alarmsensors.",
         "data": {
-          "min_alert_level": "Mindest-PAGER-Alarmstufe",
+          "min_alert_level": "Minimale PAGER-Alarmstufe",
           "only_tsunami": "Nur Ereignisse mit Tsunami-Warnung anzeigen",
           "max_depth_km": "Maximale Tiefe (km)",
-          "only_reviewed": "Nur geprüfte Ereignisse",
-          "alert_min_magnitude": "Alarmsensor — Mindestmagnitude",
+          "only_reviewed": "Nur überprüfte Ereignisse",
+          "alert_min_magnitude": "Alarmsensor — minimale Magnitude",
           "alert_time_window": "Alarmsensor — Zeitfenster"
         },
         "data_description": {
-          "min_alert_level": "Erdbeben nach USGS PAGER-Alarmstufe filtern. Wählen Sie 'Keine', um alle Ereignisse unabhängig von der Alarmstufe anzuzeigen.",
-          "max_depth_km": "Maximale Herdtiefe in km (0–700). Auf 700 setzen, um Erdbeben in jeder Tiefe einzubeziehen. Flache Ereignisse (< 70 km) sind in der Regel zerstörerischer.",
-          "only_reviewed": "Wenn aktiviert, werden nur Erdbeben angezeigt, die manuell vom USGS überprüft wurden. Genauer, kann aber verzögert erscheinen.",
-          "alert_min_magnitude": "Der Erdbebenalarm-Binärsensor schaltet sich EIN, wenn ein Erdbeben dieser Magnitude oder höher innerhalb des Zeitfensters erkannt wird.",
-          "alert_time_window": "Wie viele Stunden zurückgeblickt werden soll, um den Erdbebenalarm-Binärsensor auszuwerten (1–72 Stunden)."
+          "min_alert_level": "Filtern Sie Erdbeben nach der USGS PAGER-Alarmstufe. Wählen Sie 'Keine', um alle Ereignisse unabhängig von der Alarmstufe anzuzeigen.",
+          "max_depth_km": "Maximale Herdtiefe in km (0–700). Stellen Sie 700 ein, um Erdbeben in jeder Tiefe einzuschließen. Flache Ereignisse (<70 km) sind in der Regel zerstörerischer.",
+          "only_reviewed": "Wenn aktiviert, werden nur Erdbeben angezeigt, die manuell vom USGS überprüft wurden. Genauer, können aber mit Verzögerung erscheinen.",
+          "alert_min_magnitude": "Der binäre Erdbeben-Alarmsensor wird EINGESCHALTET, wenn innerhalb des Zeitfensters ein Erdbeben dieser oder einer größeren Magnitude erkannt wird.",
+          "alert_time_window": "Wie viele Stunden zurückgeschaut werden soll, wenn der binäre Erdbeben-Alarmsensor ausgewertet wird (1–72 Stunden)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Ungültige Koordinaten. Breitengrad muss zwischen −90 und 90 liegen, Längengrad zwischen −180 und 180.",
+      "invalid_coordinates": "Ungültige Koordinaten. Der Breitengrad muss zwischen −90 und 90 liegen, der Längengrad zwischen −180 und 180.",
       "invalid_radius": "Der Radius muss zwischen 10 und 20.000 km liegen.",
-      "unknown": "Unerwarteter Fehler. Bitte prüfen Sie die Home Assistant Logs für weitere Details."
+      "unknown": "Unerwarteter Fehler. Bitte überprüfen Sie die Home Assistant-Protokolle für weitere Details."
     }
   },
   "selector": {
@@ -157,7 +157,7 @@
         "green": "Grün",
         "yellow": "Gelb",
         "orange": "Orange",
-        "red": "Rot (am schwersten)"
+        "red": "Rot (am schwerwiegendsten)"
       }
     }
   },
@@ -182,10 +182,10 @@
         "name": "Zeitpunkt des letzten Erdbebens"
       },
       "earthquakes_last_hour": {
-        "name": "Erdbeben in der letzten Stunde"
+        "name": "Erdbeben letzte Stunde"
       },
       "significant_earthquakes": {
-        "name": "Bedeutende Erdbeben"
+        "name": "Signifikante Erdbeben"
       },
       "tsunami_warnings": {
         "name": "Aktive Tsunami-Warnungen"
@@ -194,10 +194,10 @@
         "name": "Höchste Alarmstufe"
       },
       "red_alert_count": {
-        "name": "Ereignisse mit rotem Alarm"
+        "name": "Ereignisse mit roter Alarmstufe"
       },
       "nearest_distance": {
-        "name": "Entfernung zum nächsten Erdbeben"
+        "name": "Entfernung des nächsten Erdbebens"
       },
       "nearest_magnitude": {
         "name": "Magnitude des nächsten Erdbebens"
@@ -217,7 +217,7 @@
     },
     "binary_sensor": {
       "earthquake_alert": {
-        "name": "Erdbebenalarm"
+        "name": "Erdbeben-Alarm"
       },
       "tsunami_warning": {
         "name": "Tsunami-Warnung aktiv"
@@ -230,7 +230,7 @@
     },
     "image": {
       "shakemap": {
-        "name": "ShakeMap"
+        "name": "Erschütterungskarte"
       }
     },
     "calendar": {

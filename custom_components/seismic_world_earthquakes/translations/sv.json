@@ -2,62 +2,62 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seismic World Jordbävningar",
-        "description": "Konfigurera denna övervakningsinstans. Du kan skapa flera instanser för att övervaka olika områden eller magnitudtrösklar.",
+        "title": "Seismic World Earthquakes",
+        "description": "Konfigurera den här övervakningsinstansen. Du kan skapa flera instanser för att övervaka olika områden eller magnitudtrösklar.",
         "data": {
-          "name": "Namn på instans",
+          "name": "Instansnamn",
           "instance_type": "Instanstyp",
           "min_magnitude": "Minsta magnitud (Richterskalan)",
           "feed_period": "Dataperiod",
-          "max_events": "Maximalt antal händelser på kartan",
+          "max_events": "Maximala händelser på kartan",
           "units": "Distansenheter",
           "sort_by": "Sortera händelser efter"
         },
         "data_description": {
-          "min_magnitude": "Endast jordbävningar med denna eller högre magnitud kommer att inkluderas (0.0–9.9).",
-          "max_events": "Maximalt antal jordbävningar som visas på kartan (50–500). Händelser med M≥6.0 behålls alltid oavsett denna gräns.",
-          "sort_by": "Definierar ordningen i vilken jordbävningar visas på kartan och i sensorerna."
+          "min_magnitude": "Endast jordbävningar med magnitud lika med eller över detta kommer att inkluderas (0,0–9,9).",
+          "max_events": "Maximalt antal jordbävningar som visas på kartan (50–500). Händelser med M≥6,0 behålls alltid oavsett denna gräns.",
+          "sort_by": "Definierar den ordning i vilken jordbävningar visas på kartan och i sensorer."
         }
       },
       "area": {
-        "title": "Anpassad områdeskonfiguration",
-        "description": "Definiera det geografiska område som ska övervakas. Alla jordbävningar inom den angivna radien från mittpunkten inkluderas.",
+        "title": "Konfiguration av anpassat område",
+        "description": "Definiera det geografiska området som ska övervakas. Alla jordbävningar inom den angivna radien från mittpunkten kommer att inkluderas.",
         "data": {
-          "latitude": "Centrumbreddgrad",
-          "longitude": "Centrumlängdgrad",
+          "latitude": "Mittpunkt latitud",
+          "longitude": "Mittpunkt longitud",
           "radius_km": "Sökradie (km)"
         },
         "data_description": {
-          "latitude": "Breddgrad för centrum av det övervakade området (-90 till 90).",
-          "longitude": "Längdgrad för centrum av det övervakade området (-180 till 180).",
+          "latitude": "Latitud för mitten av det övervakade området (−90 till 90).",
+          "longitude": "Longitud för mitten av det övervakade området (−180 till 180).",
           "radius_km": "Radie i kilometer runt mittpunkten (10–20 000 km)."
         }
       },
       "filters": {
-        "title": "Filter & Larmsensor",
-        "description": "Begränsa valfritt vilka jordbävningar som visas och konfigurera den binära sensorn för jordbävningslarm.",
+        "title": "Filter och larmsensor",
+        "description": "Begränsa valfritt vilka jordbävningar som visas och konfigurera den binära larmsensorn för jordbävning.",
         "data": {
           "min_alert_level": "Minsta PAGER-larmnivå",
-          "only_tsunami": "Visa endast händelser med tsunami-varning",
+          "only_tsunami": "Visa endast händelser med tsunamivarning",
           "max_depth_km": "Maximalt djup (km)",
           "only_reviewed": "Endast granskade händelser",
           "alert_min_magnitude": "Larmsensor — minsta magnitud",
           "alert_time_window": "Larmsensor — tidsfönster"
         },
         "data_description": {
-          "min_alert_level": "Filtrera jordbävningar efter USGS PAGER-larmnivå. Välj 'Ingen' för att se alla händelser oavsett larmnivå.",
-          "max_depth_km": "Maximalt fokaltdjup i km (0–700). Ställ in på 700 för att inkludera jordbävningar på alla djup. Grunt händelser (< 70 km) är vanligtvis mer destruktiva.",
-          "only_reviewed": "När aktiverad visas endast jordbävningar som har granskats manuellt av USGS. Mer exakt, men kan visas med fördröjning.",
-          "alert_min_magnitude": "Den binära sensorn för jordbävningslarm slås PÅ när en jordbävning med denna eller högre magnitud upptäcks inom tidsfönstret.",
-          "alert_time_window": "Hur många timmar bakåt som ska kontrolleras vid utvärdering av den binära sensorn för jordbävningslarm (1–72 timmar)."
+          "min_alert_level": "Filtrera jordbävningar efter USGS PAGER-larmnivå. Välj 'Ingen' för att visa alla händelser oavsett larmnivå.",
+          "max_depth_km": "Maximalt fokaldjup i km (0–700). Ställ in på 700 för att inkludera jordbävningar på vilket djup som helst. Grunda händelser (<70 km) är generellt mer förödande.",
+          "only_reviewed": "När den är aktiverad visas endast jordbävningar som har granskats manuellt av USGS. Mer exakta men kan visas med fördröjning.",
+          "alert_min_magnitude": "Den binära larmsensorn för jordbävning SLÅS PÅ när en jordbävning av denna magnitud eller större upptäcks inom tidsfönstret.",
+          "alert_time_window": "Hur många timmar bakåt som ska tittas vid utvärdering av den binära larmsensorn för jordbävning (1–72 timmar)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Ogiltiga koordinater. Breddgrad måste vara mellan -90 och 90, längdgrad mellan -180 och 180.",
+      "invalid_coordinates": "Ogiltiga koordinater. Latitud måste vara mellan −90 och 90, longitud mellan −180 och 180.",
       "invalid_radius": "Radien måste vara mellan 10 och 20 000 km.",
       "cannot_connect": "Kan inte ansluta till USGS API. Kontrollera din internetanslutning och försök igen.",
-      "unknown": "Oväntat fel. Kontrollera Home Assistant-loggarna för mer information."
+      "unknown": "Oväntat fel. Kontrollera Home Assistant-loggar för mer information."
     },
     "abort": {
       "already_configured": "Denna instans är redan konfigurerad."
@@ -66,67 +66,67 @@
   "options": {
     "step": {
       "init": {
-        "title": "Omkonfigurera Seismic World Jordbävningar",
+        "title": "Konfigurera om Seismic World Earthquakes",
         "description": "Uppdatera grundinställningarna för denna övervakningsinstans.",
         "data": {
-          "name": "Namn på instans",
+          "name": "Instansnamn",
           "instance_type": "Instanstyp",
           "min_magnitude": "Minsta magnitud (Richterskalan)",
           "feed_period": "Dataperiod",
-          "max_events": "Maximalt antal händelser på kartan",
+          "max_events": "Maximala händelser på kartan",
           "units": "Distansenheter",
           "sort_by": "Sortera händelser efter"
         },
         "data_description": {
-          "min_magnitude": "Endast jordbävningar med denna eller högre magnitud kommer att inkluderas (0.0–9.9).",
-          "max_events": "Maximalt antal jordbävningar som visas på kartan (50–500). Händelser med M≥6.0 behålls alltid oavsett denna gräns.",
-          "sort_by": "Definierar ordningen i vilken jordbävningar visas på kartan och i sensorerna."
+          "min_magnitude": "Endast jordbävningar med magnitud lika med eller över detta kommer att inkluderas (0,0–9,9).",
+          "max_events": "Maximalt antal jordbävningar som visas på kartan (50–500). Händelser med M≥6,0 behålls alltid oavsett denna gräns.",
+          "sort_by": "Definierar den ordning i vilken jordbävningar visas på kartan och i sensorer."
         }
       },
       "area": {
-        "title": "Anpassad områdeskonfiguration",
-        "description": "Uppdatera det geografiska område som ska övervakas.",
+        "title": "Konfiguration av anpassat område",
+        "description": "Uppdatera det geografiska området som ska övervakas.",
         "data": {
-          "latitude": "Centrumbreddgrad",
-          "longitude": "Centrumlängdgrad",
+          "latitude": "Mittpunkt latitud",
+          "longitude": "Mittpunkt longitud",
           "radius_km": "Sökradie (km)"
         },
         "data_description": {
-          "latitude": "Breddgrad för centrum av det övervakade området (-90 till 90).",
-          "longitude": "Längdgrad för centrum av det övervakade området (-180 till 180).",
+          "latitude": "Latitud för mitten av det övervakade området (−90 till 90).",
+          "longitude": "Longitud för mitten av det övervakade området (−180 till 180).",
           "radius_km": "Radie i kilometer runt mittpunkten (10–20 000 km)."
         }
       },
       "filters": {
-        "title": "Filter & Larmsensor",
-        "description": "Uppdatera valfria filter och konfiguration för den binära sensorn för jordbävningslarm.",
+        "title": "Filter och larmsensor",
+        "description": "Uppdatera valfria filter och konfigurationen av den binära larmsensorn för jordbävning.",
         "data": {
           "min_alert_level": "Minsta PAGER-larmnivå",
-          "only_tsunami": "Visa endast händelser med tsunami-varning",
+          "only_tsunami": "Visa endast händelser med tsunamivarning",
           "max_depth_km": "Maximalt djup (km)",
           "only_reviewed": "Endast granskade händelser",
           "alert_min_magnitude": "Larmsensor — minsta magnitud",
           "alert_time_window": "Larmsensor — tidsfönster"
         },
         "data_description": {
-          "min_alert_level": "Filtrera jordbävningar efter USGS PAGER-larmnivå. Välj 'Ingen' för att se alla händelser oavsett larmnivå.",
-          "max_depth_km": "Maximalt fokaltdjup i km (0–700). Ställ in på 700 för att inkludera jordbävningar på alla djup. Grunt händelser (< 70 km) är vanligtvis mer destruktiva.",
-          "only_reviewed": "När aktiverad visas endast jordbävningar som har granskats manuellt av USGS. Mer exakt, men kan visas med fördröjning.",
-          "alert_min_magnitude": "Den binära sensorn för jordbävningslarm slås PÅ när en jordbävning med denna eller högre magnitud upptäcks inom tidsfönstret.",
-          "alert_time_window": "Hur många timmar bakåt som ska kontrolleras vid utvärdering av den binära sensorn för jordbävningslarm (1–72 timmar)."
+          "min_alert_level": "Filtrera jordbävningar efter USGS PAGER-larmnivå. Välj 'Ingen' för att visa alla händelser oavsett larmnivå.",
+          "max_depth_km": "Maximalt fokaldjup i km (0–700). Ställ in på 700 för att inkludera jordbävningar på vilket djup som helst. Grunda händelser (<70 km) är generellt mer förödande.",
+          "only_reviewed": "När den är aktiverad visas endast jordbävningar som har granskats manuellt av USGS. Mer exakta men kan visas med fördröjning.",
+          "alert_min_magnitude": "Den binära larmsensorn för jordbävning SLÅS PÅ när en jordbävning av denna magnitud eller större upptäcks inom tidsfönstret.",
+          "alert_time_window": "Hur många timmar bakåt som ska tittas vid utvärdering av den binära larmsensorn för jordbävning (1–72 timmar)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Ogiltiga koordinater. Breddgrad måste vara mellan -90 och 90, längdgrad mellan -180 och 180.",
+      "invalid_coordinates": "Ogiltiga koordinater. Latitud måste vara mellan −90 och 90, longitud mellan −180 och 180.",
       "invalid_radius": "Radien måste vara mellan 10 och 20 000 km.",
-      "unknown": "Oväntat fel. Kontrollera Home Assistant-loggarna för mer information."
+      "unknown": "Oväntat fel. Kontrollera Home Assistant-loggar för mer information."
     }
   },
   "selector": {
     "instance_type": {
       "options": {
-        "global": "Globalt (hela världen)",
+        "global": "Global (världsomspännande)",
         "custom_area": "Anpassat område (radie)"
       }
     },
@@ -141,13 +141,13 @@
     "units": {
       "options": {
         "km": "Kilometer (km)",
-        "mi": "Miles (mi)"
+        "mi": "Engelska mil (mi)"
       }
     },
     "sort_by": {
       "options": {
         "magnitude": "Magnitud (starkast först)",
-        "time": "Tid (senaste först)",
+        "time": "Tid (nyast först)",
         "distance": "Avstånd (närmast först)"
       }
     },
@@ -163,43 +163,89 @@
   },
   "entity": {
     "sensor": {
-      "total_earthquakes": { "name": "Totalt antal jordbävningar" },
-      "strongest_magnitude": { "name": "Starkaste jordbävningen" },
-      "strongest_location": { "name": "Plats för starkaste jordbävningen" },
-      "average_magnitude": { "name": "Genomsnittlig magnitud" },
-      "latest_earthquake": { "name": "Senaste jordbävningen" },
-      "latest_earthquake_time": { "name": "Tid för senaste jordbävningen" },
-      "earthquakes_last_hour": { "name": "Jordbävningar senaste timmen" },
-      "significant_earthquakes": { "name": "Betydande jordbävningar" },
-      "tsunami_warnings": { "name": "Aktiva tsunami-varningar" },
-      "highest_alert_level": { "name": "Högsta larmnivå" },
-      "red_alert_count": { "name": "Händelser med rött larm" },
-      "nearest_distance": { "name": "Avstånd till närmaste jordbävning" },
-      "nearest_magnitude": { "name": "Magnitud för närmaste jordbävning" },
-      "last_update": { "name": "Senaste uppdatering" },
-      "api_status": { "name": "API-status" },
-      "events_fetched": { "name": "Hämtade händelser" },
-      "events_displayed": { "name": "Visade händelser" }
+      "total_earthquakes": {
+        "name": "Totalt antal jordbävningar"
+      },
+      "strongest_magnitude": {
+        "name": "Starkaste jordbävningen"
+      },
+      "strongest_location": {
+        "name": "Plats för starkaste jordbävningen"
+      },
+      "average_magnitude": {
+        "name": "Genomsnittlig magnitud"
+      },
+      "latest_earthquake": {
+        "name": "Senaste jordbävningen"
+      },
+      "latest_earthquake_time": {
+        "name": "Tid för senaste jordbävningen"
+      },
+      "earthquakes_last_hour": {
+        "name": "Jordbävningar senaste timmen"
+      },
+      "significant_earthquakes": {
+        "name": "Betydande jordbävningar"
+      },
+      "tsunami_warnings": {
+        "name": "Aktiva tsunamivarningar"
+      },
+      "highest_alert_level": {
+        "name": "Högsta larmnivå"
+      },
+      "red_alert_count": {
+        "name": "Händelser med rött larm"
+      },
+      "nearest_distance": {
+        "name": "Avstånd till närmaste jordbävning"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitud på närmaste jordbävning"
+      },
+      "last_update": {
+        "name": "Senaste uppdatering"
+      },
+      "api_status": {
+        "name": "API-status"
+      },
+      "events_fetched": {
+        "name": "Hämtade händelser"
+      },
+      "events_displayed": {
+        "name": "Visade händelser"
+      }
     },
     "binary_sensor": {
-      "earthquake_alert": { "name": "Jordbävningslarm" },
-      "tsunami_warning": { "name": "Tsunami-varning aktiv" }
+      "earthquake_alert": {
+        "name": "Jordbävningslarm"
+      },
+      "tsunami_warning": {
+        "name": "Tsunamivarning aktiv"
+      }
     },
     "button": {
-      "force_refresh": { "name": "Tvinga uppdatering" }
+      "force_refresh": {
+        "name": "Tvinga uppdatering"
+      }
     },
     "image": {
-      "shakemap": { "name": "ShakeMap" }
+      "shakemap": {
+        "name": "Skakningskarta"
+      }
     },
     "calendar": {
-      "earthquakes": { "name": "Jordbävningar" }
+      "earthquakes": {
+        "name": "Jordbävningar"
+      }
     },
     "event": {
       "new_earthquake": {
         "name": "Ny jordbävning upptäckt",
         "state_attributes": {
           "event_type": {
-            "state": { "earthquake_detected": "Jordbävning upptäckt" }
+            "state": {
+              "earthquake_detected": "Jordbävning upptäckt"
+            }
           }
         }
       }

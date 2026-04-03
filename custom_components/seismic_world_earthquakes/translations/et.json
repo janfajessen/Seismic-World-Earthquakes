@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Seadista see jälgimisinstants. Saate luua mitu instantsi erinevate piirkondade või magnituudilävede jälgimiseks.",
+        "data": {
+          "name": "Instantsi nimi",
+          "instance_type": "Instantsi tüüp",
+          "min_magnitude": "Minimaalne magnituud (Richteri skaala)",
+          "feed_period": "Andmeperiood",
+          "max_events": "Maksimaalne sündmuste arv kaardil",
+          "units": "Kaugusühikud",
+          "sort_by": "Sündmuste sortimine"
+        },
+        "data_description": {
+          "min_magnitude": "Ainult selle magnituudiga või suuremad maavärinad kaasatakse (0.0–9.9).",
+          "max_events": "Maksimaalne kaardil kuvatavate maavärinate arv (50–500). Sündmused, mille M≥6.0, jäetakse alati alles, olenemata sellest piirangust.",
+          "sort_by": "Määrab järjekorra, kuidas maavärinad kaardil ja andurites kuvatakse."
+        }
+      },
+      "area": {
+        "title": "Kohandatud ala seadistus",
+        "description": "Määratlege jälgitav geograafiline ala. Kõik maavärinad keskpunkti määratud raadiuse piires kaasatakse.",
+        "data": {
+          "latitude": "Keskpunkti laiuskraad",
+          "longitude": "Keskpunkti pikkuskraad",
+          "radius_km": "Otsinguraadius (km)"
+        },
+        "data_description": {
+          "latitude": "Jälgitava ala keskpunkti laiuskraad (−90 kuni 90).",
+          "longitude": "Jälgitava ala keskpunkti pikkuskraad (−180 kuni 180).",
+          "radius_km": "Raadius kilomeetrites ümber keskpunkti (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrid ja häireandur",
+        "description": "Valikuliselt piirake, milliseid maavärinaid kuvatakse, ja seadistage maavärina häire binaarandur.",
+        "data": {
+          "min_alert_level": "Minimaalne PAGER-i häiretase",
+          "only_tsunami": "Kuva ainult tsunamihoiatusega sündmusi",
+          "max_depth_km": "Maksimaalne sügavus (km)",
+          "only_reviewed": "Ainult üle vaadatud sündmused",
+          "alert_min_magnitude": "Häireandur — minimaalne magnituud",
+          "alert_time_window": "Häireandur — ajaline aken"
+        },
+        "data_description": {
+          "min_alert_level": "Filtreeri maavärinaid USGS PAGER-i häiretaseme järgi. Valige 'Puudub', et kuvada kõiki sündmusi olenemata häiretasemest.",
+          "max_depth_km": "Maksimaalne fookussügavus km-des (0–700). Määrake 700, et kaasata maavärinad igal sügavusel. Madalad sündmused (<70 km) on üldiselt laastavamad.",
+          "only_reviewed": "Kui see on lubatud, kuvatakse ainult maavärinaid, mida USGS on käsitsi üle vaadanud. Täpsemad, kuid võivad ilmneda viivitusega.",
+          "alert_min_magnitude": "Maavärina häire binaarandur LÜLITUB SISSE, kui ajalisse aknasse jäävas tuvastatakse selle magnituudiga või suurem maavärin.",
+          "alert_time_window": "Mitu tundi tagasi vaadata maavärina häire binaaranduri hindamisel (1–72 tundi)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Vigased koordinaadid. Laiuskraad peab olema vahemikus −90 kuni 90, pikkuskraad vahemikus −180 kuni 180.",
+      "invalid_radius": "Raadius peab olema vahemikus 10 kuni 20,000 km.",
+      "cannot_connect": "Ei saa USGS API-ga ühendust. Palun kontrollige oma internetiühendust ja proovige uuesti.",
+      "unknown": "Ootamatu viga. Täpsemate üksikasjade vaatamiseks kontrollige Home Assistanti logisid."
+    },
+    "abort": {
+      "already_configured": "See instants on juba seadistatud."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Earthquakes uuesti seadistamine",
+        "description": "Värskendage selle jälgimisinstantsi põhiseadeid.",
+        "data": {
+          "name": "Instantsi nimi",
+          "instance_type": "Instantsi tüüp",
+          "min_magnitude": "Minimaalne magnituud (Richteri skaala)",
+          "feed_period": "Andmeperiood",
+          "max_events": "Maksimaalne sündmuste arv kaardil",
+          "units": "Kaugusühikud",
+          "sort_by": "Sündmuste sortimine"
+        },
+        "data_description": {
+          "min_magnitude": "Ainult selle magnituudiga või suuremad maavärinad kaasatakse (0.0–9.9).",
+          "max_events": "Maksimaalne kaardil kuvatavate maavärinate arv (50–500). Sündmused, mille M≥6.0, jäetakse alati alles, olenemata sellest piirangust.",
+          "sort_by": "Määrab järjekorra, kuidas maavärinad kaardil ja andurites kuvatakse."
+        }
+      },
+      "area": {
+        "title": "Kohandatud ala seadistus",
+        "description": "Värskendage jälgitavat geograafilist ala.",
+        "data": {
+          "latitude": "Keskpunkti laiuskraad",
+          "longitude": "Keskpunkti pikkuskraad",
+          "radius_km": "Otsinguraadius (km)"
+        },
+        "data_description": {
+          "latitude": "Jälgitava ala keskpunkti laiuskraad (−90 kuni 90).",
+          "longitude": "Jälgitava ala keskpunkti pikkuskraad (−180 kuni 180).",
+          "radius_km": "Raadius kilomeetrites ümber keskpunkti (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrid ja häireandur",
+        "description": "Värskendage valikulisi filtreid ja maavärina häire binaaranduri seadistust.",
+        "data": {
+          "min_alert_level": "Minimaalne PAGER-i häiretase",
+          "only_tsunami": "Kuva ainult tsunamihoiatusega sündmusi",
+          "max_depth_km": "Maksimaalne sügavus (km)",
+          "only_reviewed": "Ainult üle vaadatud sündmused",
+          "alert_min_magnitude": "Häireandur — minimaalne magnituud",
+          "alert_time_window": "Häireandur — ajaline aken"
+        },
+        "data_description": {
+          "min_alert_level": "Filtreeri maavärinaid USGS PAGER-i häiretaseme järgi. Valige 'Puudub', et kuvada kõiki sündmusi olenemata häiretasemest.",
+          "max_depth_km": "Maksimaalne fookussügavus km-des (0–700). Määrake 700, et kaasata maavärinad igal sügavusel. Madalad sündmused (<70 km) on üldiselt laastavamad.",
+          "only_reviewed": "Kui see on lubatud, kuvatakse ainult maavärinaid, mida USGS on käsitsi üle vaadanud. Täpsemad, kuid võivad ilmneda viivitusega.",
+          "alert_min_magnitude": "Maavärina häire binaarandur LÜLITUB SISSE, kui ajalisse aknasse jäävas tuvastatakse selle magnituudiga või suurem maavärin.",
+          "alert_time_window": "Mitu tundi tagasi vaadata maavärina häire binaaranduri hindamisel (1–72 tundi)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Vigased koordinaadid. Laiuskraad peab olema vahemikus −90 kuni 90, pikkuskraad vahemikus −180 kuni 180.",
+      "invalid_radius": "Raadius peab olema vahemikus 10 kuni 20,000 km.",
+      "unknown": "Ootamatu viga. Täpsemate üksikasjade vaatamiseks kontrollige Home Assistanti logisid."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Globaalne (ülemaailmne)",
+        "custom_area": "Kohandatud ala (raadius)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Viimane tund",
+        "day": "Viimased 24 tundi",
+        "week": "Viimased 7 päeva",
+        "month": "Viimased 30 päeva"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilomeetrid (km)",
+        "mi": "Miilid (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnituud (tugevaimad esimesena)",
+        "time": "Aeg (uusimad esimesena)",
+        "distance": "Kaugus (lähimad esimesena)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Puudub (kuva kõik)",
+        "green": "Roheline",
+        "yellow": "Kollane",
+        "orange": "Oranž",
+        "red": "Punane (kõige tõsisem)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Maavärinate koguarv"
+      },
+      "strongest_magnitude": {
+        "name": "Tugevaim maavärin"
+      },
+      "strongest_location": {
+        "name": "Tugevaima maavärina asukoht"
+      },
+      "average_magnitude": {
+        "name": "Keskmine magnituud"
+      },
+      "latest_earthquake": {
+        "name": "Viimane maavärin"
+      },
+      "latest_earthquake_time": {
+        "name": "Viimase maavärina aeg"
+      },
+      "earthquakes_last_hour": {
+        "name": "Maavärinad viimase tunni jooksul"
+      },
+      "significant_earthquakes": {
+        "name": "Olulised maavärinad"
+      },
+      "tsunami_warnings": {
+        "name": "Aktiivsed tsunamihoiatused"
+      },
+      "highest_alert_level": {
+        "name": "Kõrgeim häiretase"
+      },
+      "red_alert_count": {
+        "name": "Punase häire sündmused"
+      },
+      "nearest_distance": {
+        "name": "Lähima maavärina kaugus"
+      },
+      "nearest_magnitude": {
+        "name": "Lähima maavärina magnituud"
+      },
+      "last_update": {
+        "name": "Viimane värskendus"
+      },
+      "api_status": {
+        "name": "API olek"
+      },
+      "events_fetched": {
+        "name": "Toodud sündmused"
+      },
+      "events_displayed": {
+        "name": "Kuvatud sündmused"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Maavärina häire"
+      },
+      "tsunami_warning": {
+        "name": "Tsunamihoiatus aktiivne"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Sundi värskendus"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Raputuskaart"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Maavärinad"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Tuvastati uus maavärin",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Maavärin tuvastatud"
+            }
+          }
+        }
+      }
+    }
+  }
+}

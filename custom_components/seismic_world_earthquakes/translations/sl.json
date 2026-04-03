@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfigurirajte ta primer spremljanja. Ustvarite lahko več primerov za spremljanje različnih območij ali pragov magnitude.",
+        "data": {
+          "name": "Ime primera",
+          "instance_type": "Vrsta primera",
+          "min_magnitude": "Najmanjša magnituda (Richterjeva lestvica)",
+          "feed_period": "Obdobje podatkov",
+          "max_events": "Največ dogodkov na zemljevidu",
+          "units": "Enote razdalje",
+          "sort_by": "Razvrsti dogodke po"
+        },
+        "data_description": {
+          "min_magnitude": "Vključeni bodo samo potresi z magnitudo, ki je enaka ali višja od te (0,0–9,9).",
+          "max_events": "Največje število potresov, prikazanih na zemljevidu (50–500). Dogodki z M≥6,0 se vedno ohranijo ne glede na to omejitev.",
+          "sort_by": "Določa vrstni red, v katerem se potresi pojavijo na zemljevidu in v senzorjih."
+        }
+      },
+      "area": {
+        "title": "Konfiguracija po meri območja",
+        "description": "Določite geografsko območje za spremljanje. Vključeni bodo vsi potresi znotraj določenega radija od središčne točke.",
+        "data": {
+          "latitude": "Zemljepisna širina središča",
+          "longitude": "Zemljepisna dolžina središča",
+          "radius_km": "Polmer iskanja (km)"
+        },
+        "data_description": {
+          "latitude": "Zemljepisna širina središča spremljanega območja (−90 do 90).",
+          "longitude": "Zemljepisna dolžina središča spremljanega območja (−180 do 180).",
+          "radius_km": "Polmer v kilometrih okoli središčne točke (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtri in senzor za opozorila",
+        "description": "Po želji omejite, kateri potresi so prikazani, in konfigurirajte binarni senzor za opozorilo o potresu.",
+        "data": {
+          "min_alert_level": "Najmanjša raven opozorila PAGER",
+          "only_tsunami": "Pokaži samo dogodke z opozorilom o cunamiju",
+          "max_depth_km": "Največja globina (km)",
+          "only_reviewed": "Samo pregledani dogodki",
+          "alert_min_magnitude": "Senzor za opozorila — najmanjša magnituda",
+          "alert_time_window": "Senzor za opozorila — časovno okno"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrirajte potrese glede na raven opozorila PAGER USGS. Izberite 'Nobena', da prikažete vse dogodke ne glede na raven opozorila.",
+          "max_depth_km": "Največja žariščna globina v km (0–700). Nastavite na 700, da vključite potrese na kateri koli globini. Plitvi dogodki (<70 km) so na splošno bolj uničujoči.",
+          "only_reviewed": "Ko je omogočeno, prikaže samo potrese, ki jih je USGS ročno pregledal. Natančnejši, vendar se lahko pojavijo z zamudo.",
+          "alert_min_magnitude": "Binarni senzor za opozorilo o potresu se VKLJUČI, ko je v časovnem oknu zaznan potres te ali večje magnitude.",
+          "alert_time_window": "Koliko ur nazaj gledati pri vrednotenju binarnega senzorja za opozorilo o potresu (1–72 ur)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Neveljavne koordinate. Zemljepisna širina mora biti med −90 in 90, dolžina med −180 in 180.",
+      "invalid_radius": "Polmer mora biti med 10 in 20.000 km.",
+      "cannot_connect": "Ni mogoče vzpostaviti povezave z API USGS. Preverite internetno povezavo in poskusite znova.",
+      "unknown": "Nepričakovana napaka. Za več podrobnosti preverite dnevnike Home Assistant."
+    },
+    "abort": {
+      "already_configured": "Ta primer je že konfiguriran."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ponovno konfiguriraj Seismic World Earthquakes",
+        "description": "Posodobite osnovne nastavitve za ta primer spremljanja.",
+        "data": {
+          "name": "Ime primera",
+          "instance_type": "Vrsta primera",
+          "min_magnitude": "Najmanjša magnituda (Richterjeva lestvica)",
+          "feed_period": "Obdobje podatkov",
+          "max_events": "Največ dogodkov na zemljevidu",
+          "units": "Enote razdalje",
+          "sort_by": "Razvrsti dogodke po"
+        },
+        "data_description": {
+          "min_magnitude": "Vključeni bodo samo potresi z magnitudo, ki je enaka ali višja od te (0,0–9,9).",
+          "max_events": "Največje število potresov, prikazanih na zemljevidu (50–500). Dogodki z M≥6,0 se vedno ohranijo ne glede na to omejitev.",
+          "sort_by": "Določa vrstni red, v katerem se potresi pojavijo na zemljevidu in v senzorjih."
+        }
+      },
+      "area": {
+        "title": "Konfiguracija po meri območja",
+        "description": "Posodobite geografsko območje za spremljanje.",
+        "data": {
+          "latitude": "Zemljepisna širina središča",
+          "longitude": "Zemljepisna dolžina središča",
+          "radius_km": "Polmer iskanja (km)"
+        },
+        "data_description": {
+          "latitude": "Zemljepisna širina središča spremljanega območja (−90 do 90).",
+          "longitude": "Zemljepisna dolžina središča spremljanega območja (−180 do 180).",
+          "radius_km": "Polmer v kilometrih okoli središčne točke (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtri in senzor za opozorila",
+        "description": "Posodobite neobvezne filtre in konfiguracijo binarnega senzorja za opozorilo o potresu.",
+        "data": {
+          "min_alert_level": "Najmanjša raven opozorila PAGER",
+          "only_tsunami": "Pokaži samo dogodke z opozorilom o cunamiju",
+          "max_depth_km": "Največja globina (km)",
+          "only_reviewed": "Samo pregledani dogodki",
+          "alert_min_magnitude": "Senzor za opozorila — najmanjša magnituda",
+          "alert_time_window": "Senzor za opozorila — časovno okno"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrirajte potrese glede na raven opozorila PAGER USGS. Izberite 'Nobena', da prikažete vse dogodke ne glede na raven opozorila.",
+          "max_depth_km": "Največja žariščna globina v km (0–700). Nastavite na 700, da vključite potrese na kateri koli globini. Plitvi dogodki (<70 km) so na splošno bolj uničujoči.",
+          "only_reviewed": "Ko je omogočeno, prikaže samo potrese, ki jih je USGS ročno pregledal. Natančnejši, vendar se lahko pojavijo z zamudo.",
+          "alert_min_magnitude": "Binarni senzor za opozorilo o potresu se VKLJUČI, ko je v časovnem oknu zaznan potres te ali večje magnitude.",
+          "alert_time_window": "Koliko ur nazaj gledati pri vrednotenju binarnega senzorja za opozorilo o potresu (1–72 ur)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Neveljavne koordinate. Zemljepisna širina mora biti med −90 in 90, dolžina med −180 in 180.",
+      "invalid_radius": "Polmer mora biti med 10 in 20.000 km.",
+      "unknown": "Nepričakovana napaka. Za več podrobnosti preverite dnevnike Home Assistant."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Globalno (po vsem svetu)",
+        "custom_area": "Območje po meri (polmer)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Zadnja ura",
+        "day": "Zadnjih 24 ur",
+        "week": "Zadnjih 7 dni",
+        "month": "Zadnjih 30 dni"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometri (km)",
+        "mi": "Milje (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnituda (najmočnejši prvi)",
+        "time": "Čas (najnovejši prvi)",
+        "distance": "Razdalja (najbližji prvi)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Nobena (pokaži vse)",
+        "green": "Zelena",
+        "yellow": "Rumena",
+        "orange": "Oranžna",
+        "red": "Rdeča (najresnejša)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Skupaj potresov"
+      },
+      "strongest_magnitude": {
+        "name": "Najmočnejši potres"
+      },
+      "strongest_location": {
+        "name": "Lokacija najmočnejšega potresa"
+      },
+      "average_magnitude": {
+        "name": "Povprečna magnituda"
+      },
+      "latest_earthquake": {
+        "name": "Zadnji potres"
+      },
+      "latest_earthquake_time": {
+        "name": "Čas zadnjega potresa"
+      },
+      "earthquakes_last_hour": {
+        "name": "Potresi v zadnji uri"
+      },
+      "significant_earthquakes": {
+        "name": "Pomembni potresi"
+      },
+      "tsunami_warnings": {
+        "name": "Aktivna opozorila o cunamiju"
+      },
+      "highest_alert_level": {
+        "name": "Najvišja raven opozorila"
+      },
+      "red_alert_count": {
+        "name": "Dogodki z rdečim opozorilom"
+      },
+      "nearest_distance": {
+        "name": "Razdalja najbližjega potresa"
+      },
+      "nearest_magnitude": {
+        "name": "Magnituda najbližjega potresa"
+      },
+      "last_update": {
+        "name": "Zadnja posodobitev"
+      },
+      "api_status": {
+        "name": "Stanje API"
+      },
+      "events_fetched": {
+        "name": "Pridobljeni dogodki"
+      },
+      "events_displayed": {
+        "name": "Prikazani dogodki"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Opozorilo o potresu"
+      },
+      "tsunami_warning": {
+        "name": "Opozorilo o cunamiju aktivno"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Vsili osvežitev"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Zemljevid tresenja"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Potresi"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Zaznan nov potres",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Potres zaznan"
+            }
+          }
+        }
+      }
+    }
+  }
+}

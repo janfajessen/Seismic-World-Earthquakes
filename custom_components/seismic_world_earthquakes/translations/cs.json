@@ -2,62 +2,62 @@
   "config": {
     "step": {
       "user": {
-        "title": "Seismic World Zemětřesení",
-        "description": "Nakonfigurujte tuto instanci sledování. Můžete vytvořit více instancí pro sledování různých oblastí nebo prahových hodnot magnitudy.",
+        "title": "Seismic World Earthquakes",
+        "description": "Nakonfigurujte tuto monitorovací instanci. Můžete vytvořit více instancí pro sledování různých oblastí nebo prahových hodnot magnituda.",
         "data": {
           "name": "Název instance",
           "instance_type": "Typ instance",
-          "min_magnitude": "Minimální magnituda (Richterova stupnice)",
-          "feed_period": "Časové období dat",
+          "min_magnitude": "Minimální magnitudo (Richterova stupnice)",
+          "feed_period": "Období dat",
           "max_events": "Maximální počet událostí na mapě",
           "units": "Jednotky vzdálenosti",
           "sort_by": "Seřadit události podle"
         },
         "data_description": {
-          "min_magnitude": "Zahrnuta budou pouze zemětřesení s magnitudou rovnou nebo vyšší než tato hodnota (0.0–9.9).",
-          "max_events": "Maximální počet zemětřesení zobrazených na mapě (50–500). Události s M≥6.0 jsou zachovány vždy, bez ohledu na tento limit.",
-          "sort_by": "Definuje pořadí, v jakém se zemětřesení zobrazují na mapě a v senzorech."
+          "min_magnitude": "Budou zahrnuta pouze zemětřesení s magnitudem rovným nebo vyšším než je tato hodnota (0.0–9.9).",
+          "max_events": "Maximální počet zemětřesení zobrazených na mapě (50–500). Události s M≥6.0 jsou vždy zachovány bez ohledu na tento limit.",
+          "sort_by": "Určuje pořadí, v jakém se zemětřesení zobrazují na mapě a v senzorech."
         }
       },
       "area": {
         "title": "Konfigurace vlastní oblasti",
-        "description": "Definujte zeměpisnou oblast, která má být sledována. Zahrnuta budou všechna zemětřesení v zadaném poloměru od středového bodu.",
+        "description": "Definujte geografickou oblast pro sledování. Všechna zemětřesení v rámci zadaného poloměru od středového bodu budou zahrnuta.",
         "data": {
           "latitude": "Zeměpisná šířka středu",
           "longitude": "Zeměpisná délka středu",
           "radius_km": "Poloměr vyhledávání (km)"
         },
         "data_description": {
-          "latitude": "Zeměpisná šířka středu sledované oblasti (-90 až 90).",
-          "longitude": "Zeměpisná délka středu sledované oblasti (-180 až 180).",
+          "latitude": "Zeměpisná šířka středu sledované oblasti (−90 až 90).",
+          "longitude": "Zeměpisná délka středu sledované oblasti (−180 až 180).",
           "radius_km": "Poloměr v kilometrech kolem středového bodu (10–20 000 km)."
         }
       },
       "filters": {
-        "title": "Filtry a senzor poplachu",
-        "description": "Volitelně omezte zobrazovaná zemětřesení a nakonfigurujte binární senzor pro varování před zemětřesením.",
+        "title": "Filtry a výstražný senzor",
+        "description": "Volitelně omezte, která zemětřesení se zobrazí, a nakonfigurujte binární senzor výstrahy před zemětřesením.",
         "data": {
           "min_alert_level": "Minimální úroveň výstrahy PAGER",
           "only_tsunami": "Zobrazit pouze události s varováním před tsunami",
           "max_depth_km": "Maximální hloubka (km)",
-          "only_reviewed": "Pouze revidované události",
-          "alert_min_magnitude": "Senzor poplachu — minimální magnituda",
-          "alert_time_window": "Senzor poplachu — časové okno"
+          "only_reviewed": "Pouze recenzované události",
+          "alert_min_magnitude": "Výstražný senzor — minimální magnitudo",
+          "alert_time_window": "Výstražný senzor — časové okno"
         },
         "data_description": {
-          "min_alert_level": "Filtrovat zemětřesení podle úrovně výstrahy USGS PAGER. Zvolte 'Žádná' pro zobrazení všech událostí bez ohledu na úroveň výstrahy.",
-          "max_depth_km": "Maximální hloubka ohniska v km (0–700). Nastavte na 700 pro zahrnutí zemětřesení v jakékoli hloubce. Mělké události (< 70 km) jsou obvykle ničivější.",
-          "only_reviewed": "Je-li aktivováno, zobrazí se pouze zemětřesení, která byla ručně revidována USGS. Přesnější, ale může se zobrazit se zpožděním.",
-          "alert_min_magnitude": "Binární senzor poplachu se zapne (ON), pokud je v časovém okně detekováno zemětřesení o této nebo vyšší magnitudě.",
-          "alert_time_window": "Kolik hodin zpětně se má kontrolovat při vyhodnocování binárního senzoru poplachu (1–72 hodin)."
+          "min_alert_level": "Filtrujte zemětřesení podle úrovně výstrahy USGS PAGER. Vyberte 'Žádná' pro zobrazení všech událostí bez ohledu na úroveň výstrahy.",
+          "max_depth_km": "Maximální hloubka ohniska v km (0–700). Nastavte na 700 pro zahrnutí zemětřesení v jakékoli hloubce. Mělké události (<70 km) jsou obecně ničivější.",
+          "only_reviewed": "Pokud je povoleno, zobrazuje pouze zemětřesení, která byla ručně zkontrolována organizací USGS. Přesnější, ale mohou se objevit se zpožděním.",
+          "alert_min_magnitude": "Binární senzor výstrahy před zemětřesením se ZAPNE, když je v časovém okně detekováno zemětřesení o tomto magnitudu nebo větším.",
+          "alert_time_window": "Kolik hodin zpětně hledat při vyhodnocování binárního senzoru výstrahy před zemětřesením (1–72 hodin)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Neplatné souřadnice. Šířka musí být mezi -90 a 90, délka mezi -180 a 180.",
+      "invalid_coordinates": "Neplatné souřadnice. Zeměpisná šířka musí být mezi −90 a 90, zeměpisná délka mezi −180 a 180.",
       "invalid_radius": "Poloměr musí být mezi 10 a 20 000 km.",
-      "cannot_connect": "Nelze se připojit k USGS API. Zkontrolujte prosím připojení k internetu a zkuste to znovu.",
-      "unknown": "Neočekávaná chyba. Podrobnosti naleznete v protokolech Home Assistant."
+      "cannot_connect": "Nelze se připojit k API USGS. Zkontrolujte své internetové připojení a zkuste to znovu.",
+      "unknown": "Neočekávaná chyba. Další podrobnosti naleznete v protokolech Home Assistant."
     },
     "abort": {
       "already_configured": "Tato instance je již nakonfigurována."
@@ -66,67 +66,67 @@
   "options": {
     "step": {
       "init": {
-        "title": "Přenastavit Seismic World Zemětřesení",
-        "description": "Aktualizujte základní nastavení pro tuto instanci sledování.",
+        "title": "Překonfigurovat Seismic World Earthquakes",
+        "description": "Aktualizujte základní nastavení pro tuto monitorovací instanci.",
         "data": {
           "name": "Název instance",
           "instance_type": "Typ instance",
-          "min_magnitude": "Minimální magnituda (Richterova stupnice)",
-          "feed_period": "Časové období dat",
+          "min_magnitude": "Minimální magnitudo (Richterova stupnice)",
+          "feed_period": "Období dat",
           "max_events": "Maximální počet událostí na mapě",
           "units": "Jednotky vzdálenosti",
           "sort_by": "Seřadit události podle"
         },
         "data_description": {
-          "min_magnitude": "Zahrnuta budou pouze zemětřesení s magnitudou rovnou nebo vyšší než tato hodnota (0.0–9.9).",
-          "max_events": "Maximální počet zemětřesení zobrazených na mapě (50–500). Události s M≥6.0 jsou zachovány vždy, bez ohledu na tento limit.",
-          "sort_by": "Definuje pořadí, v jakém se zemětřesení zobrazují na mapě a v senzorech."
+          "min_magnitude": "Budou zahrnuta pouze zemětřesení s magnitudem rovným nebo vyšším než je tato hodnota (0.0–9.9).",
+          "max_events": "Maximální počet zemětřesení zobrazených na mapě (50–500). Události s M≥6.0 jsou vždy zachovány bez ohledu na tento limit.",
+          "sort_by": "Určuje pořadí, v jakém se zemětřesení zobrazují na mapě a v senzorech."
         }
       },
       "area": {
         "title": "Konfigurace vlastní oblasti",
-        "description": "Aktualizujte zeměpisnou oblast, která má být sledována.",
+        "description": "Aktualizujte geografickou oblast pro sledování.",
         "data": {
           "latitude": "Zeměpisná šířka středu",
           "longitude": "Zeměpisná délka středu",
           "radius_km": "Poloměr vyhledávání (km)"
         },
         "data_description": {
-          "latitude": "Zeměpisná šířka středu sledované oblasti (-90 až 90).",
-          "longitude": "Zeměpisná délka středu sledované oblasti (-180 až 180).",
+          "latitude": "Zeměpisná šířka středu sledované oblasti (−90 až 90).",
+          "longitude": "Zeměpisná délka středu sledované oblasti (−180 až 180).",
           "radius_km": "Poloměr v kilometrech kolem středového bodu (10–20 000 km)."
         }
       },
       "filters": {
-        "title": "Filtry a senzor poplachu",
-        "description": "Aktualizujte volitelné filtry a konfiguraci binárního senzoru poplachu.",
+        "title": "Filtry a výstražný senzor",
+        "description": "Aktualizujte volitelné filtry a konfiguraci binárního senzoru výstrahy před zemětřesením.",
         "data": {
           "min_alert_level": "Minimální úroveň výstrahy PAGER",
           "only_tsunami": "Zobrazit pouze události s varováním před tsunami",
           "max_depth_km": "Maximální hloubka (km)",
-          "only_reviewed": "Pouze revidované události",
-          "alert_min_magnitude": "Senzor poplachu — minimální magnituda",
-          "alert_time_window": "Senzor poplachu — časové okno"
+          "only_reviewed": "Pouze recenzované události",
+          "alert_min_magnitude": "Výstražný senzor — minimální magnitudo",
+          "alert_time_window": "Výstražný senzor — časové okno"
         },
         "data_description": {
-          "min_alert_level": "Filtrovat zemětřesení podle úrovně výstrahy USGS PAGER. Zvolte 'Žádná' pro zobrazení všech událostí bez ohledu na úroveň výstrahy.",
-          "max_depth_km": "Maximální hloubka ohniska v km (0–700). Nastavte na 700 pro zahrnutí zemětřesení v jakékoli hloubce. Mělké události (< 70 km) jsou obvykle ničivější.",
-          "only_reviewed": "Je-li aktivováno, zobrazí se pouze zemětřesení, která byla ručně revidována USGS. Přesnější, ale může se zobrazit se zpožděním.",
-          "alert_min_magnitude": "Binární senzor poplachu se zapne (ON), pokud je v časovém okně detekováno zemětřesení o této nebo vyšší magnitudě.",
-          "alert_time_window": "Kolik hodin zpětně se má kontrolovat při vyhodnocování binárního senzoru poplachu (1–72 hodin)."
+          "min_alert_level": "Filtrujte zemětřesení podle úrovně výstrahy USGS PAGER. Vyberte 'Žádná' pro zobrazení všech událostí bez ohledu na úroveň výstrahy.",
+          "max_depth_km": "Maximální hloubka ohniska v km (0–700). Nastavte na 700 pro zahrnutí zemětřesení v jakékoli hloubce. Mělké události (<70 km) jsou obecně ničivější.",
+          "only_reviewed": "Pokud je povoleno, zobrazuje pouze zemětřesení, která byla ručně zkontrolována organizací USGS. Přesnější, ale mohou se objevit se zpožděním.",
+          "alert_min_magnitude": "Binární senzor výstrahy před zemětřesením se ZAPNE, když je v časovém okně detekováno zemětřesení o tomto magnitudu nebo větším.",
+          "alert_time_window": "Kolik hodin zpětně hledat při vyhodnocování binárního senzoru výstrahy před zemětřesením (1–72 hodin)."
         }
       }
     },
     "error": {
-      "invalid_coordinates": "Neplatné souřadnice. Šířka musí být mezi -90 a 90, délka mezi -180 a 180.",
+      "invalid_coordinates": "Neplatné souřadnice. Zeměpisná šířka musí být mezi −90 a 90, zeměpisná délka mezi −180 a 180.",
       "invalid_radius": "Poloměr musí být mezi 10 a 20 000 km.",
-      "unknown": "Neočekávaná chyba. Podrobnosti naleznete v protokolech Home Assistant."
+      "unknown": "Neočekávaná chyba. Další podrobnosti naleznete v protokolech Home Assistant."
     }
   },
   "selector": {
     "instance_type": {
       "options": {
-        "global": "Globální (celý svět)",
+        "global": "Globální (celosvětově)",
         "custom_area": "Vlastní oblast (poloměr)"
       }
     },
@@ -146,7 +146,7 @@
     },
     "sort_by": {
       "options": {
-        "magnitude": "Magnituda (nejsilnější první)",
+        "magnitude": "Magnitudo (nejsilnější první)",
         "time": "Čas (nejnovější první)",
         "distance": "Vzdálenost (nejbližší první)"
       }
@@ -163,43 +163,89 @@
   },
   "entity": {
     "sensor": {
-      "total_earthquakes": { "name": "Celkový počet zemětřesení" },
-      "strongest_magnitude": { "name": "Nejsilnější zemětřesení" },
-      "strongest_location": { "name": "Lokalita nejsilnějšího zemětřesení" },
-      "average_magnitude": { "name": "Průměrná magnituda" },
-      "latest_earthquake": { "name": "Poslední zemětřesení" },
-      "latest_earthquake_time": { "name": "Čas posledního zemětřesení" },
-      "earthquakes_last_hour": { "name": "Zemětřesení za poslední hodinu" },
-      "significant_earthquakes": { "name": "Významná zemětřesení" },
-      "tsunami_warnings": { "name": "Aktivní varování před tsunami" },
-      "highest_alert_level": { "name": "Nejvyšší úroveň výstrahy" },
-      "red_alert_count": { "name": "Události s červenou výstrahou" },
-      "nearest_distance": { "name": "Vzdálenost k nejbližšímu zemětřesení" },
-      "nearest_magnitude": { "name": "Magnituda nejbližšího zemětřesení" },
-      "last_update": { "name": "Poslední aktualizace" },
-      "api_status": { "name": "Stav API" },
-      "events_fetched": { "name": "Načtené události" },
-      "events_displayed": { "name": "Zobrazené události" }
+      "total_earthquakes": {
+        "name": "Celkový počet zemětřesení"
+      },
+      "strongest_magnitude": {
+        "name": "Nejsilnější zemětřesení"
+      },
+      "strongest_location": {
+        "name": "Místo nejsilnějšího zemětřesení"
+      },
+      "average_magnitude": {
+        "name": "Průměrné magnitudo"
+      },
+      "latest_earthquake": {
+        "name": "Poslední zemětřesení"
+      },
+      "latest_earthquake_time": {
+        "name": "Čas posledního zemětřesení"
+      },
+      "earthquakes_last_hour": {
+        "name": "Zemětřesení za poslední hodinu"
+      },
+      "significant_earthquakes": {
+        "name": "Významná zemětřesení"
+      },
+      "tsunami_warnings": {
+        "name": "Aktivní varování před tsunami"
+      },
+      "highest_alert_level": {
+        "name": "Nejvyšší úroveň výstrahy"
+      },
+      "red_alert_count": {
+        "name": "Události s červenou výstrahou"
+      },
+      "nearest_distance": {
+        "name": "Vzdálenost nejbližšího zemětřesení"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitudo nejbližšího zemětřesení"
+      },
+      "last_update": {
+        "name": "Poslední aktualizace"
+      },
+      "api_status": {
+        "name": "Stav API"
+      },
+      "events_fetched": {
+        "name": "Načtené události"
+      },
+      "events_displayed": {
+        "name": "Zobrazené události"
+      }
     },
     "binary_sensor": {
-      "earthquake_alert": { "name": "Poplach zemětřesení" },
-      "tsunami_warning": { "name": "Varování před tsunami aktivní" }
+      "earthquake_alert": {
+        "name": "Výstraha před zemětřesením"
+      },
+      "tsunami_warning": {
+        "name": "Aktivní varování před tsunami"
+      }
     },
     "button": {
-      "force_refresh": { "name": "Vynutit aktualizaci" }
+      "force_refresh": {
+        "name": "Vynutit obnovení"
+      }
     },
     "image": {
-      "shakemap": { "name": "ShakeMap" }
+      "shakemap": {
+        "name": "Mapa otřesů"
+      }
     },
     "calendar": {
-      "earthquakes": { "name": "Zemětřesení" }
+      "earthquakes": {
+        "name": "Zemětřesení"
+      }
     },
     "event": {
       "new_earthquake": {
-        "name": "Detekováno nové zemětřesení",
+        "name": "Bylo detekováno nové zemětřesení",
         "state_attributes": {
           "event_type": {
-            "state": { "earthquake_detected": "Zemětřesení detekováno" }
+            "state": {
+              "earthquake_detected": "Zemětřesení detekováno"
+            }
           }
         }
       }

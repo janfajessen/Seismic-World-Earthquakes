@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfigurasikan contoh pemantauan ini. Anda boleh mencipta berbilang contoh untuk memantau kawasan atau ambang magnitud yang berbeza.",
+        "data": {
+          "name": "Nama contoh",
+          "instance_type": "Jenis contoh",
+          "min_magnitude": "Magnitud minimum (Skala Richter)",
+          "feed_period": "Tempoh data",
+          "max_events": "Peristiwa maksimum pada peta",
+          "units": "Unit jarak",
+          "sort_by": "Isih peristiwa mengikut"
+        },
+        "data_description": {
+          "min_magnitude": "Hanya gempa bumi dengan magnitud sama atau melebihi ini akan disertakan (0.0–9.9).",
+          "max_events": "Bilangan maksimum gempa bumi yang dipaparkan pada peta (50–500). Peristiwa dengan M≥6.0 sentiasa disimpan tanpa mengira had ini.",
+          "sort_by": "Menentukan susunan gempa bumi muncul pada peta dan dalam penderia."
+        }
+      },
+      "area": {
+        "title": "Konfigurasi Kawasan Tersuai",
+        "description": "Tentukan kawasan geografi untuk dipantau. Semua gempa bumi dalam jejari yang ditentukan dari titik pusat akan disertakan.",
+        "data": {
+          "latitude": "Latitud pusat",
+          "longitude": "Longitud pusat",
+          "radius_km": "Jejari carian (km)"
+        },
+        "data_description": {
+          "latitude": "Latitud pusat kawasan yang dipantau (−90 hingga 90).",
+          "longitude": "Longitud pusat kawasan yang dipantau (−180 hingga 180).",
+          "radius_km": "Jejari dalam kilometer di sekitar titik pusat (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Penapis & Penderia Amaran",
+        "description": "Secara pilihan hadkan gempa bumi mana yang dipaparkan, dan konfigurasikan penderia binari amaran gempa bumi.",
+        "data": {
+          "min_alert_level": "Tahap amaran PAGER minimum",
+          "only_tsunami": "Hanya tunjukkan peristiwa dengan amaran tsunami",
+          "max_depth_km": "Kedalaman maksimum (km)",
+          "only_reviewed": "Hanya peristiwa yang disemak",
+          "alert_min_magnitude": "Penderia amaran — magnitud minimum",
+          "alert_time_window": "Penderia amaran — tetingkap masa"
+        },
+        "data_description": {
+          "min_alert_level": "Tapis gempa bumi mengikut tahap amaran PAGER USGS. Pilih 'Tiada' untuk memaparkan semua peristiwa tanpa mengira tahap amaran.",
+          "max_depth_km": "Kedalaman fokus maksimum dalam km (0–700). Tetapkan kepada 700 untuk memasukkan gempa bumi pada sebarang kedalaman. Peristiwa cetek (<70 km) secara amnya lebih merosakkan.",
+          "only_reviewed": "Apabila didayakan, hanya menunjukkan gempa bumi yang telah disemak secara manual oleh USGS. Lebih tepat tetapi mungkin muncul dengan kelewatan.",
+          "alert_min_magnitude": "Penderia binari amaran gempa bumi AKTIF apabila gempa bumi dengan magnitud ini atau lebih besar dikesan dalam tetingkap masa.",
+          "alert_time_window": "Berapa jam ke belakang untuk dilihat semasa menilai penderia binari amaran gempa bumi (1–72 jam)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Koordinat tidak sah. Latitud mestilah antara −90 dan 90, longitud antara −180 dan 180.",
+      "invalid_radius": "Jejari mestilah antara 10 dan 20,000 km.",
+      "cannot_connect": "Tidak dapat menyambung ke API USGS. Sila periksa sambungan internet anda dan cuba lagi.",
+      "unknown": "Ralat tidak dijangka. Sila semak log Home Assistant untuk maklumat lanjut."
+    },
+    "abort": {
+      "already_configured": "Contoh ini telah dikonfigurasikan."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Konfigurasi Semula Seismic World Earthquakes",
+        "description": "Kemas kini tetapan asas untuk contoh pemantauan ini.",
+        "data": {
+          "name": "Nama contoh",
+          "instance_type": "Jenis contoh",
+          "min_magnitude": "Magnitud minimum (Skala Richter)",
+          "feed_period": "Tempoh data",
+          "max_events": "Peristiwa maksimum pada peta",
+          "units": "Unit jarak",
+          "sort_by": "Isih peristiwa mengikut"
+        },
+        "data_description": {
+          "min_magnitude": "Hanya gempa bumi dengan magnitud sama atau melebihi ini akan disertakan (0.0–9.9).",
+          "max_events": "Bilangan maksimum gempa bumi yang dipaparkan pada peta (50–500). Peristiwa dengan M≥6.0 sentiasa disimpan tanpa mengira had ini.",
+          "sort_by": "Menentukan susunan gempa bumi muncul pada peta dan dalam penderia."
+        }
+      },
+      "area": {
+        "title": "Konfigurasi Kawasan Tersuai",
+        "description": "Kemas kini kawasan geografi untuk dipantau.",
+        "data": {
+          "latitude": "Latitud pusat",
+          "longitude": "Longitud pusat",
+          "radius_km": "Jejari carian (km)"
+        },
+        "data_description": {
+          "latitude": "Latitud pusat kawasan yang dipantau (−90 hingga 90).",
+          "longitude": "Longitud pusat kawasan yang dipantau (−180 hingga 180).",
+          "radius_km": "Jejari dalam kilometer di sekitar titik pusat (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Penapis & Penderia Amaran",
+        "description": "Kemas kini penapis pilihan dan konfigurasi penderia binari amaran gempa bumi.",
+        "data": {
+          "min_alert_level": "Tahap amaran PAGER minimum",
+          "only_tsunami": "Hanya tunjukkan peristiwa dengan amaran tsunami",
+          "max_depth_km": "Kedalaman maksimum (km)",
+          "only_reviewed": "Hanya peristiwa yang disemak",
+          "alert_min_magnitude": "Penderia amaran — magnitud minimum",
+          "alert_time_window": "Penderia amaran — tetingkap masa"
+        },
+        "data_description": {
+          "min_alert_level": "Tapis gempa bumi mengikut tahap amaran PAGER USGS. Pilih 'Tiada' untuk memaparkan semua peristiwa tanpa mengira tahap amaran.",
+          "max_depth_km": "Kedalaman fokus maksimum dalam km (0–700). Tetapkan kepada 700 untuk memasukkan gempa bumi pada sebarang kedalaman. Peristiwa cetek (<70 km) secara amnya lebih merosakkan.",
+          "only_reviewed": "Apabila didayakan, hanya menunjukkan gempa bumi yang telah disemak secara manual oleh USGS. Lebih tepat tetapi mungkin muncul dengan kelewatan.",
+          "alert_min_magnitude": "Penderia binari amaran gempa bumi AKTIF apabila gempa bumi dengan magnitud ini atau lebih besar dikesan dalam tetingkap masa.",
+          "alert_time_window": "Berapa jam ke belakang untuk dilihat semasa menilai penderia binari amaran gempa bumi (1–72 jam)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Koordinat tidak sah. Latitud mestilah antara −90 dan 90, longitud antara −180 dan 180.",
+      "invalid_radius": "Jejari mestilah antara 10 dan 20,000 km.",
+      "unknown": "Ralat tidak dijangka. Sila semak log Home Assistant untuk maklumat lanjut."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (seluruh dunia)",
+        "custom_area": "Kawasan tersuai (jejari)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Jam lepas",
+        "day": "24 jam lepas",
+        "week": "7 hari lepas",
+        "month": "30 hari lepas"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometer (km)",
+        "mi": "Batu (batu)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitud (terkuat dahulu)",
+        "time": "Masa (terkini dahulu)",
+        "distance": "Jarak (terdekat dahulu)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Tiada (tunjukkan semua)",
+        "green": "Hijau",
+        "yellow": "Kuning",
+        "orange": "Jingga",
+        "red": "Merah (paling teruk)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Jumlah gempa bumi"
+      },
+      "strongest_magnitude": {
+        "name": "Gempa bumi terkuat"
+      },
+      "strongest_location": {
+        "name": "Lokasi gempa bumi terkuat"
+      },
+      "average_magnitude": {
+        "name": "Magnitud purata"
+      },
+      "latest_earthquake": {
+        "name": "Gempa bumi terkini"
+      },
+      "latest_earthquake_time": {
+        "name": "Masa gempa bumi terkini"
+      },
+      "earthquakes_last_hour": {
+        "name": "Gempa bumi jam lepas"
+      },
+      "significant_earthquakes": {
+        "name": "Gempa bumi signifikan"
+      },
+      "tsunami_warnings": {
+        "name": "Amaran tsunami aktif"
+      },
+      "highest_alert_level": {
+        "name": "Tahap amaran tertinggi"
+      },
+      "red_alert_count": {
+        "name": "Peristiwa amaran merah"
+      },
+      "nearest_distance": {
+        "name": "Jarak gempa bumi terdekat"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitud gempa bumi terdekat"
+      },
+      "last_update": {
+        "name": "Kemas kini terakhir"
+      },
+      "api_status": {
+        "name": "Status API"
+      },
+      "events_fetched": {
+        "name": "Peristiwa diambil"
+      },
+      "events_displayed": {
+        "name": "Peristiwa dipaparkan"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Amaran gempa bumi"
+      },
+      "tsunami_warning": {
+        "name": "Amaran tsunami aktif"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Paksa segar semula"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Peta Gegaran"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Gempa bumi"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Gempa bumi baru dikesan",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Gempa bumi dikesan"
+            }
+          }
+        }
+      }
+    }
+  }
+}

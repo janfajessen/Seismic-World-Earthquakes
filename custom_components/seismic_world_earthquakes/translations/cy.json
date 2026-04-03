@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Cyfluniwch yr achlysur monitro hwn. Gallwch greu sawl achlysur i fonitro gwahanol ardaloedd neu drothwyon maint.",
+        "data": {
+          "name": "Enw'r achlysur",
+          "instance_type": "Math o achlysur",
+          "min_magnitude": "Maint lleiaf (graddfa Richter)",
+          "feed_period": "Cyfnod data",
+          "max_events": "Uchafswm digwyddiadau ar y map",
+          "units": "Unedau pellter",
+          "sort_by": "Trefnu digwyddiadau yn ôl"
+        },
+        "data_description": {
+          "min_magnitude": "Dim ond daeargrynfeydd sy'n hafal i neu'n uwch na'r maint hwn fydd yn cael eu cynnwys (0.0–9.9).",
+          "max_events": "Uchafswm nifer y daeargrynfeydd a ddangosir ar y map (50–500). Mae digwyddiadau â M≥6.0 yn cael eu cadw bob amser waeth beth fo'r terfyn hwn.",
+          "sort_by": "Yn diffinio'r drefn y mae daeargrynfeydd yn ymddangos ar y map ac mewn synwyryddion."
+        }
+      },
+      "area": {
+        "title": "Cyfluniad Ardal Personol",
+        "description": "Diffiniwch yr ardal ddaearyddol i'w monitro. Bydd pob daeargryn o fewn radiws penodedig y pwynt canol yn cael ei gynnwys.",
+        "data": {
+          "latitude": "Lledred y canol",
+          "longitude": "Hydred y canol",
+          "radius_km": "Radiws chwilio (km)"
+        },
+        "data_description": {
+          "latitude": "Lledred canol yr ardal sy'n cael ei monitro (−90 i 90).",
+          "longitude": "Hydred canol yr ardal sy'n cael ei monitro (−180 i 180).",
+          "radius_km": "Radiws mewn cilometrau o amgylch y pwynt canol (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Hidlau a Synhwyrydd Rhybudd",
+        "description": "Opsiynol, cyfyngwch pa ddaeargrynfeydd sy'n cael eu dangos, a chyfluniwch y synhwyrydd deuaidd rhybudd daeargryn.",
+        "data": {
+          "min_alert_level": "Lefel rhybudd PAGER lleiaf",
+          "only_tsunami": "Dangos dim ond digwyddiadau â rhybudd tswnami",
+          "max_depth_km": "Dyfnder mwyaf (km)",
+          "only_reviewed": "Dim ond digwyddiadau wedi'u hadolygu",
+          "alert_min_magnitude": "Synhwyrydd rhybudd — maint lleiaf",
+          "alert_time_window": "Synhwyrydd rhybudd — ffenestr amser"
+        },
+        "data_description": {
+          "min_alert_level": "Hidlwch ddaeargrynfeydd yn ôl lefel rhybudd PAGER USGS. Dewiswch 'Dim' i ddangos pob digwyddiad waeth beth fo lefel y rhybudd.",
+          "max_depth_km": "Dyfnder ffocal mwyaf mewn km (0–700). Gosodwch i 700 i gynnwys daeargrynfeydd ar unrhyw ddyfnder. Mae digwyddiadau bas (<70 km) yn gyffredinol yn fwy dinistriol.",
+          "only_reviewed": "Pan gaiff ei alluogi, dim ond daeargrynfeydd sydd wedi'u hadolygu â llaw gan USGS sy'n cael eu dangos. Yn fwy cywir ond gallant ymddangos gydag oedi.",
+          "alert_min_magnitude": "Mae'r synhwyrydd deuaidd rhybudd daeargryn yn TROI YMLAEN pan ganfyddir daeargryn o'r maint hwn neu fwy o fewn y ffenestr amser.",
+          "alert_time_window": "Faint o oriau yn ôl i edrych wrth werthuso'r synhwyrydd deuaidd rhybudd daeargryn (1–72 awr)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Cyfesurynnau annilys. Rhaid i'r lledred fod rhwng −90 a 90, a'r hydred rhwng −180 a 180.",
+      "invalid_radius": "Rhaid i'r radiws fod rhwng 10 a 20,000 km.",
+      "cannot_connect": "Ni ellir cysylltu â API USGS. Gwiriwch eich cysylltiad rhyngrwyd a rhowch gynnig arall arni.",
+      "unknown": "Gwall annisgwyl. Gwiriwch logiau Home Assistant am fwy o fanylion."
+    },
+    "abort": {
+      "already_configured": "Mae'r achlysur hwn eisoes wedi'i gyflunio."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Ailgyflunio Seismic World Earthquakes",
+        "description": "Diweddarwch y gosodiadau sylfaenol ar gyfer yr achlysur monitro hwn.",
+        "data": {
+          "name": "Enw'r achlysur",
+          "instance_type": "Math o achlysur",
+          "min_magnitude": "Maint lleiaf (graddfa Richter)",
+          "feed_period": "Cyfnod data",
+          "max_events": "Uchafswm digwyddiadau ar y map",
+          "units": "Unedau pellter",
+          "sort_by": "Trefnu digwyddiadau yn ôl"
+        },
+        "data_description": {
+          "min_magnitude": "Dim ond daeargrynfeydd sy'n hafal i neu'n uwch na'r maint hwn fydd yn cael eu cynnwys (0.0–9.9).",
+          "max_events": "Uchafswm nifer y daeargrynfeydd a ddangosir ar y map (50–500). Mae digwyddiadau â M≥6.0 yn cael eu cadw bob amser waeth beth fo'r terfyn hwn.",
+          "sort_by": "Yn diffinio'r drefn y mae daeargrynfeydd yn ymddangos ar y map ac mewn synwyryddion."
+        }
+      },
+      "area": {
+        "title": "Cyfluniad Ardal Personol",
+        "description": "Diweddarwch yr ardal ddaearyddol i'w monitro.",
+        "data": {
+          "latitude": "Lledred y canol",
+          "longitude": "Hydred y canol",
+          "radius_km": "Radiws chwilio (km)"
+        },
+        "data_description": {
+          "latitude": "Lledred canol yr ardal sy'n cael ei monitro (−90 i 90).",
+          "longitude": "Hydred canol yr ardal sy'n cael ei monitro (−180 i 180).",
+          "radius_km": "Radiws mewn cilometrau o amgylch y pwynt canol (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Hidlau a Synhwyrydd Rhybudd",
+        "description": "Diweddarwch hidlau dewisol a chyfluniad y synhwyrydd deuaidd rhybudd daeargryn.",
+        "data": {
+          "min_alert_level": "Lefel rhybudd PAGER lleiaf",
+          "only_tsunami": "Dangos dim ond digwyddiadau â rhybudd tswnami",
+          "max_depth_km": "Dyfnder mwyaf (km)",
+          "only_reviewed": "Dim ond digwyddiadau wedi'u hadolygu",
+          "alert_min_magnitude": "Synhwyrydd rhybudd — maint lleiaf",
+          "alert_time_window": "Synhwyrydd rhybudd — ffenestr amser"
+        },
+        "data_description": {
+          "min_alert_level": "Hidlwch ddaeargrynfeydd yn ôl lefel rhybudd PAGER USGS. Dewiswch 'Dim' i ddangos pob digwyddiad waeth beth fo lefel y rhybudd.",
+          "max_depth_km": "Dyfnder ffocal mwyaf mewn km (0–700). Gosodwch i 700 i gynnwys daeargrynfeydd ar unrhyw ddyfnder. Mae digwyddiadau bas (<70 km) yn gyffredinol yn fwy dinistriol.",
+          "only_reviewed": "Pan gaiff ei alluogi, dim ond daeargrynfeydd sydd wedi'u hadolygu â llaw gan USGS sy'n cael eu dangos. Yn fwy cywir ond gallant ymddangos gydag oedi.",
+          "alert_min_magnitude": "Mae'r synhwyrydd deuaidd rhybudd daeargryn yn TROI YMLAEN pan ganfyddir daeargryn o'r maint hwn neu fwy o fewn y ffenestr amser.",
+          "alert_time_window": "Faint o oriau yn ôl i edrych wrth werthuso'r synhwyrydd deuaidd rhybudd daeargryn (1–72 awr)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Cyfesurynnau annilys. Rhaid i'r lledred fod rhwng −90 a 90, a'r hydred rhwng −180 a 180.",
+      "invalid_radius": "Rhaid i'r radiws fod rhwng 10 a 20,000 km.",
+      "unknown": "Gwall annisgwyl. Gwiriwch logiau Home Assistant am fwy o fanylion."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Byd-eang (ledled y byd)",
+        "custom_area": "Ardal bersonol (radiws)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Yr awr ddiwethaf",
+        "day": "Y 24 awr ddiwethaf",
+        "week": "Y 7 diwrnod diwethaf",
+        "month": "Y 30 diwrnod diwethaf"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Cilometrau (km)",
+        "mi": "Milltiroedd (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Maint (y cryfaf yn gyntaf)",
+        "time": "Amser (y diweddaraf yn gyntaf)",
+        "distance": "Pellter (yr agosaf yn gyntaf)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Dim (dangos popeth)",
+        "green": "Gwyrdd",
+        "yellow": "Melyn",
+        "orange": "Oren",
+        "red": "Coch (mwyaf difrifol)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Cyfanswm daeargrynfeydd"
+      },
+      "strongest_magnitude": {
+        "name": "Daeargryn cryfaf"
+      },
+      "strongest_location": {
+        "name": "Lleoliad y daeargryn cryfaf"
+      },
+      "average_magnitude": {
+        "name": "Maint cyfartalog"
+      },
+      "latest_earthquake": {
+        "name": "Daeargryn diweddaraf"
+      },
+      "latest_earthquake_time": {
+        "name": "Amser y daeargryn diweddaraf"
+      },
+      "earthquakes_last_hour": {
+        "name": "Daeargrynfeydd yr awr ddiwethaf"
+      },
+      "significant_earthquakes": {
+        "name": "Daeargrynfeydd arwyddocaol"
+      },
+      "tsunami_warnings": {
+        "name": "Rhybuddion tswnami gweithredol"
+      },
+      "highest_alert_level": {
+        "name": "Lefel rhybudd uchaf"
+      },
+      "red_alert_count": {
+        "name": "Digwyddiadau rhybudd coch"
+      },
+      "nearest_distance": {
+        "name": "Pellter y daeargryn agosaf"
+      },
+      "nearest_magnitude": {
+        "name": "Maint y daeargryn agosaf"
+      },
+      "last_update": {
+        "name": "Diweddariad diwethaf"
+      },
+      "api_status": {
+        "name": "Statws API"
+      },
+      "events_fetched": {
+        "name": "Digwyddiadau a nolwyd"
+      },
+      "events_displayed": {
+        "name": "Digwyddiadau a ddangoswyd"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Rhybudd daeargryn"
+      },
+      "tsunami_warning": {
+        "name": "Rhybudd tswnami yn weithredol"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Gorfodi adnewyddu"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Map Ysgwyd"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Daeargrynfeydd"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Daeargryn newydd wedi'i ganfod",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Daeargryn wedi'i ganfod"
+            }
+          }
+        }
+      }
+    }
+  }
+}

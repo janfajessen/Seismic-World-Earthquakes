@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Bu monitorinq nümunəsini konfiqurasiya edin. Müxtəlif sahələri və ya böyüklük həddlərini izləmək üçün birdən çox nümunə yarada bilərsiniz.",
+        "data": {
+          "name": "Nümunə adı",
+          "instance_type": "Nümunə növü",
+          "min_magnitude": "Minimum böyüklük (Rixter şkalası)",
+          "feed_period": "Məlumat dövrü",
+          "max_events": "Xəritədə maksimum hadisə",
+          "units": "Məsafə vahidləri",
+          "sort_by": "Hadisələri sırala"
+        },
+        "data_description": {
+          "min_magnitude": "Yalnız bu böyüklüyə bərabər və ya ondan yuxarı olan zəlzələlər daxil ediləcək (0.0–9.9).",
+          "max_events": "Xəritədə göstərilən maksimum zəlzələ sayı (50–500). M≥6.0 olan hadisələr bu limitdən asılı olmayaraq həmişə saxlanılır.",
+          "sort_by": "Zəlzələlərin xəritədə və sensorlarda görünmə sırasını müəyyən edir."
+        }
+      },
+      "area": {
+        "title": "Xüsusi Sahə Konfiqurasiyası",
+        "description": "İzləniləcək coğrafi sahəni təyin edin. Mərkəz nöqtəsinin müəyyən edilmiş radiusu daxilindəki bütün zəlzələlər daxil ediləcək.",
+        "data": {
+          "latitude": "Mərkəz enliyi",
+          "longitude": "Mərkəz uzunluğu",
+          "radius_km": "Axtarış radiusu (km)"
+        },
+        "data_description": {
+          "latitude": "İzlənilən sahənin mərkəzinin enliyi (−90 ilə 90 arasında).",
+          "longitude": "İzlənilən sahənin mərkəzinin uzunluğu (−180 ilə 180 arasında).",
+          "radius_km": "Mərkəz nöqtəsi ətrafında kilometrlərlə radius (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrlər & Xəbərdarlıq Sensoru",
+        "description": "İsteğe bağlı olaraq hansı zəlzələlərin göstəriləcəyini məhdudlaşdırın və zəlzələ xəbərdarlığı ikili sensorunu konfiqurasiya edin.",
+        "data": {
+          "min_alert_level": "Minimum PAGER xəbərdarlıq səviyyəsi",
+          "only_tsunami": "Yalnız sunami xəbərdarlığı olan hadisələri göstər",
+          "max_depth_km": "Maksimum dərinlik (km)",
+          "only_reviewed": "Yalnız nəzərdən keçirilmiş hadisələr",
+          "alert_min_magnitude": "Xəbərdarlıq sensoru — minimum böyüklük",
+          "alert_time_window": "Xəbərdarlıq sensoru — vaxt pəncərəsi"
+        },
+        "data_description": {
+          "min_alert_level": "USGS PAGER xəbərdarlıq səviyyəsinə görə zəlzələləri filtrləyin. Xəbərdarlıq səviyyəsindən asılı olmayaraq bütün hadisələri göstərmək üçün 'Heç biri' seçin.",
+          "max_depth_km": "Maksimum fokus dərinliyi km ilə (0–700). İstənilən dərinlikdəki zəlzələləri daxil etmək üçün 700-ə təyin edin. Dayaz hadisələr (<70 km) ümumiyyətlə daha dağıdıcıdır.",
+          "only_reviewed": "Aktivləşdirildikdə, yalnız USGS tərəfindən əl ilə nəzərdən keçirilmiş zəlzələləri göstərir. Daha dəqiqdir, lakin gecikmə ilə görünə bilər.",
+          "alert_min_magnitude": "Zəlzələ xəbərdarlığı ikili sensoru, vaxt pəncərəsi ərzində bu böyüklükdə və ya daha böyük bir zəlzələ aşkar edildikdə AÇILIR.",
+          "alert_time_window": "Zəlzələ xəbərdarlığı ikili sensorunu qiymətləndirərkən neçə saat geriyə baxılacaq (1–72 saat)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Yanlış koordinatlar. Enlik −90 ilə 90 arasında, uzunluq isə −180 ilə 180 arasında olmalıdır.",
+      "invalid_radius": "Radius 10 ilə 20,000 km arasında olmalıdır.",
+      "cannot_connect": "USGS API-yə qoşula bilmir. Zəhmət olmasa internet bağlantınızı yoxlayın və yenidən cəhd edin.",
+      "unknown": "Gözlənilməyən xəta. Daha ətraflı məlumat üçün Home Assistant jurnallarını yoxlayın."
+    },
+    "abort": {
+      "already_configured": "Bu nümunə artıq konfiqurasiya edilib."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Earthquakes Yenidən Konfiqurasiya",
+        "description": "Bu monitorinq nümunəsi üçün əsas parametrləri yeniləyin.",
+        "data": {
+          "name": "Nümunə adı",
+          "instance_type": "Nümunə növü",
+          "min_magnitude": "Minimum böyüklük (Rixter şkalası)",
+          "feed_period": "Məlumat dövrü",
+          "max_events": "Xəritədə maksimum hadisə",
+          "units": "Məsafə vahidləri",
+          "sort_by": "Hadisələri sırala"
+        },
+        "data_description": {
+          "min_magnitude": "Yalnız bu böyüklüyə bərabər və ya ondan yuxarı olan zəlzələlər daxil ediləcək (0.0–9.9).",
+          "max_events": "Xəritədə göstərilən maksimum zəlzələ sayı (50–500). M≥6.0 olan hadisələr bu limitdən asılı olmayaraq həmişə saxlanılır.",
+          "sort_by": "Zəlzələlərin xəritədə və sensorlarda görünmə sırasını müəyyən edir."
+        }
+      },
+      "area": {
+        "title": "Xüsusi Sahə Konfiqurasiyası",
+        "description": "İzləniləcək coğrafi sahəni yeniləyin.",
+        "data": {
+          "latitude": "Mərkəz enliyi",
+          "longitude": "Mərkəz uzunluğu",
+          "radius_km": "Axtarış radiusu (km)"
+        },
+        "data_description": {
+          "latitude": "İzlənilən sahənin mərkəzinin enliyi (−90 ilə 90 arasında).",
+          "longitude": "İzlənilən sahənin mərkəzinin uzunluğu (−180 ilə 180 arasında).",
+          "radius_km": "Mərkəz nöqtəsi ətrafında kilometrlərlə radius (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtrlər & Xəbərdarlıq Sensoru",
+        "description": "İsteğe bağlı filtrləri və zəlzələ xəbərdarlığı ikili sensoru konfiqurasiyasını yeniləyin.",
+        "data": {
+          "min_alert_level": "Minimum PAGER xəbərdarlıq səviyyəsi",
+          "only_tsunami": "Yalnız sunami xəbərdarlığı olan hadisələri göstər",
+          "max_depth_km": "Maksimum dərinlik (km)",
+          "only_reviewed": "Yalnız nəzərdən keçirilmiş hadisələr",
+          "alert_min_magnitude": "Xəbərdarlıq sensoru — minimum böyüklük",
+          "alert_time_window": "Xəbərdarlıq sensoru — vaxt pəncərəsi"
+        },
+        "data_description": {
+          "min_alert_level": "USGS PAGER xəbərdarlıq səviyyəsinə görə zəlzələləri filtrləyin. Xəbərdarlıq səviyyəsindən asılı olmayaraq bütün hadisələri göstərmək üçün 'Heç biri' seçin.",
+          "max_depth_km": "Maksimum fokus dərinliyi km ilə (0–700). İstənilən dərinlikdəki zəlzələləri daxil etmək üçün 700-ə təyin edin. Dayaz hadisələr (<70 km) ümumiyyətlə daha dağıdıcıdır.",
+          "only_reviewed": "Aktivləşdirildikdə, yalnız USGS tərəfindən əl ilə nəzərdən keçirilmiş zəlzələləri göstərir. Daha dəqiqdir, lakin gecikmə ilə görünə bilər.",
+          "alert_min_magnitude": "Zəlzələ xəbərdarlığı ikili sensoru, vaxt pəncərəsi ərzində bu böyüklükdə və ya daha böyük bir zəlzələ aşkar edildikdə AÇILIR.",
+          "alert_time_window": "Zəlzələ xəbərdarlığı ikili sensorunu qiymətləndirərkən neçə saat geriyə baxılacaq (1–72 saat)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Yanlış koordinatlar. Enlik −90 ilə 90 arasında, uzunluq isə −180 ilə 180 arasında olmalıdır.",
+      "invalid_radius": "Radius 10 ilə 20,000 km arasında olmalıdır.",
+      "unknown": "Gözlənilməyən xəta. Daha ətraflı məlumat üçün Home Assistant jurnallarını yoxlayın."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Qlobal (dünya üzrə)",
+        "custom_area": "Xüsusi sahə (radius)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Son bir saat",
+        "day": "Son 24 saat",
+        "week": "Son 7 gün",
+        "month": "Son 30 gün"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometr (km)",
+        "mi": "Mil (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Böyüklük (ən güclü birinci)",
+        "time": "Vaxt (ən yeni birinci)",
+        "distance": "Məsafə (ən yaxın birinci)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Heç biri (hamısını göstər)",
+        "green": "Yaşıl",
+        "yellow": "Sarı",
+        "orange": "Narıncı",
+        "red": "Qırmızı (ən şiddətli)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Ümumi zəlzələlər"
+      },
+      "strongest_magnitude": {
+        "name": "Ən güclü zəlzələ"
+      },
+      "strongest_location": {
+        "name": "Ən güclü zəlzələnin yeri"
+      },
+      "average_magnitude": {
+        "name": "Orta böyüklük"
+      },
+      "latest_earthquake": {
+        "name": "Son zəlzələ"
+      },
+      "latest_earthquake_time": {
+        "name": "Son zəlzələ vaxtı"
+      },
+      "earthquakes_last_hour": {
+        "name": "Son bir saatda zəlzələlər"
+      },
+      "significant_earthquakes": {
+        "name": "Əhəmiyyətli zəlzələlər"
+      },
+      "tsunami_warnings": {
+        "name": "Aktiv sunami xəbərdarlıqları"
+      },
+      "highest_alert_level": {
+        "name": "Ən yüksək xəbərdarlıq səviyyəsi"
+      },
+      "red_alert_count": {
+        "name": "Qırmızı xəbərdarlıq hadisələri"
+      },
+      "nearest_distance": {
+        "name": "Ən yaxın zəlzələ məsafəsi"
+      },
+      "nearest_magnitude": {
+        "name": "Ən yaxın zəlzələnin böyüklüyü"
+      },
+      "last_update": {
+        "name": "Son yeniləmə"
+      },
+      "api_status": {
+        "name": "API statusu"
+      },
+      "events_fetched": {
+        "name": "Gətirilən hadisələr"
+      },
+      "events_displayed": {
+        "name": "Göstərilən hadisələr"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Zəlzələ xəbərdarlığı"
+      },
+      "tsunami_warning": {
+        "name": "Sunami xəbərdarlığı aktivdir"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Məcburi yeniləmə"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Sarsıntı Xəritəsi"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Zəlzələlər"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Yeni zəlzələ aşkar edildi",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Zəlzələ aşkar edildi"
+            }
+          }
+        }
+      }
+    }
+  }
+}

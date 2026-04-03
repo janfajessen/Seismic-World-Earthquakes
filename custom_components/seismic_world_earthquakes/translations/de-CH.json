@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfiguriere diese Überwachungsinstanz. Du kannst mehrere Instanzen erstellen, um verschiedene Gebiete oder Magnitudenschwellen zu überwachen.",
+        "data": {
+          "name": "Instanzname",
+          "instance_type": "Instanztyp",
+          "min_magnitude": "Minimale Magnitude (Richter-Skala)",
+          "feed_period": "Datenzeitraum",
+          "max_events": "Maximale Ereignisse uf Karte",
+          "units": "Entfernigseinheite",
+          "sort_by": "Ereignisse sortiere nach"
+        },
+        "data_description": {
+          "min_magnitude": "Nur Erdbebe mit ere Magnitude gliich oder über diesem Wärt werde iibezoge (0,0–9,9).",
+          "max_events": "Maximali Aazahl vo de uf de Karte aazeigte Erdbebe (50–500). Ereignis mit M≥6,0 werde unabhängig vo däre Gränze immer bhalte.",
+          "sort_by": "Definiert d'Reiefolg, i dere Erdbebe uf de Karte und i Sensore erschine."
+        }
+      },
+      "area": {
+        "title": "Konfiguration vom benutzerdefinierte Bereich",
+        "description": "Definier de geografisch Bereich, wo überwacht wird. Alli Erdbebe innerhalb vom aagegebene Radius um de Mittelpunkt werde iibezoge.",
+        "data": {
+          "latitude": "Breitegrad vom Zentrum",
+          "longitude": "Längegrad vom Zentrum",
+          "radius_km": "Suchradius (km)"
+        },
+        "data_description": {
+          "latitude": "Breitegrad vom Zentrum vom überwachte Gebiet (−90 bis 90).",
+          "longitude": "Längegrad vom Zentrum vom überwachte Gebiet (−180 bis 180).",
+          "radius_km": "Radius i Kilometer um de Mittelpunkt (10–20'000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filter und Alarmsensor",
+        "description": "Schränk optional ii, welechi Erdbebe aazeigt werde, und konfigurier de binär Erdbebe-Alarmsensor.",
+        "data": {
+          "min_alert_level": "Minimali PAGER-Alarmstufe",
+          "only_tsunami": "Nur Ereignis mit Tsunami-Warnig aazeige",
+          "max_depth_km": "Maximali Tiefi (km)",
+          "only_reviewed": "Nur überprüefti Ereignis",
+          "alert_min_magnitude": "Alarmsensor — minimali Magnitude",
+          "alert_time_window": "Alarmsensor — Ziitfenster"
+        },
+        "data_description": {
+          "min_alert_level": "Filtere Erdbebe nach de USGS PAGER-Alarmstufe. Wähl 'Keini', um alli Ereignis unabhängig vo de Alarmstufe aazzeige.",
+          "max_depth_km": "Maximali Herdtiefi i km (0–700). Setz uf 700, um Erdbebe i jeder Tiefe iizschliesse. Flachi Ereignis (<70 km) sind i de Regel zerstörerischer.",
+          "only_reviewed": "Wenn aktiviert, werde nur Erdbebe aazeigt, wo manuell vom USGS überprüft worde sind. Gnauer, chönne aber mit Verzögerig erschine.",
+          "alert_min_magnitude": "De binär Erdbebe-Alarmsensor wird IIGSCHALTET, wenn innerhalb vom Ziitfenster es Erdbebe vo dere oder ere grössere Magnitude erkannt wird.",
+          "alert_time_window": "Wie vieli Stunde zrugg gluegt werde söll, wenn de binär Erdbebe-Alarmsensor usgwärtet wird (1–72 Stunde)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Ungültigi Koordinate. De Breitegrad mues zwischen −90 und 90 liige, de Längegrad zwischen −180 und 180.",
+      "invalid_radius": "De Radius mues zwischen 10 und 20'000 km liige.",
+      "cannot_connect": "Verbindig zur USGS-API cha nid härgstellt werde. Bitte überprüef d'Internetverbindig und versuechs nomol.",
+      "unknown": "Unerwartete Fehler. Bitte überprüef d'Home Assistant-Protokoll für meh Details."
+    },
+    "abort": {
+      "already_configured": "Die Instanz isch bereits konfiguriert."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Seismic World Earthquakes neu konfiguriere",
+        "description": "Aktualisier d'Grundeistellige für die Überwachigsinstanz.",
+        "data": {
+          "name": "Instanzname",
+          "instance_type": "Instanztyp",
+          "min_magnitude": "Minimale Magnitude (Richter-Skala)",
+          "feed_period": "Datenziitruum",
+          "max_events": "Maximali Ereignis uf Karte",
+          "units": "Entfernigseinheite",
+          "sort_by": "Ereignis sortiere nach"
+        },
+        "data_description": {
+          "min_magnitude": "Nur Erdbebe mit ere Magnitude gliich oder über diesem Wärt werde iibezoge (0,0–9,9).",
+          "max_events": "Maximali Aazahl vo de uf de Karte aazeigte Erdbebe (50–500). Ereignis mit M≥6,0 werde unabhängig vo däre Gränze immer bhalte.",
+          "sort_by": "Definiert d'Reiefolg, i dere Erdbebe uf de Karte und i Sensore erschine."
+        }
+      },
+      "area": {
+        "title": "Konfiguration vom benutzerdefinierte Bereich",
+        "description": "Aktualisier de geografisch Bereich, wo überwacht wird.",
+        "data": {
+          "latitude": "Breitegrad vom Zentrum",
+          "longitude": "Längegrad vom Zentrum",
+          "radius_km": "Suchradius (km)"
+        },
+        "data_description": {
+          "latitude": "Breitegrad vom Zentrum vom überwachte Gebiet (−90 bis 90).",
+          "longitude": "Längegrad vom Zentrum vom überwachte Gebiet (−180 bis 180).",
+          "radius_km": "Radius i Kilometer um de Mittelpunkt (10–20'000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filter und Alarmsensor",
+        "description": "Aktualisier optionali Filter und d'Konfiguration vom binäre Erdbebe-Alarmsensor.",
+        "data": {
+          "min_alert_level": "Minimali PAGER-Alarmstufe",
+          "only_tsunami": "Nur Ereignis mit Tsunami-Warnig aazeige",
+          "max_depth_km": "Maximali Tiefi (km)",
+          "only_reviewed": "Nur überprüefti Ereignis",
+          "alert_min_magnitude": "Alarmsensor — minimali Magnitude",
+          "alert_time_window": "Alarmsensor — Ziitfenster"
+        },
+        "data_description": {
+          "min_alert_level": "Filtere Erdbebe nach de USGS PAGER-Alarmstufe. Wähl 'Keini', um alli Ereignis unabhängig vo de Alarmstufe aazzeige.",
+          "max_depth_km": "Maximali Herdtiefi i km (0–700). Setz uf 700, um Erdbebe i jeder Tiefe iizschliesse. Flachi Ereignis (<70 km) sind i de Regel zerstörerischer.",
+          "only_reviewed": "Wenn aktiviert, werde nur Erdbebe aazeigt, wo manuell vom USGS überprüft worde sind. Gnauer, chönne aber mit Verzögerig erschine.",
+          "alert_min_magnitude": "De binär Erdbebe-Alarmsensor wird IIGSCHALTET, wenn innerhalb vom Ziitfenster es Erdbebe vo dere oder ere grössere Magnitude erkannt wird.",
+          "alert_time_window": "Wie vieli Stunde zrugg gluegt werde söll, wenn de binär Erdbebe-Alarmsensor usgwärtet wird (1–72 Stunde)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Ungültigi Koordinate. De Breitegrad mues zwischen −90 und 90 liige, de Längegrad zwischen −180 und 180.",
+      "invalid_radius": "De Radius mues zwischen 10 und 20'000 km liige.",
+      "unknown": "Unerwartete Fehler. Bitte überprüef d'Home Assistant-Protokoll für meh Details."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Global (wältwit)",
+        "custom_area": "Benutzerdefinierte Bereich (Radius)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Letschti Stund",
+        "day": "Letschti 24 Stunde",
+        "week": "Letschti 7 Täg",
+        "month": "Letschti 30 Täg"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometer (km)",
+        "mi": "Miile (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnitude (stärkschti zerscht)",
+        "time": "Ziit (neuischi zerscht)",
+        "distance": "Entfernig (nöchschti zerscht)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Keini (alli aazeige)",
+        "green": "Grüen",
+        "yellow": "Gälb",
+        "orange": "Orange",
+        "red": "Rot (am schwerwiegendschte)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Erdbebe insgesamt"
+      },
+      "strongest_magnitude": {
+        "name": "Stärkschts Erdbebe"
+      },
+      "strongest_location": {
+        "name": "Ort vom stärkschte Erdbebe"
+      },
+      "average_magnitude": {
+        "name": "Durchschnittlichi Magnitude"
+      },
+      "latest_earthquake": {
+        "name": "Letschts Erdbebe"
+      },
+      "latest_earthquake_time": {
+        "name": "Ziitpunkt vom letschte Erdbebe"
+      },
+      "earthquakes_last_hour": {
+        "name": "Erdbebe letschti Stund"
+      },
+      "significant_earthquakes": {
+        "name": "Signifikanti Erdbebe"
+      },
+      "tsunami_warnings": {
+        "name": "Aktivi Tsunami-Warnige"
+      },
+      "highest_alert_level": {
+        "name": "Höchschti Alarmstufe"
+      },
+      "red_alert_count": {
+        "name": "Ereignis mit roter Alarmstufe"
+      },
+      "nearest_distance": {
+        "name": "Entfernig vom nöchschte Erdbebe"
+      },
+      "nearest_magnitude": {
+        "name": "Magnitude vom nöchschte Erdbebe"
+      },
+      "last_update": {
+        "name": "Letschti Aktualisierig"
+      },
+      "api_status": {
+        "name": "API-Status"
+      },
+      "events_fetched": {
+        "name": "Abgrufeni Ereignis"
+      },
+      "events_displayed": {
+        "name": "Aazeigti Ereignis"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Erdbebe-Alarm"
+      },
+      "tsunami_warning": {
+        "name": "Tsunami-Warnig aktiv"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Aktualisierig erzwinge"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Erschütterigscharte"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Erdbebe"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Nöis Erdbebe erkannt",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Erdbebe erkannt"
+            }
+          }
+        }
+      }
+    }
+  }
+}

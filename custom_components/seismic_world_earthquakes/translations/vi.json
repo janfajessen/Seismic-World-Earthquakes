@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Định cấu hình phiên bản giám sát này. Bạn có thể tạo nhiều phiên bản để giám sát các khu vực hoặc ngưỡng cường độ khác nhau.",
+        "data": {
+          "name": "Tên phiên bản",
+          "instance_type": "Loại phiên bản",
+          "min_magnitude": "Cường độ tối thiểu (thang Richter)",
+          "feed_period": "Khoảng thời gian dữ liệu",
+          "max_events": "Số lượng sự kiện tối đa trên bản đồ",
+          "units": "Đơn vị khoảng cách",
+          "sort_by": "Sắp xếp sự kiện theo"
+        },
+        "data_description": {
+          "min_magnitude": "Chỉ những trận động đất có cường độ bằng hoặc cao hơn mức này mới được bao gồm (0.0–9.9).",
+          "max_events": "Số lượng động đất tối đa hiển thị trên bản đồ (50–500). Các sự kiện có M≥6.0 luôn được giữ lại bất kể giới hạn này.",
+          "sort_by": "Xác định thứ tự động đất xuất hiện trên bản đồ và trong cảm biến."
+        }
+      },
+      "area": {
+        "title": "Cấu hình Khu vực Tùy chỉnh",
+        "description": "Xác định khu vực địa lý cần giám sát. Tất cả các trận động đất trong bán kính đã chỉ định từ điểm trung tâm sẽ được bao gồm.",
+        "data": {
+          "latitude": "Vĩ độ trung tâm",
+          "longitude": "Kinh độ trung tâm",
+          "radius_km": "Bán kính tìm kiếm (km)"
+        },
+        "data_description": {
+          "latitude": "Vĩ độ của trung tâm khu vực được giám sát (−90 đến 90).",
+          "longitude": "Kinh độ của trung tâm khu vực được giám sát (−180 đến 180).",
+          "radius_km": "Bán kính tính bằng km xung quanh điểm trung tâm (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Bộ lọc & Cảm biến Cảnh báo",
+        "description": "Tùy chọn giới hạn những trận động đất nào được hiển thị và định cấu hình cảm biến nhị phân cảnh báo động đất.",
+        "data": {
+          "min_alert_level": "Mức cảnh báo PAGER tối thiểu",
+          "only_tsunami": "Chỉ hiển thị sự kiện có cảnh báo sóng thần",
+          "max_depth_km": "Độ sâu tối đa (km)",
+          "only_reviewed": "Chỉ các sự kiện đã được xem xét",
+          "alert_min_magnitude": "Cảm biến cảnh báo — cường độ tối thiểu",
+          "alert_time_window": "Cảm biến cảnh báo — cửa sổ thời gian"
+        },
+        "data_description": {
+          "min_alert_level": "Lọc động đất theo mức cảnh báo PAGER của USGS. Chọn 'Không có' để hiển thị tất cả sự kiện bất kể mức cảnh báo.",
+          "max_depth_km": "Độ sâu tiêu điểm tối đa tính bằng km (0–700). Đặt thành 700 để bao gồm động đất ở bất kỳ độ sâu nào. Các sự kiện nông (<70 km) thường có sức tàn phá lớn hơn.",
+          "only_reviewed": "Khi được bật, chỉ hiển thị các trận động đất đã được USGS xem xét thủ công. Chính xác hơn nhưng có thể xuất hiện chậm trễ.",
+          "alert_min_magnitude": "Cảm biến nhị phân cảnh báo động đất BẬT khi phát hiện trận động đất có cường độ này hoặc lớn hơn trong cửa sổ thời gian.",
+          "alert_time_window": "Cần xem lại bao nhiêu giờ trước khi đánh giá cảm biến nhị phân cảnh báo động đất (1–72 giờ)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Tọa độ không hợp lệ. Vĩ độ phải nằm trong khoảng −90 đến 90, kinh độ trong khoảng −180 đến 180.",
+      "invalid_radius": "Bán kính phải nằm trong khoảng 10 đến 20.000 km.",
+      "cannot_connect": "Không thể kết nối đến API USGS. Vui lòng kiểm tra kết nối internet của bạn và thử lại.",
+      "unknown": "Lỗi không mong muốn. Vui lòng kiểm tra nhật ký Home Assistant để biết thêm chi tiết."
+    },
+    "abort": {
+      "already_configured": "Phiên bản này đã được định cấu hình."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Định cấu hình lại Seismic World Earthquakes",
+        "description": "Cập nhật cài đặt cơ bản cho phiên bản giám sát này.",
+        "data": {
+          "name": "Tên phiên bản",
+          "instance_type": "Loại phiên bản",
+          "min_magnitude": "Cường độ tối thiểu (thang Richter)",
+          "feed_period": "Khoảng thời gian dữ liệu",
+          "max_events": "Số lượng sự kiện tối đa trên bản đồ",
+          "units": "Đơn vị khoảng cách",
+          "sort_by": "Sắp xếp sự kiện theo"
+        },
+        "data_description": {
+          "min_magnitude": "Chỉ những trận động đất có cường độ bằng hoặc cao hơn mức này mới được bao gồm (0.0–9.9).",
+          "max_events": "Số lượng động đất tối đa hiển thị trên bản đồ (50–500). Các sự kiện có M≥6.0 luôn được giữ lại bất kể giới hạn này.",
+          "sort_by": "Xác định thứ tự động đất xuất hiện trên bản đồ và trong cảm biến."
+        }
+      },
+      "area": {
+        "title": "Cấu hình Khu vực Tùy chỉnh",
+        "description": "Cập nhật khu vực địa lý cần giám sát.",
+        "data": {
+          "latitude": "Vĩ độ trung tâm",
+          "longitude": "Kinh độ trung tâm",
+          "radius_km": "Bán kính tìm kiếm (km)"
+        },
+        "data_description": {
+          "latitude": "Vĩ độ của trung tâm khu vực được giám sát (−90 đến 90).",
+          "longitude": "Kinh độ của trung tâm khu vực được giám sát (−180 đến 180).",
+          "radius_km": "Bán kính tính bằng km xung quanh điểm trung tâm (10–20.000 km)."
+        }
+      },
+      "filters": {
+        "title": "Bộ lọc & Cảm biến Cảnh báo",
+        "description": "Cập nhật các bộ lọc tùy chọn và cấu hình cảm biến nhị phân cảnh báo động đất.",
+        "data": {
+          "min_alert_level": "Mức cảnh báo PAGER tối thiểu",
+          "only_tsunami": "Chỉ hiển thị sự kiện có cảnh báo sóng thần",
+          "max_depth_km": "Độ sâu tối đa (km)",
+          "only_reviewed": "Chỉ các sự kiện đã được xem xét",
+          "alert_min_magnitude": "Cảm biến cảnh báo — cường độ tối thiểu",
+          "alert_time_window": "Cảm biến cảnh báo — cửa sổ thời gian"
+        },
+        "data_description": {
+          "min_alert_level": "Lọc động đất theo mức cảnh báo PAGER của USGS. Chọn 'Không có' để hiển thị tất cả sự kiện bất kể mức cảnh báo.",
+          "max_depth_km": "Độ sâu tiêu điểm tối đa tính bằng km (0–700). Đặt thành 700 để bao gồm động đất ở bất kỳ độ sâu nào. Các sự kiện nông (<70 km) thường có sức tàn phá lớn hơn.",
+          "only_reviewed": "Khi được bật, chỉ hiển thị các trận động đất đã được USGS xem xét thủ công. Chính xác hơn nhưng có thể xuất hiện chậm trễ.",
+          "alert_min_magnitude": "Cảm biến nhị phân cảnh báo động đất BẬT khi phát hiện trận động đất có cường độ này hoặc lớn hơn trong cửa sổ thời gian.",
+          "alert_time_window": "Cần xem lại bao nhiêu giờ trước khi đánh giá cảm biến nhị phân cảnh báo động đất (1–72 giờ)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Tọa độ không hợp lệ. Vĩ độ phải nằm trong khoảng −90 đến 90, kinh độ trong khoảng −180 đến 180.",
+      "invalid_radius": "Bán kính phải nằm trong khoảng 10 đến 20.000 km.",
+      "unknown": "Lỗi không mong muốn. Vui lòng kiểm tra nhật ký Home Assistant để biết thêm chi tiết."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Toàn cầu (trên toàn thế giới)",
+        "custom_area": "Khu vực tùy chỉnh (bán kính)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Giờ qua",
+        "day": "24 giờ qua",
+        "week": "7 ngày qua",
+        "month": "30 ngày qua"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilômét (km)",
+        "mi": "Dặm (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Cường độ (mạnh nhất trước)",
+        "time": "Thời gian (mới nhất trước)",
+        "distance": "Khoảng cách (gần nhất trước)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Không có (hiển thị tất cả)",
+        "green": "Xanh lá",
+        "yellow": "Vàng",
+        "orange": "Cam",
+        "red": "Đỏ (nghiêm trọng nhất)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Tổng số trận động đất"
+      },
+      "strongest_magnitude": {
+        "name": "Trận động đất mạnh nhất"
+      },
+      "strongest_location": {
+        "name": "Vị trí trận động đất mạnh nhất"
+      },
+      "average_magnitude": {
+        "name": "Cường độ trung bình"
+      },
+      "latest_earthquake": {
+        "name": "Trận động đất mới nhất"
+      },
+      "latest_earthquake_time": {
+        "name": "Thời gian động đất mới nhất"
+      },
+      "earthquakes_last_hour": {
+        "name": "Động đất trong giờ qua"
+      },
+      "significant_earthquakes": {
+        "name": "Động đất đáng kể"
+      },
+      "tsunami_warnings": {
+        "name": "Cảnh báo sóng thần đang hoạt động"
+      },
+      "highest_alert_level": {
+        "name": "Mức cảnh báo cao nhất"
+      },
+      "red_alert_count": {
+        "name": "Sự kiện cảnh báo đỏ"
+      },
+      "nearest_distance": {
+        "name": "Khoảng cách đến trận động đất gần nhất"
+      },
+      "nearest_magnitude": {
+        "name": "Cường độ trận động đất gần nhất"
+      },
+      "last_update": {
+        "name": "Cập nhật lần cuối"
+      },
+      "api_status": {
+        "name": "Trạng thái API"
+      },
+      "events_fetched": {
+        "name": "Sự kiện đã tải"
+      },
+      "events_displayed": {
+        "name": "Sự kiện đã hiển thị"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Cảnh báo động đất"
+      },
+      "tsunami_warning": {
+        "name": "Cảnh báo sóng thần đang hoạt động"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Buộc làm mới"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Bản đồ rung lắc"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Động đất"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Phát hiện động đất mới",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Đã phát hiện động đất"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,254 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Seismic World Earthquakes",
+        "description": "Konfigurirajte ovu instancu za praćenje. Možete stvoriti više instanci za praćenje različitih područja ili pragova magnitude.",
+        "data": {
+          "name": "Naziv instance",
+          "instance_type": "Vrsta instance",
+          "min_magnitude": "Minimalna magnituda (Richterova ljestvica)",
+          "feed_period": "Razdoblje podataka",
+          "max_events": "Maksimalni događaji na karti",
+          "units": "Jedinice udaljenosti",
+          "sort_by": "Sortiraj događaje prema"
+        },
+        "data_description": {
+          "min_magnitude": "Samo potresi magnitude jednake ili veće od ove bit će uključeni (0.0–9.9).",
+          "max_events": "Maksimalni broj potresa prikazanih na karti (50–500). Događaji s M≥6.0 uvijek se zadržavaju bez obzira na ovo ograničenje.",
+          "sort_by": "Definira redoslijed pojavljivanja potresa na karti i u senzorima."
+        }
+      },
+      "area": {
+        "title": "Konfiguracija prilagođenog područja",
+        "description": "Definirajte geografsko područje za praćenje. Svi potresi unutar navedenog radijusa od središnje točke bit će uključeni.",
+        "data": {
+          "latitude": "Geografska širina središta",
+          "longitude": "Geografska dužina središta",
+          "radius_km": "Radijus pretraživanja (km)"
+        },
+        "data_description": {
+          "latitude": "Geografska širina središta praćenog područja (−90 do 90).",
+          "longitude": "Geografska dužina središta praćenog područja (−180 do 180).",
+          "radius_km": "Radijus u kilometrima oko središnje točke (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtri i senzor upozorenja",
+        "description": "Opciono ograničite koji će se potresi prikazivati i konfigurirajte binarni senzor za upozorenje na potres.",
+        "data": {
+          "min_alert_level": "Minimalna razina PAGER upozorenja",
+          "only_tsunami": "Prikaži samo događaje s upozorenjem na tsunami",
+          "max_depth_km": "Maksimalna dubina (km)",
+          "only_reviewed": "Samo pregledani događaji",
+          "alert_min_magnitude": "Senzor upozorenja — minimalna magnituda",
+          "alert_time_window": "Senzor upozorenja — vremenski prozor"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrirajte potrese prema USGS PAGER razini upozorenja. Odaberite 'Nijedan' za prikaz svih događaja bez obzira na razinu upozorenja.",
+          "max_depth_km": "Maksimalna žarišna dubina u km (0–700). Postavite na 700 za uključivanje potresa na bilo kojoj dubini. Plitki događaji (<70 km) općenito su razorniji.",
+          "only_reviewed": "Kada je omogućeno, prikazuje samo potrese koje je ručno pregledao USGS. Točnije, ali se mogu pojaviti s kašnjenjem.",
+          "alert_min_magnitude": "Binarni senzor za upozorenje na potres UKLJUČUJE se kada se otkrije potres ove magnitude ili veći unutar vremenskog prozora.",
+          "alert_time_window": "Koliko sati unatrag tražiti prilikom procjene binarnog senzora za upozorenje na potres (1–72 sata)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Nevažeće koordinate. Geografska širina mora biti između −90 i 90, a dužina između −180 i 180.",
+      "invalid_radius": "Radijus mora biti između 10 i 20,000 km.",
+      "cannot_connect": "Ne može se povezati s USGS API-jem. Provjerite svoju internetsku vezu i pokušajte ponovno.",
+      "unknown": "Neočekivana pogreška. Provjerite zapise Home Assistant-a za više detalja."
+    },
+    "abort": {
+      "already_configured": "Ova instanca je već konfigurirana."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Rekonfiguriraj Seismic World Earthquakes",
+        "description": "Ažurirajte osnovne postavke za ovu instancu praćenja.",
+        "data": {
+          "name": "Naziv instance",
+          "instance_type": "Vrsta instance",
+          "min_magnitude": "Minimalna magnituda (Richterova ljestvica)",
+          "feed_period": "Razdoblje podataka",
+          "max_events": "Maksimalni događaji na karti",
+          "units": "Jedinice udaljenosti",
+          "sort_by": "Sortiraj događaje prema"
+        },
+        "data_description": {
+          "min_magnitude": "Samo potresi magnitude jednake ili veće od ove bit će uključeni (0.0–9.9).",
+          "max_events": "Maksimalni broj potresa prikazanih na karti (50–500). Događaji s M≥6.0 uvijek se zadržavaju bez obzira na ovo ograničenje.",
+          "sort_by": "Definira redoslijed pojavljivanja potresa na karti i u senzorima."
+        }
+      },
+      "area": {
+        "title": "Konfiguracija prilagođenog područja",
+        "description": "Ažurirajte geografsko područje za praćenje.",
+        "data": {
+          "latitude": "Geografska širina središta",
+          "longitude": "Geografska dužina središta",
+          "radius_km": "Radijus pretraživanja (km)"
+        },
+        "data_description": {
+          "latitude": "Geografska širina središta praćenog područja (−90 do 90).",
+          "longitude": "Geografska dužina središta praćenog područja (−180 do 180).",
+          "radius_km": "Radijus u kilometrima oko središnje točke (10–20,000 km)."
+        }
+      },
+      "filters": {
+        "title": "Filtri i senzor upozorenja",
+        "description": "Ažurirajte opcione filtre i konfiguraciju binarnog senzora za upozorenje na potres.",
+        "data": {
+          "min_alert_level": "Minimalna razina PAGER upozorenja",
+          "only_tsunami": "Prikaži samo događaje s upozorenjem na tsunami",
+          "max_depth_km": "Maksimalna dubina (km)",
+          "only_reviewed": "Samo pregledani događaji",
+          "alert_min_magnitude": "Senzor upozorenja — minimalna magnituda",
+          "alert_time_window": "Senzor upozorenja — vremenski prozor"
+        },
+        "data_description": {
+          "min_alert_level": "Filtrirajte potrese prema USGS PAGER razini upozorenja. Odaberite 'Nijedan' za prikaz svih događaja bez obzira na razinu upozorenja.",
+          "max_depth_km": "Maksimalna žarišna dubina u km (0–700). Postavite na 700 za uključivanje potresa na bilo kojoj dubini. Plitki događaji (<70 km) općenito su razorniji.",
+          "only_reviewed": "Kada je omogućeno, prikazuje samo potrese koje je ručno pregledao USGS. Točnije, ali se mogu pojaviti s kašnjenjem.",
+          "alert_min_magnitude": "Binarni senzor za upozorenje na potres UKLJUČUJE se kada se otkrije potres ove magnitude ili veći unutar vremenskog prozora.",
+          "alert_time_window": "Koliko sati unatrag tražiti prilikom procjene binarnog senzora za upozorenje na potres (1–72 sata)."
+        }
+      }
+    },
+    "error": {
+      "invalid_coordinates": "Nevažeće koordinate. Geografska širina mora biti između −90 i 90, a dužina između −180 i 180.",
+      "invalid_radius": "Radijus mora biti između 10 i 20,000 km.",
+      "unknown": "Neočekivana pogreška. Provjerite zapise Home Assistant-a za više detalja."
+    }
+  },
+  "selector": {
+    "instance_type": {
+      "options": {
+        "global": "Globalno (diljem svijeta)",
+        "custom_area": "Prilagođeno područje (radijus)"
+      }
+    },
+    "feed_period": {
+      "options": {
+        "hour": "Posljednji sat",
+        "day": "Posljednja 24 sata",
+        "week": "Posljednjih 7 dana",
+        "month": "Posljednjih 30 dana"
+      }
+    },
+    "units": {
+      "options": {
+        "km": "Kilometri (km)",
+        "mi": "Milje (mi)"
+      }
+    },
+    "sort_by": {
+      "options": {
+        "magnitude": "Magnituda (najjači prvi)",
+        "time": "Vrijeme (najnoviji prvi)",
+        "distance": "Udaljenost (najbliži prvi)"
+      }
+    },
+    "alert_level": {
+      "options": {
+        "none": "Nijedan (prikaži sve)",
+        "green": "Zeleno",
+        "yellow": "Žuto",
+        "orange": "Narančasto",
+        "red": "Crveno (najozbiljnije)"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "total_earthquakes": {
+        "name": "Ukupno potresa"
+      },
+      "strongest_magnitude": {
+        "name": "Najjači potres"
+      },
+      "strongest_location": {
+        "name": "Lokacija najjačeg potresa"
+      },
+      "average_magnitude": {
+        "name": "Prosječna magnituda"
+      },
+      "latest_earthquake": {
+        "name": "Posljednji potres"
+      },
+      "latest_earthquake_time": {
+        "name": "Vrijeme posljednjeg potresa"
+      },
+      "earthquakes_last_hour": {
+        "name": "Potresi u posljednjem satu"
+      },
+      "significant_earthquakes": {
+        "name": "Značajni potresi"
+      },
+      "tsunami_warnings": {
+        "name": "Aktivna upozorenja na tsunami"
+      },
+      "highest_alert_level": {
+        "name": "Najviša razina upozorenja"
+      },
+      "red_alert_count": {
+        "name": "Događaji s crvenim upozorenjem"
+      },
+      "nearest_distance": {
+        "name": "Udaljenost najbližeg potresa"
+      },
+      "nearest_magnitude": {
+        "name": "Magnituda najbližeg potresa"
+      },
+      "last_update": {
+        "name": "Posljednje ažuriranje"
+      },
+      "api_status": {
+        "name": "Status API-ja"
+      },
+      "events_fetched": {
+        "name": "Dohvaćeni događaji"
+      },
+      "events_displayed": {
+        "name": "Prikazani događaji"
+      }
+    },
+    "binary_sensor": {
+      "earthquake_alert": {
+        "name": "Upozorenje na potres"
+      },
+      "tsunami_warning": {
+        "name": "Upozorenje na tsunami aktivno"
+      }
+    },
+    "button": {
+      "force_refresh": {
+        "name": "Prisilno osvježi"
+      }
+    },
+    "image": {
+      "shakemap": {
+        "name": "Karta potresnog podrhtavanja"
+      }
+    },
+    "calendar": {
+      "earthquakes": {
+        "name": "Potresi"
+      }
+    },
+    "event": {
+      "new_earthquake": {
+        "name": "Otkriven novi potres",
+        "state_attributes": {
+          "event_type": {
+            "state": {
+              "earthquake_detected": "Potres otkriven"
+            }
+          }
+        }
+      }
+    }
+  }
+}
