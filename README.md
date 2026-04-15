@@ -4,7 +4,7 @@
 and Tsunamis
 
 
-<img src="https://github.com/janfajessen/Seismic-World-Earthquakes/blob/044ed6b4bbc8e33a9ed2acd8e2abb300e2e35446/seismic_world_earthquakes.png?raw=true" alt="Seismic World Earthquakes" width="200">
+<img src="brands/logo@2x.png" width="450"/>
 
 ![Version](https://img.shields.io/badge/version-1.5.24-blue?style=for-the-badge)
 ![HA](https://img.shields.io/badge/Home%20Assistant-2024.1+-orange?style=for-the-badge&logo=home-assistant)
