@@ -289,7 +289,7 @@ Earthquake data provided by the [U.S. Geological Survey (USGS)](https://www.usgs
 Made with ❤️ by [@janfajessen](https://github.com/janfajessen) · Data: [USGS](https://earthquake.usgs.gov/)
 
 *If this integration is useful to you, consider giving it a ⭐ on GitHub.*
-Or onsider supporting development!
+Or consider supporting development ☺️💸
 
 [![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-yellow.svg?style=for-the-badge)](https://www.buymeacoffee.com/janfajessen)
 [![Patreon](https://img.shields.io/badge/Patreon-Support-red.svg?style=for-the-badge)](https://www.patreon.com/janfajessen)
