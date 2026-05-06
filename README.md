@@ -71,7 +71,7 @@ Home Assistant ships with a built-in USGS earthquake integration. It works — b
 - ⚡ **Event entity** — fire automations the moment a new earthquake is detected
 - 🌍 **Global or custom area** — drag a pin on an interactive map, adjust the radius visually
 - 🔄 **Multiple instances** — one for global M4.5+, one for your region M2.5+, one tsunami-only...
-- 🌐 **Multilingual** — EN, CA, ES, FR (more coming)
+- 🌐 **Multilingual** — +49 languages 
 
 ---
 
