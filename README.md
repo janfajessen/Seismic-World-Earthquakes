@@ -213,26 +213,57 @@ Triggers an immediate data pull from USGS without waiting for the 5-minute cycle
 ### Alert for strong earthquakes
 
 ```yaml
-automation:
-  - alias: "Strong earthquake detected"
-    trigger:
-      - platform: event
-        event_type: seismic_world_earthquakes_event
-        event_data:
-          event_type: earthquake_detected
-    condition:
-      - condition: template
-        value_template: "{{ trigger.event.data.magnitude >= 6.0 }}"
-    action:
-      - service: notify.notify
-        data:
-          title: "🌍 M{{ trigger.event.data.magnitude }} — {{ trigger.event.data.place }}"
-          message: >
-            Depth: {{ trigger.event.data.depth_km }} km
-            {{ trigger.event.data.url }}
+alias: Seismic Earthquake neer Home SEISMIC WORLD EARTHQUAKES Telegram
+description: ""
+triggers:
+  - trigger: state
+    entity_id:
+      - >-
+        sensor.seismos_y_terremotos_cerca_de_casa_distancia_al_terremoto_mas_cercano
+conditions:
+  - condition: template
+    value_template: >
+      {{ trigger.to_state.state | float > 0 and trigger.to_state.state !=
+      'unknown' and trigger.to_state.state != 'unavailable' }}
+  - condition: template
+    value_template: >
+      {{ trigger.from_state.state == 'unknown' or trigger.from_state.state ==
+      'unavailable' or trigger.from_state.state | float == 0 }}
+  - condition: template
+    value_template: |
+      {{ this.attributes.last_triggered is none or 
+         (as_timestamp(now()) - as_timestamp(this.attributes.last_triggered)) > 300 }}
+actions:
+  - action: telegram_bot.send_message
+    entity_id:
+      - notify.telegram_jan
+    data:
+      message: >
+        📈 EARTHQUAKE ⚠️⚠️ in 
+
+        {{ 
+        state_attr('sensor.seismos_y_terremotos_cerca_de_casa_distancia_al_terremoto_mas_cercano',
+        'place') }} 
+
+
+        at {{ states(
+        'sensor.seismos_y_terremotos_cerca_de_casa_distancia_al_terremoto_mas_cercano'
+        ) }} km de casa
+
+
+        magnitude {{
+        state_attr('sensor.seismos_y_terremotos_cerca_de_casa_distancia_al_terremoto_mas_cercano',
+        'magnitude') }}
+
+
+        📅 {{
+        as_timestamp(state_attr('sensor.seismos_y_terremotos_cerca_de_casa_distancia_al_terremoto_mas_cercano',
+        'time')) | timestamp_custom('%H:%M %d/%m/%y') }}
+mode: single
+
 ```
 
-### Tsunami warning
+### Tsunami warning automation
 
 ```yaml
 automation:
@@ -257,6 +288,80 @@ geo_location_sources:
 entities:
   - zone.home
 title: Earthquakes
+theme_mode: auto
+```
+
+
+### Last Earthquakes card excluding unknown & unavailable
+
+```yaml
+type: custom:auto-entities
+card:
+  type: entities
+  title: Last Earthquakes
+  show_header_toggle: false
+filter:
+  include:
+    - entity_id: geo_location.seismic_world_earthquakes_*
+    - entity_id: geo_location.seismos_y_terremotos_cerca_de_casa_*
+  exclude:
+    - state: unknown
+    - state: unavailable
+    - options: {}
+      attributes:
+        magnitude: null
+options:
+  type: custom:multiple-entity-row
+  entity: this
+  name: "{{ state_attr(config.entity, 'place') | default('Lugar desconocido') }}"
+  secondary_info: |-
+    🌊 Magnitud {{ state_attr(config.entity, 'magnitude') }} | 
+    📍 Distancia: {{ state(config.entity) }}
+  entities:
+    - attribute: magnitude
+      name: Magnitud
+      hide_if: null
+
+```
+
+### Last Earthquakes markdown card
+
+```yaml
+type: markdown
+content: >
+  ## Last Earthquakes
+
+
+  {% set terremotos = states.geo_location 
+     | selectattr('entity_id', 'search', 'seismic_world_earthquakes_')
+     | selectattr('state', 'ne', 'unknown')
+     | selectattr('state', 'ne', 'unavailable')
+     | list %}
+
+  {% if terremotos | length == 0 %}
+
+  ✅ No active Earthquakes at this moment.
+
+  {% else %}
+
+  {% for t in terremotos %}
+
+  {% set magnitud = t.attributes.magnitude | float(0) %}
+
+  {% set fecha_hora = as_timestamp(t.attributes.time) | timestamp_custom('%H:%M
+  %d/%m/%y') if t.attributes.time else 'Fecha desconocida' %}
+
+  {% set tsunami = ' 🌊 TSUNAMI WARNING' if t.attributes.tsunami_warning else ''
+  %}
+
+  *   **{{ t.attributes.place | default('Unknown location') }}**
+      *   📈 Magnitude: **{{ magnitud }}**
+      *   📍 Distance: **{{ t.state }}** from home
+      *   🕐 Time/Date: **{{ fecha_hora }}**
+      *   **{{ tsunami }}**
+  {% endfor %}
+
+  {% endif %}
 ```
 
 ---
@@ -268,7 +373,7 @@ title: Earthquakes
 | Data source | [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) |
 | API | `https://earthquake.usgs.gov/fdsnws/event/1/query` |
 | Authentication | None — public free API |
-| Update interval | 5 minutes |
+| Update interval | 1-120 minutes, default 5 min |
 | IoT class | `cloud_polling` |
 | Minimum HA version | 2024.1.0 |
 | External dependencies | None |
