@@ -20,6 +20,10 @@ from .const import (
     CONF_FEED_PERIOD,
     CONF_INSTANCE_TYPE,
     CONF_LOCATION,
+    CONF_SCAN_INTERVAL,
+    SCAN_INTERVAL_DEFAULT,
+    SCAN_INTERVAL_MIN,
+    SCAN_INTERVAL_MAX,
     CONF_MAX_DEPTH_KM,
     CONF_MAX_EVENTS,
     CONF_MIN_ALERT_LEVEL,
@@ -106,6 +110,9 @@ def _basic_schema(defaults: dict) -> vol.Schema:
                         "mode": "list",
                     }
                 }
+            ),
+            vol.Required(CONF_SCAN_INTERVAL, default=defaults.get(CONF_SCAN_INTERVAL, SCAN_INTERVAL_DEFAULT)): selector.selector(
+                {"number": {"min": SCAN_INTERVAL_MIN, "max": SCAN_INTERVAL_MAX, "step": 1, "mode": "slider", "unit_of_measurement": "min"}}
             ),
         }
     )
@@ -349,3 +356,4 @@ class SeismicWorldEarthquakesOptionsFlow(OptionsFlow):
             step_id="filters",
             data_schema=_filters_schema(self._data),
         )
+        

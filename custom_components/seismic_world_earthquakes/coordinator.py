@@ -54,7 +54,10 @@ from .const import (
     INSTANCE_TYPE_CUSTOM,
     KM_TO_MI,
     MAX_FETCH_LIMIT,
-    SCAN_INTERVAL_MINUTES,
+    CONF_SCAN_INTERVAL,
+    SCAN_INTERVAL_DEFAULT,
+    SCAN_INTERVAL_MIN,
+    SCAN_INTERVAL_MAX,
     SHAKEMAP_MIN_MAGNITUDE,
     SIGNIFICANT_EARTHQUAKE_SIG,
     SORT_BY_DISTANCE,
@@ -157,7 +160,9 @@ class SeismicWorldEarthquakesCoordinator(DataUpdateCoordinator[SeismicData]):
             hass,
             _LOGGER,
             name=f"{DOMAIN}_{entry.entry_id}",
-            update_interval=timedelta(minutes=SCAN_INTERVAL_MINUTES),
+            update_interval=timedelta(
+                minutes=int(entry.options.get(CONF_SCAN_INTERVAL, SCAN_INTERVAL_DEFAULT))
+            ),
         )
         self.config_entry = entry
 

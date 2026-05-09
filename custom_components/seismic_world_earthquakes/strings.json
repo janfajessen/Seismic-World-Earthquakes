@@ -11,12 +11,14 @@
           "feed_period": "Data period",
           "max_events": "Maximum events on map",
           "units": "Distance units",
-          "sort_by": "Sort events by"
+          "sort_by": "Sort events by",
+          "scan_interval": "Update interval"
         },
         "data_description": {
           "min_magnitude": "Only earthquakes equal to or above this magnitude will be included (0.0–9.9).",
           "max_events": "Maximum number of earthquakes displayed on the map (50–500). Events with M≥6.0 are always kept regardless of this limit.",
-          "sort_by": "Defines the order in which earthquakes appear on the map and in sensors."
+          "sort_by": "Defines the order in which earthquakes appear on the map and in sensors.",
+          "scan_interval": "How often to poll the USGS API (1–120 min). Default: 5 min."
         }
       },
       "area": {
@@ -75,12 +77,14 @@
           "feed_period": "Data period",
           "max_events": "Maximum events on map",
           "units": "Distance units",
-          "sort_by": "Sort events by"
+          "sort_by": "Sort events by",
+          "scan_interval": "Update interval"
         },
         "data_description": {
           "min_magnitude": "Only earthquakes equal to or above this magnitude will be included (0.0–9.9).",
           "max_events": "Maximum number of earthquakes displayed on the map (50–500). Events with M≥6.0 are always kept regardless of this limit.",
-          "sort_by": "Defines the order in which earthquakes appear on the map and in sensors."
+          "sort_by": "Defines the order in which earthquakes appear on the map and in sensors.",
+          "scan_interval": "How often to poll the USGS API (1–120 min). Default: 5 min."
         }
       },
       "area": {

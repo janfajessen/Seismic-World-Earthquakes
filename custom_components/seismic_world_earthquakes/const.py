@@ -77,7 +77,10 @@ DEFAULT_RADIUS_KM = 500.0
 USGS_API_URL = "https://earthquake.usgs.gov/fdsnws/event/1/query"
 USGS_API_TIMEOUT = 30
 USGS_DETAIL_TIMEOUT = 15
-SCAN_INTERVAL_MINUTES = 5
+SCAN_INTERVAL_MIN = 1
+SCAN_INTERVAL_MAX = 120
+SCAN_INTERVAL_DEFAULT = 5
+CONF_SCAN_INTERVAL = "scan_interval"
 
 # --- Logic ---
 ALWAYS_INCLUDE_MAGNITUDE = 6.0          # M≥6 always kept regardless of max_events cap
